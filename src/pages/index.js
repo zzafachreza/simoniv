@@ -7,6 +7,12 @@ import AccountEdit from './AccountEdit';
 import Konten from './Menu/Konten';
 import TanyaJawab from './Menu/TanyaJawab';
 import Notifikasi from './Menu/Notifikasi';
+import Artikel from './Menu/Artikel';
+import ArtikelDetail from './Menu/ArtikelDetail';
+import Video from './Menu/Video';
+import VideoDetail from './Menu/VideoDetail';
+import Resep from './Menu/Resep';
+import ResepDetail from './Menu/ResepDetail';
 
 
 
@@ -21,5 +27,11 @@ export {
   Konten,
   TanyaJawab,
   Notifikasi,
+  Artikel,
+  ArtikelDetail,
+  Video,
+  VideoDetail,
+  Resep,
+  ResepDetail
 
 };

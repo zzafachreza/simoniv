@@ -11,6 +11,12 @@ import {
   Konten,
   TanyaJawab,
   Notifikasi,
+  Artikel,
+  ArtikelDetail,
+  Video,
+  VideoDetail,
+  Resep,
+  ResepDetail,
 
 } from '../pages';
 import { colors } from '../utils';
@@ -26,7 +32,7 @@ const MainApp = () => {
   return (
     <Tab.Navigator initialRouteName='Produk' tabBar={props => <BottomNavigator {...props} />}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Konten" component={Konten} />
+
       <Tab.Screen name="TanyaJawab" component={TanyaJawab} />
       <Tab.Screen name="Notifikasi" component={Notifikasi} />
       <Tab.Screen name="Account" component={Account} />
@@ -112,6 +118,58 @@ export default function Router() {
           headerShown: false,
         }}
       />
+
+      <Stack.Screen
+        name="Artikel"
+        component={Artikel}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="ArtikelDetail"
+        component={ArtikelDetail}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Video"
+        component={Video}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="VideoDetail"
+        component={VideoDetail}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Resep"
+        component={Resep}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="ResepDetail"
+        component={ResepDetail}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
 
 
 

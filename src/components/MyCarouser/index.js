@@ -14,7 +14,7 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import { MyDimensi, fonts } from '../../utils/fonts';
 import { Icon } from 'react-native-elements';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { apiURL } from '../../utils/localStorage';
 import moment from 'moment';
 
@@ -35,39 +35,41 @@ export default function MyCarouser() {
   const [data, setData] = useState([]);
 
   const renderCarouselItem = ({ item }) => (
-    <View style={{
-      width: 300,
-      position: 'relative',
-      borderRadius: 10,
-      overflow: 'hidden'
-    }}>
-      <Image
-        source={{ uri: item.image }}
-        style={{
-          // resizeMode: 'contain',
-          height: 180,
-          width: 300,
-        }}
-      />
+    <TouchableWithoutFeedback onPress={() => navigation.navigate('ArtikelDetail', item)}>
       <View style={{
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        padding: 10,
-        backgroundColor: colors.myback2
+        width: 300,
+        position: 'relative',
+        borderRadius: 10,
+        overflow: 'hidden'
       }}>
-        <Text style={{
-          fontFamily: fonts.secondary[600],
-          color: colors.white,
-          fontSize: MyDimensi / 4
-        }}>{item.judul}</Text>
-        <Text style={{
-          fontFamily: fonts.secondary[400],
-          color: colors.white,
-          fontSize: MyDimensi / 5
-        }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
+        <Image
+          source={{ uri: item.image }}
+          style={{
+            // resizeMode: 'contain',
+            height: 180,
+            width: 300,
+          }}
+        />
+        <View style={{
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          padding: 10,
+          backgroundColor: colors.myback2
+        }}>
+          <Text style={{
+            fontFamily: fonts.secondary[600],
+            color: colors.white,
+            fontSize: MyDimensi / 4
+          }}>{item.judul}</Text>
+          <Text style={{
+            fontFamily: fonts.secondary[400],
+            color: colors.white,
+            fontSize: MyDimensi / 5
+          }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 
   return (

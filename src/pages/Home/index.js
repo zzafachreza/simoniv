@@ -170,37 +170,39 @@ export default function Home({ navigation, route }) {
       }}>
         <FlatList numColumns={4} data={data} renderItem={({ item }) => {
           return (
-            <View style={{
-              flex: 1,
-              borderWidth: 0,
-              borderRadius: 10,
-              borderColor: colors.border,
-              backgroundColor: item.warna,
-              margin: 5,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-              <Image source={{
-                uri: item.image
-              }} style={{
-                marginTop: 10,
-                width: windowWidth / 7.5,
-                height: windowWidth / 7.5,
-              }} />
+            <TouchableWithoutFeedback onPress={() => navigation.navigate(item.halaman)}>
               <View style={{
-                // backgroundColor: colors.primary,
-                width: '100%',
-                height: 40,
-                justifyContent: 'center'
+                flex: 1,
+                borderWidth: 0,
+                borderRadius: 10,
+                borderColor: colors.border,
+                backgroundColor: item.warna,
+                margin: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
-                <Text style={{
-                  fontFamily: fonts.secondary[600],
-                  fontSize: MyDimensi / 4,
-                  textAlign: 'center',
+                <Image source={{
+                  uri: item.image
+                }} style={{
+                  marginTop: 10,
+                  width: windowWidth / 7.5,
+                  height: windowWidth / 7.5,
+                }} />
+                <View style={{
+                  // backgroundColor: colors.primary,
+                  width: '100%',
+                  height: 40,
+                  justifyContent: 'center'
+                }}>
+                  <Text style={{
+                    fontFamily: fonts.secondary[600],
+                    fontSize: MyDimensi / 4,
+                    textAlign: 'center',
 
-                }}>{item.judul}</Text>
+                  }}>{item.judul}</Text>
+                </View>
               </View>
-            </View>
+            </TouchableWithoutFeedback>
           )
         }} />
         <MyGap jarak={30} />
@@ -214,11 +216,13 @@ export default function Home({ navigation, route }) {
             fontFamily: fonts.secondary[600],
             fontSize: MyDimensi / 4
           }}>Artikel Terbaru</Text>
-          <Text style={{
-            fontFamily: fonts.secondary[600],
-            fontSize: MyDimensi / 4,
-            color: colors.primary
-          }}>Lihat semua</Text>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('Artikel')}>
+            <Text style={{
+              fontFamily: fonts.secondary[600],
+              fontSize: MyDimensi / 4,
+              color: colors.primary
+            }}>Lihat semua</Text>
+          </TouchableWithoutFeedback>
         </View>
         <MyCarouser />
       </View>
