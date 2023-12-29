@@ -9,7 +9,7 @@ import {
     Alert,
     ActivityIndicator,
 } from 'react-native';
-import { windowWidth, fonts } from '../../utils/fonts';
+import { windowWidth, fonts, MyDimensi } from '../../utils/fonts';
 import { getData, MYAPP, storeData, urlAPI, urlApp, urlAvatar } from '../../utils/localStorage';
 import { colors } from '../../utils/colors';
 import { MyButton, MyGap, MyHeader } from '../../components';
@@ -142,15 +142,31 @@ export default function ({ navigation, route }) {
                                         height: 100,
 
                                     }} />
+
                                 </View>
                             </View>
+                            <Text style={{
+                                fontFamily: fonts.secondary[800],
+                                fontSize: MyDimensi / 3,
+                                textAlign: 'center',
+                                marginVertical: 10,
+                                color: colors.primary
+                            }}>{user.level}</Text>
                             <View style={{ padding: 10, }}>
-                                <MyList label="Nama Lengkap Ibu" value={user.nama_lengkap} />
+                                <MyList label="Nama Lengkap" value={user.nama_lengkap} />
                                 <MyList label="Telepon / Whatsapp" value={user.telepon} />
                                 <MyList label="Alamat" value={user.alamat} />
-                                <MyList label="Nama Anak" value={user.nama_anak} />
-                                <MyList label="Tanggal Lahir Anak" value={moment(user.tanggal_lahir).format('DD MMMM YYYY')} />
-                                <MyList label="Jenis Kelamin" value={user.jenis_kelamin} />
+                                <MyList label="Kecamatan" value={user.kecamatan} />
+                                <MyList label="Desa" value={user.desa} />
+                                <MyList label="Posyandu" value={user.posyandu} />
+
+                                {user.level == 'IBU' &&
+                                    <>
+                                        <MyList label="Nama Anak" value={user.nama_anak} />
+                                        <MyList label="Tanggal Lahir Anak" value={moment(user.tanggal_lahir).format('DD MMMM YYYY')} />
+                                        <MyList label="Jenis Kelamin" value={user.jenis_kelamin} />
+                                    </>
+                                }
 
 
                             </View>

@@ -104,39 +104,83 @@ export default function Home({ navigation, route }) {
 
 
 
-      <View style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: colors.myback,
-        paddingHorizontal: 10,
-        paddingTop: 10,
-      }}>
-        <Image source={{
-          uri: user.foto_user
-        }} style={{
-          width: 50,
-          height: 50,
-          borderRadius: 30,
-        }} />
+      {user.level == 'IBU' &&
+
         <View style={{
-          flex: 1,
-          paddingLeft: 10,
+          flexDirection: 'row',
+          alignItems: 'center',
+          backgroundColor: colors.myback,
+          paddingHorizontal: 10,
+          paddingTop: 10,
+          paddingBottom: 10,
+          marginBottom: 10,
         }}>
+          <Image source={{
+            uri: user.foto_user
+          }} style={{
+            width: 50,
+            height: 50,
+            borderRadius: 30,
+          }} />
+          <View style={{
+            flex: 1,
+            paddingLeft: 10,
+          }}>
+            <Text style={{
+              fontFamily: fonts.secondary[800],
+              fontSize: MyDimensi / 3,
+              color: colors.black
+            }}>{user.nama_anak}</Text>
+
+          </View>
           <Text style={{
             fontFamily: fonts.secondary[800],
             fontSize: MyDimensi / 3,
-            color: colors.black
-          }}>{user.nama_anak}</Text>
+            color: colors.foourty
+          }}>{parseFloat(moment().diff(user.tanggal_lahir, 'month', false))} Bulan {parseFloat(moment(user.tanggal_lahir).format('DD'))} Hari</Text>
 
         </View>
-        <Text style={{
-          fontFamily: fonts.secondary[800],
-          fontSize: MyDimensi / 3,
-          color: colors.foourty
-        }}>(Usia) Bulan</Text>
+      }
 
-      </View>
-      <View style={{
+      {user.level !== 'IBU' &&
+
+        <View style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          backgroundColor: colors.myback,
+          paddingHorizontal: 10,
+          paddingTop: 10,
+          paddingBottom: 10,
+          marginBottom: 10,
+        }}>
+          <Image source={{
+            uri: user.foto_user
+          }} style={{
+            width: 50,
+            height: 50,
+            borderRadius: 30,
+          }} />
+          <View style={{
+            flex: 1,
+            paddingLeft: 10,
+          }}>
+            <Text style={{
+              fontFamily: fonts.secondary[800],
+              fontSize: MyDimensi / 4,
+              color: colors.black
+            }}>Halo, Selamat Datang {user.nama_lengkap}</Text>
+            <Text style={{
+              fontFamily: fonts.secondary[800],
+              fontSize: MyDimensi / 3.5,
+              color: colors.foourty
+            }}>Kader Posyandu {user.posyandu}</Text>
+
+          </View>
+
+
+        </View>
+      }
+      {/* <View style={{
         backgroundColor: colors.myback,
         paddingBottom: 10,
         paddingHorizontal: 10,
@@ -158,26 +202,27 @@ export default function Home({ navigation, route }) {
             }}>{i}</Text>
           )
         })}
-      </View>
+      </View> */}
 
       {/* header */}
-
+      <MyCarouser />
 
       <View style={{
         // flex: 1,
-        marginTop: 20,
+        marginTop: 10,
         padding: 10,
+        alignItems: 'center',
       }}>
-        <FlatList numColumns={4} data={data} renderItem={({ item }) => {
+        <FlatList numColumns={3} data={data} renderItem={({ item }) => {
           return (
             <TouchableWithoutFeedback onPress={() => navigation.navigate(item.halaman)}>
               <View style={{
-                flex: 1,
+                width: windowWidth / 3.8,
                 borderWidth: 0,
                 borderRadius: 10,
                 borderColor: colors.border,
                 backgroundColor: item.warna,
-                margin: 5,
+                margin: 10,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
@@ -206,7 +251,7 @@ export default function Home({ navigation, route }) {
           )
         }} />
         <MyGap jarak={30} />
-        <View style={{
+        {/* <View style={{
           flexDirection: 'row',
           paddingHorizontal: 10,
           marginBottom: 10,
@@ -223,8 +268,8 @@ export default function Home({ navigation, route }) {
               color: colors.primary
             }}>Lihat semua</Text>
           </TouchableWithoutFeedback>
-        </View>
-        <MyCarouser />
+        </View> */}
+
       </View>
 
 

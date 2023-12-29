@@ -17,6 +17,9 @@ import {
   VideoDetail,
   Resep,
   ResepDetail,
+  AsupanMpasi,
+  AsupanAsi,
+  StatusGizi,
 
 } from '../pages';
 import { colors } from '../utils';
@@ -164,6 +167,31 @@ export default function Router() {
       <Stack.Screen
         name="ResepDetail"
         component={ResepDetail}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="AsupanMpasi"
+        component={AsupanMpasi}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="AsupanAsi"
+        component={AsupanAsi}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="StatusGizi"
+        component={StatusGizi}
         options={{
           headerShown: false,
         }}

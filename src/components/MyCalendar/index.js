@@ -4,6 +4,7 @@ import { Icon, ListItem, Button } from 'react-native-elements';
 import { colors } from '../../utils/colors';
 import { MyDimensi, fonts } from '../../utils/fonts';
 import DatePicker from 'react-native-datepicker'
+import moment from 'moment';
 
 
 export default function MyCalendar({
@@ -60,7 +61,7 @@ export default function MyCalendar({
           left: 20,
           fontFamily: fonts.secondary[600],
           fontSize: MyDimensi / 4
-        }}>{valueShow}</Text>
+        }}>{moment(value).format('DD MMMM YYYY')}</Text>
         <DatePicker
 
           style={{ width: '100%', height: 50, }}

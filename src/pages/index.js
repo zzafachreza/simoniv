@@ -13,7 +13,9 @@ import Video from './Menu/Video';
 import VideoDetail from './Menu/VideoDetail';
 import Resep from './Menu/Resep';
 import ResepDetail from './Menu/ResepDetail';
-
+import AsupanMpasi from './Menu/AsupanMpasi';
+import AsupanAsi from './Menu/AsupanAsi';
+import StatusGizi from './Menu/StatusGizi';
 
 
 
@@ -32,6 +34,9 @@ export {
   Video,
   VideoDetail,
   Resep,
-  ResepDetail
+  ResepDetail,
+  AsupanMpasi,
+  AsupanAsi,
+  StatusGizi
 
 };

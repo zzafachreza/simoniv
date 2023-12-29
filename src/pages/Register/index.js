@@ -26,10 +26,109 @@ import { Icon } from 'react-native-elements';
 import SweetAlert from 'react-native-sweet-alert';
 
 export default function Register({ navigation }) {
+
+    const LOKASI = [
+        {
+            id: "1",
+            posyandu: "Kasih ibu 15",
+            desa: "Kertamulya",
+            kecamatan: "Padalarang"
+        },
+        {
+            id: "2",
+            posyandu: "Kasih ibu 13",
+            desa: "Kertamulya",
+            kecamatan: "Padalarang"
+        },
+        {
+            id: "3",
+            posyandu: "Kasih ibu 05",
+            desa: "Kertamulya",
+            kecamatan: "Padalarang"
+        },
+        {
+            id: "4",
+            posyandu: "Kasih ibu 05",
+            desa: "Kertamulya",
+            kecamatan: "Padalarang"
+        },
+        {
+            id: "5",
+            posyandu: "kasih Ibu 22",
+            desa: "Kertamulya",
+            kecamatan: "Padalarang"
+        },
+        {
+            id: "6",
+            posyandu: "Mawar Merah",
+            desa: "Mekarjaya",
+            kecamatan: "Cihampelas"
+        },
+        {
+            id: "7",
+            posyandu: "Pitaloka",
+            desa: "Mekarjaya",
+            kecamatan: "Cihampelas"
+        },
+        {
+            id: "8",
+            posyandu: "Dahlia Kuning",
+            desa: "Mekarjaya",
+            kecamatan: "Cihampelas"
+        },
+        {
+            id: "9",
+            posyandu: "Anggrek putih",
+            desa: "Mekarjaya",
+            kecamatan: "Cihampelas"
+        },
+        {
+            id: "10",
+            posyandu: "Kasih Bunda",
+            desa: "Mekarjaya",
+            kecamatan: "Cihampelas"
+        },
+        {
+            id: "11",
+            posyandu: "Anggrek Ungu",
+            desa: "Sirnajaya",
+            kecamatan: "Gunung Halu"
+        },
+        {
+            id: "12",
+            posyandu: "Anyelin",
+            desa: "Sirnajaya",
+            kecamatan: "Gunung Halu"
+        },
+        {
+            id: "13",
+            posyandu: "Al-Hidayah",
+            desa: "Sirnajaya",
+            kecamatan: "Gunung Halu"
+        },
+        {
+            id: "14",
+            posyandu: "Assalam",
+            desa: "Sirnajaya",
+            kecamatan: "Gunung Halu"
+        },
+        {
+            id: "15",
+            posyandu: "Al-Ikhlas",
+            desa: "Sirnajaya",
+            kecamatan: "Gunung Halu"
+        }
+    ];
+
+
     const [loading, setLoading] = useState(false);
     const [sama, setSama] = useState(true)
     const [data, setData] = useState({
         api_token: api_token,
+        level: 'IBU',
+        posyandu: "Kasih ibu 15",
+        desa: "Kertamulya",
+        kecamatan: "Padalarang",
         nama_lengkap: '',
         telepon: '',
         nama_anak: '',
@@ -44,7 +143,7 @@ export default function Register({ navigation }) {
     const simpan = () => {
 
 
-
+        console.log(data);
         if (
             data.nama_lengkap.length === 0 &&
             data.telepon.length === 0 &&
@@ -65,11 +164,7 @@ export default function Register({ navigation }) {
                 message: 'Masukan nomor telepon',
             });
         }
-        else if (data.nama_anak.length === 0) {
-            showMessage({
-                message: 'Masukan nama anak',
-            });
-        } else if (data.password.length === 0) {
+        else if (data.password.length === 0) {
             showMessage({
                 message: 'Masukan kata sandi kamu',
             });
@@ -79,7 +174,7 @@ export default function Register({ navigation }) {
             });
         } else {
 
-            console.log(data);
+
 
             setLoading(true);
             axios
@@ -112,7 +207,79 @@ export default function Register({ navigation }) {
         }
     };
 
-    const [desa, setDesa] = useState([]);
+
+
+    useEffect(() => {
+
+        __getKecamatan();
+    }, []);
+
+    const [kecamatan, setKecamatan] = useState([]);
+    const [desa, setDesa] = useState([
+        { label: 'Kertamulya', value: 'Kertamulya' }
+    ]);
+    const [posyandu, setPosyandu] = useState([
+        { label: 'Kasih ibu 15', value: 'Kasih ibu 15' }
+    ]);
+
+    const __getKecamatan = () => {
+        let tmp = [];
+
+        LOKASI.map((i, index) => {
+            if (index == 0) {
+
+                tmp.push({
+                    label: i.kecamatan,
+                    value: i.kecamatan
+                })
+            } else if (index !== 0 && LOKASI[index - 1].kecamatan !== i.kecamatan) {
+                tmp.push({
+                    label: i.kecamatan,
+                    value: i.kecamatan
+                })
+            }
+        })
+        console.log(tmp);
+        setKecamatan(tmp)
+    }
+
+    const _getDesa = (x) => {
+        let tmp = [];
+
+        LOKASI.filter(i => i.kecamatan.toLowerCase().indexOf(x.toLowerCase()) > -1).map((i, index) => {
+            if (index == 0) {
+                tmp.push({
+                    label: i.desa,
+                    value: i.desa
+                })
+                setData({
+                    ...data,
+                    desa: i.desa
+                })
+            }
+        })
+
+        let tmpPOS = [];
+        LOKASI.filter(i => i.kecamatan.toLowerCase().indexOf(x.toLowerCase()) > -1).map((i, index) => {
+            if (index == 0) {
+                setData({
+                    ...data,
+                    posyandu: i.posyandu
+                })
+            }
+            tmpPOS.push({
+                label: i.posyandu,
+                value: i.posyandu
+            })
+
+        })
+        console.log(tmp);
+        setDesa(tmp);
+        setPosyandu(tmpPOS);
+
+    }
+
+
 
 
 
@@ -146,9 +313,49 @@ export default function Register({ navigation }) {
                             color: colors.black,
                             marginBottom: 10,
                         }}>Silahkan daftar agar bisa login</Text>
+
+                        <MyPicker onValueChange={x => {
+                            setData({
+                                ...data,
+                                level: x
+                            })
+                        }} label="Jenis Pengguna" iconname="options" value={data.level} data={[
+                            { label: 'IBU', value: 'IBU' },
+                            { label: 'KADER / NUTRISIONIS', value: 'KADER / NUTRISIONIS' },
+                        ]} />
+
+
+                        <MyGap jarak={10} />
+                        <MyPicker onValueChange={x => {
+                            setData({
+                                ...data,
+                                kecamatan: x
+                            });
+
+                            _getDesa(x);
+                        }} label="Kecamatan" iconname="location-outline" value={data.kecamatan} data={kecamatan} />
+
+                        <MyGap jarak={10} />
+                        <MyPicker onValueChange={x => {
+                            setData({
+                                ...data,
+                                desa: x
+                            })
+                        }} label="Desa" iconname="location-outline" value={data.desa} data={desa} />
+
+                        <MyGap jarak={10} />
+                        <MyPicker onValueChange={x => {
+                            setData({
+                                ...data,
+                                posyandu: x
+                            })
+                        }} label="Posyandu" iconname="home-outline" value={data.posyandu} data={posyandu} />
+
+
+                        <MyGap jarak={10} />
                         <MyInput
-                            placeholder="Masukan nama lengkap ibu"
-                            label="Nama Lengkap Ibu"
+                            placeholder="Masukan nama lengkap"
+                            label="Nama Lengkap"
                             iconname="person-outline"
                             value={data.nama_lengkap}
                             onChangeText={value =>
@@ -172,36 +379,45 @@ export default function Register({ navigation }) {
                             }
                         />
                         <MyGap jarak={10} />
-                        <MyInput
-                            placeholder="Masukan nama anak"
-                            label="Nama Anak"
-                            iconname="person-outline"
-                            value={data.nama_anak}
-                            onChangeText={value =>
-                                setData({
-                                    ...data,
-                                    nama_anak: value,
-                                })
-                            }
-                        />
-                        <MyGap jarak={10} />
-                        <MyCalendar valueShow={moment(data.tanggal_lahir).format('DD MMMM YYYY')} value={data.tanggal_lahir} onDateChange={x => {
-                            setData({
-                                ...data,
-                                tanggal_lahir: x
-                            })
-                        }} iconname="calendar-outline" label="Tanggal Lahir Anak" />
-                        <MyGap jarak={10} />
-                        <MyPicker value={data.jenis_kelamin} onValueChange={x => {
-                            setData({
-                                ...data,
-                                jenis_kelamin: x
-                            })
-                        }} label="Jenis Kelamin Anak" iconname="male-female" data={[
-                            { label: 'Laki-laki', value: 'Laki-laki' },
-                            { label: 'Perempuan', value: 'Perempuan' },
-                        ]} />
-                        <MyGap jarak={10} />
+
+                        {data.level == 'IBU' &&
+                            <>
+                                <MyInput
+                                    placeholder="Masukan nama anak"
+                                    label="Nama Anak"
+                                    iconname="person-outline"
+                                    value={data.nama_anak}
+                                    onChangeText={value =>
+                                        setData({
+                                            ...data,
+                                            nama_anak: value,
+                                        })
+                                    }
+                                />
+                                <MyGap jarak={10} />
+                                <MyCalendar valueShow={moment(data.tanggal_lahir).format('DD MMMM YYYY')} value={data.tanggal_lahir} onDateChange={x => {
+                                    setData({
+                                        ...data,
+                                        tanggal_lahir: x
+                                    })
+                                }} iconname="calendar-outline" label="Tanggal Lahir Anak" />
+                                <MyGap jarak={10} />
+                                <MyPicker value={data.jenis_kelamin} onValueChange={x => {
+                                    setData({
+                                        ...data,
+                                        jenis_kelamin: x
+                                    })
+                                }} label="Jenis Kelamin Anak" iconname="male-female" data={[
+                                    { label: 'Laki-laki', value: 'Laki-laki' },
+                                    { label: 'Perempuan', value: 'Perempuan' },
+                                ]} />
+                                <MyGap jarak={10} />
+
+                            </>
+
+                        }
+
+
 
                         <MyInput
                             placeholder="Masukan nomor telepon"
