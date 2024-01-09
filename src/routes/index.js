@@ -20,6 +20,7 @@ import {
   AsupanMpasi,
   AsupanAsi,
   StatusGizi,
+  StatusGiziHasil,
 
 } from '../pages';
 import { colors } from '../utils';
@@ -192,6 +193,14 @@ export default function Router() {
       <Stack.Screen
         name="StatusGizi"
         component={StatusGizi}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="StatusGiziHasil"
+        component={StatusGiziHasil}
         options={{
           headerShown: false,
         }}

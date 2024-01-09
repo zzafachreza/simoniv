@@ -16,6 +16,7 @@ import ResepDetail from './Menu/ResepDetail';
 import AsupanMpasi from './Menu/AsupanMpasi';
 import AsupanAsi from './Menu/AsupanAsi';
 import StatusGizi from './Menu/StatusGizi';
+import StatusGiziHasil from './Menu/StatusGiziHasil';
 
 
 
@@ -37,6 +38,7 @@ export {
   ResepDetail,
   AsupanMpasi,
   AsupanAsi,
-  StatusGizi
+  StatusGizi,
+  StatusGiziHasil
 
 };

@@ -4,19 +4,55 @@ import { MyDimensi, colors, fonts, windowHeight, windowWidth } from '../../utils
 import { Icon } from 'react-native-elements';
 import YoutubePlayer from "react-native-youtube-iframe";
 import axios from 'axios';
-import { apiURL } from '../../utils/localStorage';
+import { MYAPP, apiURL, getData } from '../../utils/localStorage';
 import moment from 'moment';
 import { showMessage } from 'react-native-flash-message';
 import { MyButton, MyCalendar, MyGap, MyHeader, MyInput, MyPicker, MyRadio } from '../../components';
 import { ScrollView } from 'react-native';
+import SweetAlert from 'react-native-sweet-alert';
 export default function AsupanAsi({ navigation, route }) {
     const [loading, setLoading] = useState(false);
     const [kirim, setKirim] = useState({
         tanggal: moment().format('YYYY-MM-DD'),
-        waktu_pemberian: '',
+        waktu_pemberian: 'Pagi',
         frek_menyusui: 1,
         durasi_menyusui: ''
-    })
+    });
+
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        getData('user').then(uu => {
+            setKirim({
+                ...kirim,
+                fid_user: uu.id
+            })
+        })
+    }, [])
+
+    const sendServer = () => {
+
+        if (kirim.durasi_menyusui.length == 0) {
+            showMessage({
+                message: 'Maaf durasi menyusui wajib di isi !',
+            })
+        } else {
+            setLoading(true);
+            axios.post(apiURL + 'insert_asupan_asi', kirim).then(res => {
+                console.log(res.data);
+                if (res.data.status == 200) {
+                    SweetAlert.showAlertWithOptions({
+                        title: MYAPP,
+                        subTitle: res.data.message,
+                        style: 'success',
+                        cancellable: true
+                    })
+                }
+            }).finally(() => {
+                setLoading(false);
+            })
+        }
+
+    }
     return (
         <SafeAreaView style={{
             flex: 1,
@@ -149,7 +185,9 @@ export default function AsupanAsi({ navigation, route }) {
                     })
                 }} />
                 <MyGap jarak={30} />
-                <MyButton title="Kirim" />
+
+                <MyButton title="Kirim" onPress={sendServer} />
+
             </View>
 
 
