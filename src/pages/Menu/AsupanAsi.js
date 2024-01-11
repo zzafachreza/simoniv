@@ -15,6 +15,7 @@ export default function AsupanAsi({ navigation, route }) {
     const [kirim, setKirim] = useState({
         tanggal: moment().format('YYYY-MM-DD'),
         waktu_pemberian: 'Pagi',
+        volume: '',
         frek_menyusui: 1,
         durasi_menyusui: ''
     });
@@ -22,6 +23,7 @@ export default function AsupanAsi({ navigation, route }) {
     const [user, setUser] = useState({});
     useEffect(() => {
         getData('user').then(uu => {
+            setUser(uu)
             setKirim({
                 ...kirim,
                 fid_user: uu.id
@@ -74,6 +76,13 @@ export default function AsupanAsi({ navigation, route }) {
                         tanggal: x
                     })
                 }} label="Tanggal Pengukuran" iconname="calendar-outline" />
+                <MyGap jarak={10} />
+                <MyInput iconname="aperture" onChangeText={x => {
+                    setKirim({
+                        ...kirim,
+                        volume: x
+                    })
+                }} label2="(Jika Ibu melakukan perah asi)" value={kirim.volume} keyboardType='number-pad' label="Volume Perah Satuan ml" />
                 <MyGap jarak={10} />
                 <MyPicker iconname="time-outline" data={[
                     { label: 'Pagi', value: 'Pagi' },
@@ -178,7 +187,7 @@ export default function AsupanAsi({ navigation, route }) {
                 </View>
                 <MyGap jarak={10} />
 
-                <MyInput label="Durasi Menysui ( Menit )" keyboardType="number-pad" onChangeText={x => {
+                <MyInput label="Rata-rata Durasi10 Menysui ( Menit )" keyboardType="number-pad" onChangeText={x => {
                     setKirim({
                         ...kirim,
                         durasi_menyusui: x
@@ -202,7 +211,30 @@ export default function AsupanAsi({ navigation, route }) {
                 </View>
             }
 
-
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('AsupanAsiHasil', user)}>
+                <View style={{
+                    position: 'absolute',
+                    bottom: 10,
+                    right: 10,
+                    borderRadius: 30,
+                    backgroundColor: colors.secondary,
+                    padding: 10,
+                    height: 45,
+                    width: windowWidth / 2.5,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'row'
+                }}>
+                    <Icon type='ionicon' name='search-outline' color={colors.black} size={MyDimensi / 3.5} />
+                    <Text style={{
+                        // left: 5,
+                        marginLeft: 5,
+                        fontFamily: fonts.secondary[600],
+                        fontSize: MyDimensi / 3.5,
+                        color: colors.black
+                    }}>Lihat Hasil</Text>
+                </View>
+            </TouchableWithoutFeedback>
 
         </SafeAreaView>
     )

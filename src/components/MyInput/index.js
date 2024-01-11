@@ -25,7 +25,7 @@ export default function MyInput({
   placeholder,
   autoFocus,
   multiline,
-  label2,
+  label2 = '',
   styleLabel,
   colorIcon = colors.primary,
 }) {
@@ -54,8 +54,17 @@ export default function MyInput({
             fontSize: MyDimensi / 4,
             ...styleLabel,
           }}>
-          {label}
+          {label}{label2.length > 0 && <Text
+            style={{
+              fontFamily: fonts.secondary[400],
+              color: colorIcon,
+              left: icon ? 10 : 5,
+              fontSize: MyDimensi / 5,
+            }}>
+            {'\n'}{label2}
+          </Text>}
         </Text>}
+
       </View>
       <View style={{
         position: 'relative'

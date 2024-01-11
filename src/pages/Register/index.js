@@ -126,9 +126,11 @@ export default function Register({ navigation }) {
     const [data, setData] = useState({
         api_token: api_token,
         level: 'IBU',
-        posyandu: "Kasih ibu 15",
-        desa: "Kertamulya",
-        kecamatan: "Padalarang",
+        posyandu: "",
+        provinsi: '',
+        kota: '',
+        desa: "",
+        kecamatan: "",
         nama_lengkap: '',
         telepon: '',
         nama_anak: '',
@@ -210,74 +212,77 @@ export default function Register({ navigation }) {
 
 
     useEffect(() => {
+        __getProvinsi();
 
-        __getKecamatan();
     }, []);
 
+    const [provinsi, setProvinsi] = useState([]);
+    const [kota, setKota] = useState([]);
     const [kecamatan, setKecamatan] = useState([]);
-    const [desa, setDesa] = useState([
-        { label: 'Kertamulya', value: 'Kertamulya' }
-    ]);
-    const [posyandu, setPosyandu] = useState([
-        { label: 'Kasih ibu 15', value: 'Kasih ibu 15' }
-    ]);
+    const [desa, setDesa] = useState([]);
 
-    const __getKecamatan = () => {
-        let tmp = [];
+    const __getProvinsi = () => {
+        axios.get('https://zzafachreza.github.io/api-wilayah-indonesia/api/provinces.json').then(res => {
 
-        LOKASI.map((i, index) => {
-            if (index == 0) {
-
+            let tmp = [];
+            tmp.push({ label: '', value: '' })
+            res.data.map(i => {
                 tmp.push({
-                    label: i.kecamatan,
-                    value: i.kecamatan
+                    label: i.name,
+                    value: i.id + '#' + i.name
                 })
-            } else if (index !== 0 && LOKASI[index - 1].kecamatan !== i.kecamatan) {
-                tmp.push({
-                    label: i.kecamatan,
-                    value: i.kecamatan
-                })
-            }
-        })
-        console.log(tmp);
-        setKecamatan(tmp)
-    }
-
-    const _getDesa = (x) => {
-        let tmp = [];
-
-        LOKASI.filter(i => i.kecamatan.toLowerCase().indexOf(x.toLowerCase()) > -1).map((i, index) => {
-            if (index == 0) {
-                tmp.push({
-                    label: i.desa,
-                    value: i.desa
-                })
-                setData({
-                    ...data,
-                    desa: i.desa
-                })
-            }
-        })
-
-        let tmpPOS = [];
-        LOKASI.filter(i => i.kecamatan.toLowerCase().indexOf(x.toLowerCase()) > -1).map((i, index) => {
-            if (index == 0) {
-                setData({
-                    ...data,
-                    posyandu: i.posyandu
-                })
-            }
-            tmpPOS.push({
-                label: i.posyandu,
-                value: i.posyandu
             })
+            setProvinsi(tmp);
+        })
+    }
+
+    const __getKota = (x) => {
+        axios.get(`https://zzafachreza.github.io/api-wilayah-indonesia/api/regencies/${x}.json`).then(res => {
+            let tmp = [];
+            tmp.push({ label: '', value: '' })
+            res.data.map(i => {
+                tmp.push({
+                    label: i.name,
+                    value: i.id + '#' + i.name
+                })
+            })
+            setKota(tmp);
 
         })
-        console.log(tmp);
-        setDesa(tmp);
-        setPosyandu(tmpPOS);
-
     }
+
+    const __getKecamatan = (x) => {
+        axios.get(`https://zzafachreza.github.io/api-wilayah-indonesia/api/districts/${x}.json`).then(res => {
+
+            let tmp = [];
+            tmp.push({ label: '', value: '' })
+            res.data.map(i => {
+                tmp.push({
+                    label: i.name,
+                    value: i.id + '#' + i.name
+                })
+            })
+            setKecamatan(tmp);
+
+        })
+    }
+
+    const __getDesa = (x) => {
+        axios.get(`https://zzafachreza.github.io/api-wilayah-indonesia/api/villages/${x}.json`).then(res => {
+
+
+            let tmp = [];
+            tmp.push({ label: '', value: '' })
+            res.data.map(i => {
+                tmp.push({
+                    label: i.name,
+                    value: i.id + '#' + i.name
+                })
+            })
+            setDesa(tmp);
+        })
+    }
+
 
 
 
@@ -321,37 +326,56 @@ export default function Register({ navigation }) {
                             })
                         }} label="Jenis Pengguna" iconname="options" value={data.level} data={[
                             { label: 'IBU', value: 'IBU' },
-                            { label: 'KADER / NUTRISIONIS', value: 'KADER / NUTRISIONIS' },
+                            { label: 'KADER', value: 'KADER' },
+                            { label: 'NUTRISIONIS', value: 'NUTRISIONIS' },
                         ]} />
 
 
                         <MyGap jarak={10} />
                         <MyPicker onValueChange={x => {
+
                             setData({
                                 ...data,
-                                kecamatan: x
+                                provinsi: x.split("#")[1],
+                            });
+                            __getKota(x.split("#")[0]);
+                        }} label="Provinsi" iconname="options" data={provinsi} />
+
+                        <MyGap jarak={10} />
+                        <MyPicker onValueChange={x => {
+                            setData({
+                                ...data,
+                                kota: x.split("#")[1],
+                            });
+                            __getKecamatan(x.split("#")[0]);
+                        }} label="Kabupaten / Kota" iconname="options" data={kota} />
+
+
+                        <MyGap jarak={10} />
+                        <MyPicker onValueChange={x => {
+                            setData({
+                                ...data,
+                                kecamatan: x.split("#")[1],
                             });
 
-                            _getDesa(x);
-                        }} label="Kecamatan" iconname="location-outline" value={data.kecamatan} data={kecamatan} />
+                            __getDesa(x.split("#")[0]);
+                        }} label="Kecamatan" iconname="location-outline" data={kecamatan} />
 
                         <MyGap jarak={10} />
                         <MyPicker onValueChange={x => {
                             setData({
                                 ...data,
-                                desa: x
+                                desa: x.split("#")[1],
                             })
-                        }} label="Desa" iconname="location-outline" value={data.desa} data={desa} />
+                        }} label="Desa / Kelurahan" iconname="location-outline" data={desa} />
 
                         <MyGap jarak={10} />
-                        <MyPicker onValueChange={x => {
+                        <MyInput iconname="home-outline" label="Posyandu" onChangeText={x => {
                             setData({
                                 ...data,
                                 posyandu: x
                             })
-                        }} label="Posyandu" iconname="home-outline" value={data.posyandu} data={posyandu} />
-
-
+                        }} />
                         <MyGap jarak={10} />
                         <MyInput
                             placeholder="Masukan nama lengkap"

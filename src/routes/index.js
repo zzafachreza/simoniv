@@ -21,6 +21,7 @@ import {
   AsupanAsi,
   StatusGizi,
   StatusGiziHasil,
+  AsupanAsiHasil,
 
 } from '../pages';
 import { colors } from '../utils';
@@ -46,7 +47,7 @@ const MainApp = () => {
 
 export default function Router() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='AsupanAsi'>
       <Stack.Screen
         name="Splash"
         component={Splash}
@@ -185,6 +186,13 @@ export default function Router() {
       <Stack.Screen
         name="AsupanAsi"
         component={AsupanAsi}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="AsupanAsiHasil"
+        component={AsupanAsiHasil}
         options={{
           headerShown: false,
         }}

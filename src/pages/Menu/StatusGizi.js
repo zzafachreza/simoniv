@@ -22,6 +22,7 @@ export default function StatusGizi({ navigation, route }) {
     useEffect(() => {
         getData('user').then(uu => {
             console.log(uu);
+            setUser(uu)
             setKirim({
                 ...kirim,
                 jenis_kelamin: uu.jenis_kelamin,
@@ -74,6 +75,13 @@ export default function StatusGizi({ navigation, route }) {
                 borderRadius: 10,
                 borderColor: colors.border
             }}>
+                <Text style={{
+                    color: colors.secondary,
+                    textAlign: 'center',
+                    fontFamily: fonts.secondary[800],
+                    fontSize: MyDimensi / 2.5,
+                    marginBottom: 10,
+                }}>{user.jenis_kelamin}</Text>
                 <MyCalendar value={kirim.tanggal} onDateChange={x => {
                     setKirim({
                         ...kirim,
@@ -98,7 +106,7 @@ export default function StatusGizi({ navigation, route }) {
                         tinggi_badan: x
                     })
                 }} />
-                <MyGap jarak={30} />
+                <MyGap jarak={20} />
                 <MyButton title="Kirim" onPress={sendServer} />
             </View>
 

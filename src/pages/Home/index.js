@@ -137,7 +137,7 @@ export default function Home({ navigation, route }) {
             fontFamily: fonts.secondary[800],
             fontSize: MyDimensi / 3,
             color: colors.foourty
-          }}>{parseFloat(moment().diff(user.tanggal_lahir, 'month', false))} Bulan {parseFloat(moment(user.tanggal_lahir).format('DD'))} Hari</Text>
+          }}>{parseFloat(moment().diff(user.tanggal_lahir, 'month', false))} Bulan {parseFloat(moment().format('DD')) - parseFloat(moment(user.tanggal_lahir).format('DD'))} Hari</Text>
 
         </View>
       }
