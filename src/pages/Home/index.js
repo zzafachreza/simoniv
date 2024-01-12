@@ -215,7 +215,7 @@ export default function Home({ navigation, route }) {
       }}>
         <FlatList numColumns={3} data={data} renderItem={({ item }) => {
           return (
-            <TouchableWithoutFeedback onPress={() => navigation.navigate(item.halaman)}>
+            <TouchableWithoutFeedback onPress={() => navigation.navigate(item.halaman, user)}>
               <View style={{
                 width: windowWidth / 3.8,
                 borderWidth: 0,

@@ -38,7 +38,17 @@ export default function AsupanAsiHasil({ navigation, route }) {
             akhir: kirim.akhir,
         }).then(res => {
             console.log(res.data);
-            setData(res.data);
+            if (res.data.length > 0) {
+                setData(res.data);
+
+            } else {
+                showMessage({
+                    message: 'Tidak ada riwayat hari ini !'
+                })
+            }
+            // setData(res.data);
+
+        }).finally(() => {
             setLoading(false)
         })
     }
@@ -100,7 +110,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                 </View>
             </View>
 
-            {!loading && <View style={{
+            {!loading && data.length > 0 && <View style={{
                 flex: 1,
             }}>
                 <View style={{

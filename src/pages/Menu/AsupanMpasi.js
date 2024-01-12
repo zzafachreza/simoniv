@@ -13,6 +13,7 @@ import { ScrollView } from 'react-native';
 
 export default function AsupanMpasi({ navigation, route }) {
     const user = route.params;
+    const BULAN = parseFloat(moment().diff(user.tanggal_lahir, 'month', false));
     const [loading, setLoading] = useState(false);
     const [kirim, setKirim] = useState({
         tanggal: moment().format('YYYY-MM-DD'),
@@ -33,7 +34,6 @@ export default function AsupanMpasi({ navigation, route }) {
     });
 
     const [makan, setMakan] = useState({
-        waktu_pemberian: [],
         tekstur: [],
         porsi: [],
         jenis_makanan: [],
@@ -42,7 +42,6 @@ export default function AsupanMpasi({ navigation, route }) {
     });
 
     const [snack, setSnack] = useState({
-        waktu_pemberian: [],
         tekstur: [],
         porsi: [],
         jenis_makanan: [],
@@ -145,6 +144,24 @@ export default function AsupanMpasi({ navigation, route }) {
 
         )
     }
+
+
+    const MyTexktur = ({ img, label }) => {
+        return (
+            <View style={{
+                marginHorizontal: 10, marginTop: 5, borderColor: colors.border, borderWidth: 1, borderRadius: 10, padding: 10, flexDirection: 'row', alignItems: 'center',
+            }}>
+                <Image source={img} style={{
+                    width: 60, height: 60, borderRadius: 10,
+                }} />
+                <View style={{ paddingHorizontal: 10, }}>
+                    <Text style={{ maxWidth: '92%', fontFamily: fonts.secondary[400], fontSize: MyDimensi / 4, }}>
+                        {label}
+                    </Text>
+                </View>
+            </View>
+        )
+    }
     return (
         <SafeAreaView style={{
             flex: 1,
@@ -159,6 +176,21 @@ export default function AsupanMpasi({ navigation, route }) {
                     textAlign: 'center',
                     fontSize: MyDimensi / 2.5
                 }}>Input MPASI Disini</Text>
+
+
+                <Text style={{
+                    fontFamily: fonts.secondary[800],
+                    color: colors.foourty,
+                    textAlign: 'center',
+                    fontSize: MyDimensi / 3
+                }}>Umur Anak : {BULAN} Bulan</Text>
+
+
+
+
+
+
+
 
                 <View style={{
                     padding: 10,
@@ -180,20 +212,125 @@ export default function AsupanMpasi({ navigation, route }) {
 
 
                     <MyRadio onPress={() => {
-                        setKirim({
-                            ...kirim,
-                            diberi_asi: 'Ya'
-                        })
-                    }}
-                        onPress2={() => {
+
+                        if (BULAN >= 6 && BULAN <= 8) {
                             setKirim({
                                 ...kirim,
-                                diberi_asi: 'Tidak'
-                            })
+                                diberi_asi: 'Ya',
+                                frek_makanan: 2,
+                                frek_snack: 1
+                            });
+                            getJumlahMakanan(2);
+                            getJumlahSnack(1);
+                        } else if (BULAN >= 9 && BULAN <= 11) {
+                            setKirim({
+                                ...kirim,
+                                diberi_asi: 'Ya',
+                                frek_makanan: 3,
+                                frek_snack: 1
+                            });
+                            getJumlahMakanan(3);
+                            getJumlahSnack(1);
+                        } else if (BULAN >= 12) {
+                            setKirim({
+                                ...kirim,
+                                diberi_asi: 'Ya',
+                                frek_makanan: 3,
+                                frek_snack: 1
+                            });
+                            getJumlahMakanan(3);
+                            getJumlahSnack(1);
+                        }
+
+                    }}
+                        onPress2={() => {
+                            if (BULAN >= 6 && BULAN <= 8) {
+                                setKirim({
+                                    ...kirim,
+                                    diberi_asi: 'Tidak',
+                                    frek_makanan: 3,
+                                    frek_snack: 1
+                                });
+                                getJumlahMakanan(3);
+                                getJumlahSnack(1);
+                            } else if (BULAN >= 9 && BULAN <= 11) {
+                                setKirim({
+                                    ...kirim,
+                                    diberi_asi: 'Tidak',
+                                    frek_makanan: 4,
+                                    frek_snack: 1
+                                });
+                                getJumlahMakanan(4);
+                                getJumlahSnack(1);
+                            } else if (BULAN >= 12) {
+                                setKirim({
+                                    ...kirim,
+                                    diberi_asi: 'Tidak',
+                                    frek_makanan: 4,
+                                    frek_snack: 1
+                                });
+                                getJumlahMakanan(4);
+                                getJumlahSnack(1);
+                            }
                         }}
 
                         iconname="options" value={kirim.diberi_asi} label="Apakah Anak Diberi ASI" />
                     <MyGap jarak={10} />
+
+
+                    {/* rekomendasi */}
+                    {BULAN >= 6 && BULAN <= 8 &&
+                        <View style={{
+                            marginBottom: 10,
+                        }}>
+                            {kirim.diberi_asi == 'Ya' &&
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 4 }}>
+                                    Frekuensi makan utama minimal 2 kali sehari dan selingan 1 kali sehari
+                                </Text>
+                            }
+                            {kirim.diberi_asi == 'Tidak' &&
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 4 }}>
+                                    Frekuensi makan utama minimal 3 kali sehari dan selingan 1 kali sehari
+                                </Text>
+                            }
+                        </View>
+                    }
+
+                    {BULAN >= 9 && BULAN <= 11 &&
+                        <View style={{
+                            marginBottom: 10,
+                        }}>
+                            {kirim.diberi_asi == 'Ya' &&
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 4 }}>
+                                    Frekuensi makan utama minimal 3 kali sehari dan selingan 1 kali sehari
+                                </Text>
+                            }
+                            {kirim.diberi_asi == 'Tidak' &&
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 4 }}>
+                                    Frekuensi makan utama minimal 4 kali sehari dan selingan 1 kali sehari
+                                </Text>
+                            }
+                        </View>
+                    }
+
+                    {BULAN >= 12 &&
+                        <View style={{
+                            marginBottom: 10,
+                        }}>
+                            {kirim.diberi_asi == 'Ya' &&
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 4 }}>
+                                    Frekuensi makan utama minimal 3 kali sehari dan selingan 1 kali sehari
+                                </Text>
+                            }
+                            {kirim.diberi_asi == 'Tidak' &&
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 4 }}>
+                                    Frekuensi makan utama minimal 4 kali sehari dan selingan 1 kali sehari
+                                </Text>
+                            }
+                        </View>
+                    }
+
+
                     <View
                         style={{
                             flexDirection: 'row',
@@ -299,7 +436,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                 left: 10,
                                 fontSize: MyDimensi / 4,
                             }}>
-                            Freq. Pemberian (Snack)
+                            Freq. Pemberian (Selingan / Snack)
                         </Text>
                     </View>
                     <View style={{
@@ -395,13 +532,18 @@ export default function AsupanMpasi({ navigation, route }) {
                                 fontSize: MyDimensi / 3,
                                 marginBottom: 20
                             }}>Makanan Utama {item + 1}x</Text>
-                            <MyPicker label="Waktu Pemberian" data={[
-                                { label: 'Pagi', value: 'Pagi' },
-                                { label: 'Siang', value: 'Siang' },
-                                { label: 'Malam', value: 'Malam' },
-                            ]} />
-                            <MyGap jarak={10} />
-                            <MyPicker label="Tekstur" data={[
+
+                            <MyPicker label="Tekstur" onValueChange={x => {
+
+                                let tmp = makan;
+                                tmp.tekstur[item] = x
+                                setMakan({
+                                    ...makan,
+                                    tekstur: tmp.tekstur
+                                })
+
+                            }} data={[
+                                { label: '', value: '' },
                                 { label: 'Cair', value: 'Cair' },
                                 { label: 'Bubur Encer', value: 'Bubur Encer' },
                                 { label: 'Bubur Kental', value: 'Bubur Kental' },
@@ -409,14 +551,51 @@ export default function AsupanMpasi({ navigation, route }) {
                                 { label: 'Makanan Keluarga', value: 'Makanan Keluarga' },
 
                             ]} />
-                            <MyGap jarak={10} />
-                            <MyPicker label="Porsi" data={[
-                                { label: '< ½ mangkok', value: '< ½ mangkok' },
-                                { label: '½ mangkok', value: '½ mangkok' },
-                                { label: '¾ mangkok', value: '¾ mangkok' },
-                                { label: '1 mangkok', value: '1 mangkok' },
 
-                            ]} />
+                            {makan.tekstur[item] == 'Cair' &&
+                                <MyTexktur img={require('../../assets/t1.png')} label="MPASI yang berbentuk cair seperti susu, jus buah, kuah kaldu." />
+                            }
+
+                            {makan.tekstur[item] == 'Bubur Encer' &&
+                                <MyTexktur img={require('../../assets/t2.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur mudah tumpah" />
+                            }
+
+                            {makan.tekstur[item] == 'Bubur Kental' &&
+                                <MyTexktur img={require('../../assets/t3.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur tidak mudah tumpah" />
+                            }
+
+                            {makan.tekstur[item] == 'Tim' &&
+
+                                <MyTexktur img={require('../../assets/t4.png')} label="Makanan setengah padat, lembek dan bahan makanan masih bisa dikenali" />
+                            }
+
+                            {makan.tekstur[item] == 'Makanan Keluarga' &&
+                                <MyTexktur img={require('../../assets/t5.png')} label="Makanan padat dengan tekstur seperti makanan keluarga pada umumnya contohnya nasi, lauk pauk, sayur" />
+                            }
+
+
+                            <MyGap jarak={10} />
+                            <MyPicker label="Porsi sekali makan (ukuran mangkok 250 ml)"
+
+                                onValueChange={x => {
+
+                                    let tmp = makan;
+                                    tmp.porsi[item] = x
+                                    setMakan({
+                                        ...makan,
+                                        porsi: tmp.porsi
+                                    })
+
+                                }}
+
+                                data={[
+                                    { label: '', value: '' },
+                                    { label: '< 1/2 mangkok', value: '0.25' },
+                                    { label: '1/2 mangkok', value: '0.50' },
+                                    { label: '3/4 mangkok', value: '0.75' },
+                                    { label: '1 mangkok', value: '1' },
+
+                                ]} />
                             <MyGap jarak={10} />
                             <MyPicker label="Jenis Makanan" data={[
 
@@ -562,12 +741,8 @@ export default function AsupanMpasi({ navigation, route }) {
                                 fontSize: MyDimensi / 3,
                                 marginBottom: 20
                             }}>Snack {item + 1}x</Text>
-                            <MyPicker label="Waktu Pemberian" data={[
-                                { label: 'Pagi', value: 'Pagi' },
-                                { label: 'Siang', value: 'Siang' },
-                                { label: 'Malam', value: 'Malam' },
-                            ]} />
-                            <MyGap jarak={10} />
+
+
                             <MyPicker label="Tekstur" data={[
                                 { label: 'Cair', value: 'Cair' },
                                 { label: 'Bubur Encer', value: 'Bubur Encer' },
