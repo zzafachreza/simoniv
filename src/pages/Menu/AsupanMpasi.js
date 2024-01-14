@@ -16,10 +16,14 @@ export default function AsupanMpasi({ navigation, route }) {
     const BULAN = parseFloat(moment().diff(user.tanggal_lahir, 'month', false));
     const [loading, setLoading] = useState(false);
     const [kirim, setKirim] = useState({
+        fid_user: route.params.id,
+        umur: BULAN,
         tanggal: moment().format('YYYY-MM-DD'),
         diberi_asi: '',
         frek_makanan: 1,
         frek_snack: 1,
+        merek_komersial: '',
+        rasa_komersial: '',
         tambahan1: '',
         tambahan2: '',
         tambahan3: '',
@@ -37,7 +41,7 @@ export default function AsupanMpasi({ navigation, route }) {
         tekstur: [],
         porsi: [],
         jenis_makanan: [],
-        bahan_makanan: [[0, 0, 0, 0, 0, 0, 0, 0]],
+        bahan_makanan: [[0, 0, 0, 0, 0, 0, 0, 0, 0]],
 
     });
 
@@ -45,7 +49,7 @@ export default function AsupanMpasi({ navigation, route }) {
         tekstur: [],
         porsi: [],
         jenis_makanan: [],
-        bahan_makanan: [[0, 0, 0, 0, 0, 0, 0, 0]],
+        bahan_makanan: [[0, 0, 0, 0, 0, 0, 0, 0, 0]],
 
     });
 
@@ -57,7 +61,7 @@ export default function AsupanMpasi({ navigation, route }) {
         let tmpMakanan = [];
         for (let i = 0; i < x; i++) {
             tmp.push(i);
-            tmpMakanan.push([0, 0, 0, 0, 0, 0, 0, 0])
+            tmpMakanan.push([0, 0, 0, 0, 0, 0, 0, 0, 0])
         }
         console.log(tmpMakanan);
         setMakan({
@@ -71,9 +75,9 @@ export default function AsupanMpasi({ navigation, route }) {
         // alert(x)
         let tmp = [];
         let tmpMakanan = [];
-        for (let i = 0; i <= x; i++) {
+        for (let i = 0; i < x; i++) {
             tmp.push(i);
-            tmpMakanan.push([0, 0, 0, 0, 0, 0, 0, 0])
+            tmpMakanan.push([0, 0, 0, 0, 0, 0, 0, 0, 0])
         }
         console.log(tmp);
         setSnack({
@@ -126,12 +130,14 @@ export default function AsupanMpasi({ navigation, route }) {
                             </View>
 
                             <Text style={{
-                                marginHorizontal: 10,
+                                marginLeft: 10,
+                                // marginHorizontal: 10,
                                 fontFamily: fonts.secondary[600],
                                 fontSize: MyDimensi / 4
                             }}>{label}</Text>
 
                             <Image source={img} style={{
+                                left: 10,
                                 width: MyDimensi / 2,
                                 height: MyDimensi / 2
                             }} />
@@ -161,6 +167,245 @@ export default function AsupanMpasi({ navigation, route }) {
                 </View>
             </View>
         )
+    }
+
+    const sendServer = () => {
+        // setLoading(true);
+
+        let FREKUENSI = 0;
+        let TEKSTUR = 0;
+        let PORSI = 0;
+        let BAHAN = 0;
+        let KONSUMSI = 0;
+        let MINUMAN = 0;
+        let JAJANAN = 0;
+        let SAYUR_BUAH = 0;
+        let PEMBERIAN = 0;
+        let KEBERSIHAN = 0;
+
+
+
+        try {
+
+            // #1 FREKUENSI
+            if (BULAN >= 6 && BULAN <= 8) {
+                if (kirim.diberi_asi == 'Ya') {
+                    if (kirim.frek_makanan >= 2 && kirim.frek_snack >= 1) {
+                        FREKUENSI = 1;
+                    } else {
+                        FREKUENSI = 0;
+                    }
+                } else {
+                    if (kirim.frek_makanan >= 3 && kirim.frek_snack >= 1) {
+                        FREKUENSI = 1;
+                    } else {
+                        FREKUENSI = 0;
+                    }
+                }
+            } else if (BULAN >= 9 && BULAN <= 11) {
+
+                if (kirim.diberi_asi == 'Ya') {
+                    if (kirim.frek_makanan >= 3 && kirim.frek_snack >= 1) {
+                        FREKUENSI = 1;
+                    } else {
+                        FREKUENSI = 0;
+                    }
+                } else {
+                    if (kirim.frek_makanan >= 4 && kirim.frek_snack >= 1) {
+                        FREKUENSI = 1;
+                    } else {
+                        FREKUENSI = 0;
+                    }
+                }
+
+            } else if (BULAN >= 12) {
+                if (kirim.diberi_asi == 'Ya') {
+                    if (kirim.frek_makanan >= 3 && kirim.frek_snack >= 1) {
+                        FREKUENSI = 1;
+                    } else {
+                        FREKUENSI = 0;
+                    }
+                } else {
+                    if (kirim.frek_makanan >= 4 && kirim.frek_snack >= 1) {
+                        FREKUENSI = 1;
+                    } else {
+                        FREKUENSI = 0;
+                    }
+                }
+            }
+
+            // #2 TEKSTUR
+            if (BULAN >= 6 && BULAN <= 8) {
+                let FILMAK = makan.tekstur.filter(i => i.toLowerCase().indexOf(('Bubur Kental').toLowerCase()) > -1);
+                if (FILMAK.length >= 1) {
+                    TEKSTUR = 1;
+                } else {
+                    TEKSTUR = 0
+                }
+            } else if (BULAN >= 9 && BULAN <= 11) {
+                let FILMAK = makan.tekstur.filter(i => i.toLowerCase().indexOf(('Tim').toLowerCase()) > -1);
+                if (FILMAK.length >= 1) {
+                    TEKSTUR = 1;
+                } else {
+                    TEKSTUR = 0
+                }
+
+            } else if (BULAN >= 12) {
+                let FILMAK = makan.tekstur.filter(i => i.toLowerCase().indexOf(('Makanan Keluarga').toLowerCase()) > -1);
+                if (FILMAK.length >= 1) {
+                    TEKSTUR = 1;
+                } else {
+                    TEKSTUR = 0
+                }
+
+            }
+            // #3 PORSI
+            if (BULAN >= 6 && BULAN <= 8) {
+
+                makan.porsi;
+                let tmp = 0
+                makan.porsi.map(i => {
+                    if (i >= 0.25 && i <= 0.50) {
+                        tmp += 1;
+                    } else {
+                        tmp += 0;
+                    }
+                })
+
+                if (makan.porsi.length == tmp) {
+                    PORSI = 1
+                } else {
+                    PORSI = 0;
+                }
+
+
+
+            } else if (BULAN >= 9 && BULAN <= 11) {
+
+                makan.porsi;
+                let tmp = 0
+                makan.porsi.map(i => {
+                    if (i >= 0.50 && i <= 0.75) {
+                        tmp += 1;
+                    } else {
+                        tmp += 0;
+                    }
+                })
+
+                if (makan.porsi.length == tmp) {
+                    PORSI = 1
+                } else {
+                    PORSI = 0;
+                }
+
+            } else if (BULAN >= 12) {
+
+                makan.porsi;
+                let tmp = 0
+                makan.porsi.map(i => {
+                    if (i >= 0.75 && i <= 1) {
+                        tmp += 1;
+                    } else {
+                        tmp += 0;
+                    }
+                })
+
+                if (makan.porsi.length == tmp) {
+                    PORSI = 1
+                } else {
+                    PORSI = 0;
+                }
+            }
+
+            // #4 BAHAN
+            let TMPBAHAN = 0;
+            makan.bahan_makanan.map(i => {
+                TMPBAHAN += i.filter(z => z == 1).length;
+
+            });
+            if (TMPBAHAN >= 5) {
+                BAHAN = 1;
+            } else {
+                BAHAN = 0;
+            }
+
+            // #5 KONSUMSI
+            if (kirim.tambahan1 == 'Ya') {
+                KONSUMSI = 1;
+            } else {
+                KONSUMSI = 0;
+            }
+
+            // #6 MINUMAN
+            if (kirim.tambahan2 == 'Ya') {
+                MINUMAN = 1;
+            } else {
+                MINUMAN = 0;
+            }
+
+            // #7 JAJAAN
+            if (kirim.tambahan3 == 'Ya') {
+                JAJANAN = 1;
+            } else {
+                JAJANAN = 0;
+            }
+
+            // #8 SAYUR_BUAH
+            if (kirim.tambahan4 == 'Ya') {
+                SAYUR_BUAH = 1;
+            } else {
+                SAYUR_BUAH = 0;
+            }
+
+            // #9 PEMBERIAN
+            if (kirim.beri1 == 'Ya' && kirim.beri2 == 'Ya' && kirim.beri3 == 'Ya' && kirim.beri4 == 'Ya') {
+                PEMBERIAN = 1;
+            } else {
+                PEMBERIAN = 0;
+            }
+
+            // #10 KEBERSIHAN
+            if (kirim.bersih1 == 'Ya' && kirim.bersih2 == 'Ya') {
+                KEBERSIHAN = 1;
+            } else {
+                KEBERSIHAN = 0;
+            }
+
+
+
+
+
+            console.log({
+                // formulir: kirim,
+                // makanan: makan,
+                // snack: snack,
+                rumus: {
+                    frekuensi: FREKUENSI,
+                    tekstur: TEKSTUR,
+                    porsi: PORSI,
+                    bahan: BAHAN,
+                    konsumsi: KONSUMSI,
+                    miniuman: MINUMAN,
+                    jajanan: JAJANAN,
+                    sayur_buah: SAYUR_BUAH,
+                    pemberian: PEMBERIAN,
+                    kebersihan: KEBERSIHAN,
+
+                }
+            });
+
+            // axios.post(apiURL + 'insert_mpasi', {
+            //     formulir: kirim,
+            //     makanan: makan,
+            //     snack: snack
+            // }).then(res => {
+            //     console.log(res.data);
+            // })
+
+
+        } catch (error) {
+
+        }
     }
     return (
         <SafeAreaView style={{
@@ -240,6 +485,10 @@ export default function AsupanMpasi({ navigation, route }) {
                             });
                             getJumlahMakanan(3);
                             getJumlahSnack(1);
+                        } else {
+                            showMessage({
+                                message: 'Umur anak masih dibawah 6 Bulan'
+                            })
                         }
 
                     }}
@@ -271,6 +520,10 @@ export default function AsupanMpasi({ navigation, route }) {
                                 });
                                 getJumlahMakanan(4);
                                 getJumlahSnack(1);
+                            } else {
+                                showMessage({
+                                    message: 'Umur anak masih dibawah 6 Bulan'
+                                })
                             }
                         }}
 
@@ -596,9 +849,35 @@ export default function AsupanMpasi({ navigation, route }) {
                                     { label: '1 mangkok', value: '1' },
 
                                 ]} />
-                            <MyGap jarak={10} />
-                            <MyPicker label="Jenis Makanan" data={[
 
+                            {makan.porsi[item] == '0.25' &&
+                                <MyTexktur img={require('../../assets/p1.png')} label="Apabila MPASI yang dihabiskan kurang dari ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
+                            }
+
+                            {makan.porsi[item] == '0.50' &&
+                                <MyTexktur img={require('../../assets/p2.png')} label="Apabila MPASI yang dihabiskan sekitar ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
+                            }
+
+                            {makan.porsi[item] == '0.75' &&
+                                <MyTexktur img={require('../../assets/p3.png')} label="Apabila MPASI yang dihabiskan sekitar ¾ mangkok 250 ml atau sktr 13 - 15 sendok makan" />
+                            }
+
+                            {makan.porsi[item] == '1' &&
+                                <MyTexktur img={require('../../assets/p4.png')} label="Apabila MPASI yang dihabiskan 1 mangkok 250 ml atau sekitar 18-20 sendok makan" />
+                            }
+
+                            <MyGap jarak={10} />
+                            <MyPicker onValueChange={x => {
+
+                                let tmp = makan;
+                                tmp.jenis_makanan[item] = x
+                                setMakan({
+                                    ...makan,
+                                    jenis_makanan: tmp.jenis_makanan
+                                })
+
+                            }} label="Jenis Makanan" data={[
+                                { label: '', value: '' },
                                 { label: 'Home made', value: 'Home made' },
                                 { label: 'Komersial', value: 'Komersial' },
                                 { label: 'Home made + Komersial', value: 'Home made + Komersial' },
@@ -630,6 +909,22 @@ export default function AsupanMpasi({ navigation, route }) {
                                 }}
 
                                 value={makan.bahan_makanan[item][0]} label="ASI" img={require('../../assets/m1.png')} />
+
+                            {makan.jenis_makanan[item] !== 'Home made' && makan.jenis_makanan[item] !== undefined &&
+
+                                <MyMakanan onPress={() => {
+                                    let tmp = makan.bahan_makanan;
+                                    tmp[item][8] = tmp[item][8] == 0 ? 1 : 0,
+                                        console.log(tmp)
+                                    setMakan({
+                                        ...makan,
+                                        bahan_makanan: tmp
+                                    })
+
+                                }} value={makan.bahan_makanan[item][8]} label="MPASI Komersial" img={require('../../assets/m9.png')} />
+
+                            }
+
                             <MyMakanan
                                 onPress={() => {
                                     let tmp = makan.bahan_makanan;
@@ -720,9 +1015,19 @@ export default function AsupanMpasi({ navigation, route }) {
                         fontSize: MyDimensi / 5,
                         color: colors.primary,
                     }}>* inputan khusus untuk memilih jenis makanan komersial</Text>
-                    <MyInput label="Merek Makanan Komersial" />
+                    <MyInput label="Merek Makanan Komersial" onChangeText={x => {
+                        setKirim({
+                            ...kirim,
+                            merek_komersial: x
+                        })
+                    }} />
                     <MyGap jarak={10} />
-                    <MyInput label="Rasa/varian Makanan Komersial" />
+                    <MyInput label="Rasa/varian Makanan Komersial" onChangeText={x => {
+                        setKirim({
+                            ...kirim,
+                            rasa_komersial: x
+                        })
+                    }} />
                 </View>
                 {/* maknan utama */}
 
@@ -743,7 +1048,17 @@ export default function AsupanMpasi({ navigation, route }) {
                             }}>Snack {item + 1}x</Text>
 
 
-                            <MyPicker label="Tekstur" data={[
+                            <MyPicker label="Tekstur" onValueChange={x => {
+
+                                let tmp = snack;
+                                tmp.tekstur[item] = x
+                                setSnack({
+                                    ...snack,
+                                    tekstur: tmp.tekstur
+                                })
+
+                            }} data={[
+                                { label: '', value: '' },
                                 { label: 'Cair', value: 'Cair' },
                                 { label: 'Bubur Encer', value: 'Bubur Encer' },
                                 { label: 'Bubur Kental', value: 'Bubur Kental' },
@@ -751,17 +1066,79 @@ export default function AsupanMpasi({ navigation, route }) {
                                 { label: 'Makanan Keluarga', value: 'Makanan Keluarga' },
 
                             ]} />
-                            <MyGap jarak={10} />
-                            <MyPicker label="Porsi" data={[
-                                { label: '< ½ mangkok', value: '< ½ mangkok' },
-                                { label: '½ mangkok', value: '½ mangkok' },
-                                { label: '¾ mangkok', value: '¾ mangkok' },
-                                { label: '1 mangkok', value: '1 mangkok' },
 
-                            ]} />
-                            <MyGap jarak={10} />
-                            <MyPicker label="Jenis Makanan" data={[
+                            {snack.tekstur[item] == 'Cair' &&
+                                <MyTexktur img={require('../../assets/t1.png')} label="MPASI yang berbentuk cair seperti susu, jus buah, kuah kaldu." />
+                            }
 
+                            {snack.tekstur[item] == 'Bubur Encer' &&
+                                <MyTexktur img={require('../../assets/t2.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur mudah tumpah" />
+                            }
+
+                            {snack.tekstur[item] == 'Bubur Kental' &&
+                                <MyTexktur img={require('../../assets/t3.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur tidak mudah tumpah" />
+                            }
+
+                            {snack.tekstur[item] == 'Tim' &&
+
+                                <MyTexktur img={require('../../assets/t4.png')} label="Makanan setengah padat, lembek dan bahan makanan masih bisa dikenali" />
+                            }
+
+                            {snack.tekstur[item] == 'Makanan Keluarga' &&
+                                <MyTexktur img={require('../../assets/t5.png')} label="Makanan padat dengan tekstur seperti makanan keluarga pada umumnya contohnya nasi, lauk pauk, sayur" />
+                            }
+
+                            <MyGap jarak={10} />
+                            <MyPicker label="Porsi sekali makan (ukuran mangkok 250 ml)"
+
+                                onValueChange={x => {
+
+                                    let tmp = snack;
+                                    tmp.porsi[item] = x
+                                    setSnack({
+                                        ...snack,
+                                        porsi: tmp.porsi
+                                    })
+
+                                }}
+
+                                data={[
+                                    { label: '', value: '' },
+                                    { label: '< 1/2 mangkok', value: '0.25' },
+                                    { label: '1/2 mangkok', value: '0.50' },
+                                    { label: '3/4 mangkok', value: '0.75' },
+                                    { label: '1 mangkok', value: '1' },
+
+                                ]} />
+
+                            {snack.porsi[item] == '0.25' &&
+                                <MyTexktur img={require('../../assets/p1.png')} label="Apabila MPASI yang dihabiskan kurang dari ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
+                            }
+
+                            {snack.porsi[item] == '0.50' &&
+                                <MyTexktur img={require('../../assets/p2.png')} label="Apabila MPASI yang dihabiskan sekitar ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
+                            }
+
+                            {snack.porsi[item] == '0.75' &&
+                                <MyTexktur img={require('../../assets/p3.png')} label="Apabila MPASI yang dihabiskan sekitar ¾ mangkok 250 ml atau sktr 13 - 15 sendok makan" />
+                            }
+
+                            {snack.porsi[item] == '1' &&
+                                <MyTexktur img={require('../../assets/p4.png')} label="Apabila MPASI yang dihabiskan 1 mangkok 250 ml atau sekitar 18-20 sendok makan" />
+                            }
+
+                            <MyGap jarak={10} />
+                            <MyPicker onValueChange={x => {
+
+                                let tmp = snack;
+                                tmp.jenis_makanan[item] = x
+                                setSnack({
+                                    ...snack,
+                                    jenis_makanan: tmp.jenis_makanan
+                                })
+
+                            }} label="Jenis Makanan" data={[
+                                { label: '', value: '' },
                                 { label: 'Home made', value: 'Home made' },
                                 { label: 'Komersial', value: 'Komersial' },
                                 { label: 'Home made + Komersial', value: 'Home made + Komersial' },
@@ -793,6 +1170,22 @@ export default function AsupanMpasi({ navigation, route }) {
                                 }}
 
                                 value={snack.bahan_makanan[item][0]} label="ASI" img={require('../../assets/m1.png')} />
+
+                            {snack.jenis_makanan[item] !== 'Home made' && snack.jenis_makanan[item] !== undefined &&
+
+                                <MyMakanan onPress={() => {
+                                    let tmp = snack.bahan_makanan;
+                                    tmp[item][8] = tmp[item][8] == 0 ? 1 : 0,
+                                        console.log(tmp)
+                                    setSnack({
+                                        ...snack,
+                                        bahan_makanan: tmp
+                                    })
+
+                                }} value={snack.bahan_makanan[item][8]} label="MPASI Komersial" img={require('../../assets/m9.png')} />
+
+                            }
+
                             <MyMakanan
                                 onPress={() => {
                                     let tmp = snack.bahan_makanan;
@@ -805,6 +1198,10 @@ export default function AsupanMpasi({ navigation, route }) {
 
                                 }}
                                 value={snack.bahan_makanan[item][1]} label="Bahan Makanan Pokok" img={require('../../assets/m2.png')} />
+
+
+
+
                             <MyMakanan onPress={() => {
                                 let tmp = snack.bahan_makanan;
                                 tmp[item][2] = tmp[item][2] == 0 ? 1 : 0,
@@ -850,7 +1247,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                 tmp[item][6] = tmp[item][6] == 0 ? 1 : 0,
                                     console.log(tmp)
                                 setSnack({
-                                    ...snacks,
+                                    ...snack,
                                     bahan_makanan: tmp
                                 })
 
@@ -1080,7 +1477,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     paddingHorizontal: 20,
                     paddingBottom: 20,
                 }}>
-                    <MyButton title="Kirim" />
+                    <MyButton title="Kirim" onPress={sendServer} />
                 </View>
             </ScrollView>
 
