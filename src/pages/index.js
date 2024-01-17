@@ -18,6 +18,7 @@ import AsupanAsi from './Menu/AsupanAsi';
 import StatusGizi from './Menu/StatusGizi';
 import StatusGiziHasil from './Menu/StatusGiziHasil';
 import AsupanAsiHasil from './Menu/AsupanAsiHasil';
+import AsupanMpasiHasil from './Menu/AsupanMpasiHasil';
 
 
 
@@ -41,6 +42,7 @@ export {
   AsupanAsi,
   AsupanAsiHasil,
   StatusGizi,
-  StatusGiziHasil
+  StatusGiziHasil,
+  AsupanMpasiHasil
 
 };

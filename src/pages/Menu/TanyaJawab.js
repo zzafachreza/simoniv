@@ -1,76 +1,165 @@
 import { ActivityIndicator, FlatList, Image, Linking, SafeAreaView, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MyDimensi, colors, fonts, windowHeight, windowWidth } from '../../utils'
 import { Icon } from 'react-native-elements';
 import YoutubePlayer from "react-native-youtube-iframe";
 import axios from 'axios';
-import { apiURL, getData } from '../../utils/localStorage';
+import { apiURL } from '../../utils/localStorage';
 import moment from 'moment';
-import { MyHeader, MyInput } from '../../components';
-export default function TanyaJawab({ navigation, route }) {
+import { MyHeader } from '../../components';
+export default function ({ navigation, route }) {
+    const item = route.params;
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(false);
 
-    const [user, setUser] = useState({});
-    const inputRef = useRef();
-
-    const sendServer = () => {
-        console.log({
-            fid_user: user.id,
-            pesan: key
-        });
-        setKey('');
+    const getDataTransaksi = () => {
+        setLoading(true);
+        axios.post(apiURL + 'pengguna').then(res => {
+            console.log(res.data);
+            setData(res.data);
+            setTMP(res.data);
+        }).finally(() => {
+            setLoading(false)
+        })
     }
 
     useEffect(() => {
-        getData('user').then(uu => {
-            setUser(uu)
-        })
-    }, [])
+        getDataTransaksi();
+    }, []);
+
+    const __renderItem = ({ item }) => {
+        return (
+            <TouchableWithoutFeedback onPress={() => {
+                Linking.openURL('https://wa.me/' + item.telepon)
+            }}>
+                <View style={{
+                    flex: 1,
+                    // margin: 5,
+                    marginHorizontal: 10,
+                    borderRadius: 5,
+                    backgroundColor: colors.primary,
+                    flexDirection: 'row'
+                }}>
+                    <Image
+                        source={{ uri: item.foto_user }}
+                        style={{
+                            // resizeMode: 'contain',
+                            height: 80,
+                            width: 80,
+                        }}
+                    />
+                    <View style={{
+                        flex: 1,
+                        width: '100%',
+                        padding: 10,
+
+                    }}>
+                        <Text style={{
+                            fontFamily: fonts.secondary[600],
+                            color: colors.white,
+                            fontSize: MyDimensi / 3
+                        }}>{item.nama_lengkap}</Text>
+                        <Text style={{
+                            fontFamily: fonts.secondary[400],
+                            color: colors.white,
+                            fontSize: MyDimensi / 3
+                        }}>{item.telepon}</Text>
+                        <Text style={{
+                            fontFamily: fonts.secondary[400],
+                            color: colors.white,
+                            fontSize: MyDimensi / 5
+                        }}>{item.posyandu}</Text>
+                    </View>
+                    <View style={{
+                        padding: 10,
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+
+                        <Icon type='ionicon' name='logo-whatsapp' size={MyDimensi / 2} color={colors.white} />
+                    </View>
+                </View>
+            </TouchableWithoutFeedback >
+        )
+    }
 
     const [key, setKey] = useState('');
+    const [TMP, setTMP] = useState({});
+
     return (
         <SafeAreaView style={{
             flex: 1,
-            backgroundColor: colors.border,
+            backgroundColor: colors.white
         }}>
+
             <MyHeader judul="Tanya Jawab" onPress={() => navigation.goBack()} />
-            <View style={{
-                flex: 1,
-            }}>
-
-            </View>
-            <View style={{
-                marginBottom: 10,
-                paddingHorizontal: 10,
-                flexDirection: 'row',
-                alignItems: 'center'
-            }}>
-                <TextInput ref={inputRef} value={key} onEndEditing={sendServer} onChangeText={x => {
-                    setKey(x)
-                }} laceholder='Pencarian . . .' style={{
-                    height: 50,
+            {!loading &&
+                <View style={{
                     flex: 1,
-                    backgroundColor: colors.white,
-                    borderRadius: 30,
-                    paddingLeft: 20,
-                    borderColor: colors.primary,
-                    fontFamily: fonts.secondary[600],
-                    fontSize: MyDimensi / 4
-                }} />
-
-                <TouchableWithoutFeedback onPress={sendServer}>
+                    paddingHorizontal: 0,
+                }}>
                     <View style={{
-                        justifyContent: 'center',
-                        marginLeft: 5,
-                        alignItems: 'center',
-                        backgroundColor: colors.primary,
-                        height: 50,
-                        width: 50,
-                        borderRadius: 25,
+                        position: 'relative'
                     }}>
-                        <Icon type='ionicon' name='send' color={colors.white} />
+                        {key.length > 0 &&
+
+                            <TouchableWithoutFeedback onPress={() => {
+                                setKey(''); setData(TMP);
+                            }}>
+                                <View style={{
+                                    position: 'absolute',
+                                    zIndex: 99,
+                                    top: 10,
+                                    right: 10,
+                                }}>
+                                    <Icon type='ionicon' name='close' color={colors.secondary} />
+                                </View>
+                            </TouchableWithoutFeedback>}
+                        <View style={{
+                            position: 'absolute',
+                            top: 10,
+                            left: 10,
+                        }}>
+                            <Icon type='ionicon' name='search' color={colors.primary} />
+                        </View>
+                        <TextInput value={key} onChangeText={x => {
+                            setKey(x);
+                            if (x.length > 0) {
+                                let TMPSrc = data.filter(i => i.nama_lengkap.toLowerCase().indexOf(x.toLowerCase()) > -1);
+                                if (TMPSrc.length > 0) {
+                                    setData(TMPSrc);
+                                }
+                            } else {
+                                setData(TMP);
+                            }
+                        }} placeholder='Pencarian . . .' style={{
+                            height: 45,
+                            borderWidth: 1,
+                            marginBottom: 10,
+                            borderRadius: 30,
+                            paddingLeft: 40,
+                            borderColor: colors.primary,
+                            fontFamily: fonts.secondary[600],
+                            fontSize: MyDimensi / 4
+                        }} />
                     </View>
-                </TouchableWithoutFeedback>
-            </View>
+                    <FlatList data={data} numColumns={2} showsVerticalScrollIndicator={false} renderItem={__renderItem} />
+
+                </View>
+            }
+            {loading &&
+                <View style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <ActivityIndicator size="large" color={colors.primary} />
+
+                </View>
+            }
+
+
+
         </SafeAreaView>
     )
 }

@@ -4,12 +4,12 @@ import { MyDimensi, colors, fonts, windowHeight, windowWidth } from '../../utils
 import { Icon } from 'react-native-elements';
 import YoutubePlayer from "react-native-youtube-iframe";
 import axios from 'axios';
-import { apiURL } from '../../utils/localStorage';
+import { MYAPP, apiURL } from '../../utils/localStorage';
 import moment from 'moment';
 import { showMessage } from 'react-native-flash-message';
 import { MyButton, MyCalendar, MyGap, MyHeader, MyInput, MyPicker, MyRadio } from '../../components';
 import { ScrollView } from 'react-native';
-
+import SweetAlert from 'react-native-sweet-alert';
 
 export default function AsupanMpasi({ navigation, route }) {
     const user = route.params;
@@ -170,7 +170,7 @@ export default function AsupanMpasi({ navigation, route }) {
     }
 
     const sendServer = () => {
-        // setLoading(true);
+        setLoading(true);
 
         let FREKUENSI = 0;
         let TEKSTUR = 0;
@@ -375,32 +375,38 @@ export default function AsupanMpasi({ navigation, route }) {
 
 
 
-            console.log({
-                // formulir: kirim,
-                // makanan: makan,
-                // snack: snack,
+
+
+            axios.post(apiURL + 'insert_mpasi', {
+                formulir: kirim,
+                makanan: makan,
+                snack: snack,
                 rumus: {
                     frekuensi: FREKUENSI,
                     tekstur: TEKSTUR,
                     porsi: PORSI,
                     bahan: BAHAN,
                     konsumsi: KONSUMSI,
-                    miniuman: MINUMAN,
+                    minuman: MINUMAN,
                     jajanan: JAJANAN,
                     sayur_buah: SAYUR_BUAH,
                     pemberian: PEMBERIAN,
                     kebersihan: KEBERSIHAN,
 
                 }
-            });
+            }).then(res => {
 
-            // axios.post(apiURL + 'insert_mpasi', {
-            //     formulir: kirim,
-            //     makanan: makan,
-            //     snack: snack
-            // }).then(res => {
-            //     console.log(res.data);
-            // })
+                if (res.data.status == 200) {
+                    SweetAlert.showAlertWithOptions({
+                        title: MYAPP,
+                        subTitle: res.data.message,
+                        style: 'success',
+                        cancellable: true
+                    })
+                }
+            }).finally(() => {
+                setLoading(false)
+            })
 
 
         } catch (error) {
@@ -1473,12 +1479,23 @@ export default function AsupanMpasi({ navigation, route }) {
 
                 </View>
 
-                <View style={{
+                {!loading && <View style={{
                     paddingHorizontal: 20,
                     paddingBottom: 20,
                 }}>
                     <MyButton title="Kirim" onPress={sendServer} />
-                </View>
+                </View>}
+
+
+                {!loading &&
+                    <View style={{
+                        paddingHorizontal: 20,
+                        paddingBottom: 20,
+                    }}>
+                        <MyButton title="Hasil" warna={colors.secondary} colorText={colors.black} iconColor={colors.black} Icons="search" onPress={() => navigation.navigate('AsupanMpasiHasil', user)} />
+                    </View>
+
+                }
             </ScrollView>
 
             {loading &&
