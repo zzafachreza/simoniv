@@ -130,10 +130,36 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[600],
                         color: colors.black,
-                        fontSize: MyDimensi / 3.5,
+                        fontSize: MyDimensi / 4.2,
                         marginBottom: 10,
                         marginHorizontal: 10,
                     }}>Periode {moment(kirim.awal).format('DD MMMM YYYY')} s/d {moment(kirim.akhir).format('DD MMMM YYYY')}</Text>
+
+                    <View style={{
+                        marginVertical: 5,
+                        flexDirection: 'row',
+                        borderBottomWidth: 1,
+                        borderBottomColor: colors.tertiary,
+                        padding: 10,
+                        backgroundColor: colors.tertiary,
+                    }}>
+                        <Text style={{
+                            fontFamily: fonts.secondary[600],
+                            fontSize: MyDimensi / 3,
+                            flex: 1,
+                        }}>Volume ASI Perah </Text>
+                        <Text style={{
+                            fontFamily: fonts.secondary[800],
+                            fontSize: MyDimensi,
+                            flex: 1,
+                            textAlign: 'center'
+                        }}>{data[0].volume} <Text style={{
+                            fontSize: MyDimensi / 5,
+                            fontFamily: fonts.secondary[800],
+                        }}>ml</Text></Text>
+
+                    </View>
+
                     <View style={{
                         marginVertical: 5,
                         flexDirection: 'row',
@@ -152,7 +178,10 @@ export default function AsupanAsiHasil({ navigation, route }) {
                             fontSize: MyDimensi,
                             flex: 1,
                             textAlign: 'center'
-                        }}>{data[0].frek}</Text>
+                        }}>{data[0].frek} <Text style={{
+                            fontSize: MyDimensi / 5,
+                            fontFamily: fonts.secondary[800],
+                        }}>kali per hari</Text></Text>
 
                     </View>
 

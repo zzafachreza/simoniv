@@ -23,6 +23,12 @@ import {
   StatusGiziHasil,
   AsupanAsiHasil,
   AsupanMpasiHasil,
+  Faq,
+  Game,
+  GameDetail,
+  AsupanAsiHasilSummary,
+  AsupanMpasiHasilSummary,
+  StatusGiziHasilSummary,
 
 } from '../pages';
 import { colors } from '../utils';
@@ -219,6 +225,56 @@ export default function Router() {
       <Stack.Screen
         name="AsupanMpasiHasil"
         component={AsupanMpasiHasil}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Faq"
+        component={Faq}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="Game"
+        component={Game}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="GameDetail"
+        component={GameDetail}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="AsupanAsiHasilSummary"
+        component={AsupanAsiHasilSummary}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="AsupanMpasiHasilSummary"
+        component={AsupanMpasiHasilSummary}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="StatusGiziHasilSummary"
+        component={StatusGiziHasilSummary}
         options={{
           headerShown: false,
         }}

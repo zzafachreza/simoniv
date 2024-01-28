@@ -338,16 +338,16 @@ export default function AsupanMpasi({ navigation, route }) {
 
             // #6 MINUMAN
             if (kirim.tambahan2 == 'Ya') {
-                MINUMAN = 1;
-            } else {
                 MINUMAN = 0;
+            } else {
+                MINUMAN = 1;
             }
 
             // #7 JAJAAN
             if (kirim.tambahan3 == 'Ya') {
-                JAJANAN = 1;
-            } else {
                 JAJANAN = 0;
+            } else {
+                JAJANAN = 1;
             }
 
             // #8 SAYUR_BUAH
@@ -358,7 +358,7 @@ export default function AsupanMpasi({ navigation, route }) {
             }
 
             // #9 PEMBERIAN
-            if (kirim.beri1 == 'Ya' && kirim.beri2 == 'Ya' && kirim.beri3 == 'Ya' && kirim.beri4 == 'Ya') {
+            if (kirim.beri1 == 'Ya' && kirim.beri2 == 'Tidak' && kirim.beri3 == 'Ya' && kirim.beri4 == 'Ya') {
                 PEMBERIAN = 1;
             } else {
                 PEMBERIAN = 0;
@@ -468,29 +468,29 @@ export default function AsupanMpasi({ navigation, route }) {
                             setKirim({
                                 ...kirim,
                                 diberi_asi: 'Ya',
-                                frek_makanan: 2,
-                                frek_snack: 1
+                                frek_makanan: 0,
+                                frek_snack: 0
                             });
-                            getJumlahMakanan(2);
-                            getJumlahSnack(1);
+                            getJumlahMakanan(0);
+                            getJumlahSnack(0);
                         } else if (BULAN >= 9 && BULAN <= 11) {
                             setKirim({
                                 ...kirim,
                                 diberi_asi: 'Ya',
-                                frek_makanan: 3,
-                                frek_snack: 1
+                                frek_makanan: 0,
+                                frek_snack: 0
                             });
-                            getJumlahMakanan(3);
-                            getJumlahSnack(1);
+                            getJumlahMakanan(0);
+                            getJumlahSnack(0);
                         } else if (BULAN >= 12) {
                             setKirim({
                                 ...kirim,
                                 diberi_asi: 'Ya',
-                                frek_makanan: 3,
-                                frek_snack: 1
+                                frek_makanan: 0,
+                                frek_snack: 0
                             });
-                            getJumlahMakanan(3);
-                            getJumlahSnack(1);
+                            getJumlahMakanan(0);
+                            getJumlahSnack(0);
                         } else {
                             showMessage({
                                 message: 'Umur anak masih dibawah 6 Bulan'
@@ -503,29 +503,29 @@ export default function AsupanMpasi({ navigation, route }) {
                                 setKirim({
                                     ...kirim,
                                     diberi_asi: 'Tidak',
-                                    frek_makanan: 3,
-                                    frek_snack: 1
+                                    frek_makanan: 0,
+                                    frek_snack: 0
                                 });
-                                getJumlahMakanan(3);
-                                getJumlahSnack(1);
+                                getJumlahMakanan(0);
+                                getJumlahSnack(0);
                             } else if (BULAN >= 9 && BULAN <= 11) {
                                 setKirim({
                                     ...kirim,
                                     diberi_asi: 'Tidak',
-                                    frek_makanan: 4,
-                                    frek_snack: 1
+                                    frek_makanan: 0,
+                                    frek_snack: 0
                                 });
-                                getJumlahMakanan(4);
-                                getJumlahSnack(1);
+                                getJumlahMakanan(0);
+                                getJumlahSnack(0);
                             } else if (BULAN >= 12) {
                                 setKirim({
                                     ...kirim,
                                     diberi_asi: 'Tidak',
-                                    frek_makanan: 4,
-                                    frek_snack: 1
+                                    frek_makanan: 0,
+                                    frek_snack: 0
                                 });
-                                getJumlahMakanan(4);
-                                getJumlahSnack(1);
+                                getJumlahMakanan(0);
+                                getJumlahSnack(0);
                             } else {
                                 showMessage({
                                     message: 'Umur anak masih dibawah 6 Bulan'
@@ -533,7 +533,7 @@ export default function AsupanMpasi({ navigation, route }) {
                             }
                         }}
 
-                        iconname="options" value={kirim.diberi_asi} label="Apakah Anak Diberi ASI" />
+                        iconname="options" value={kirim.diberi_asi} label="Apakah anak diberi ASI ?" />
                     <MyGap jarak={10} />
 
 
@@ -605,7 +605,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                 left: 10,
                                 fontSize: MyDimensi / 4,
                             }}>
-                            Freq. Pemberian (Makanan Utama)
+                            Frekuensi pemberian makan utama
                         </Text>
                     </View>
                     <View style={{
@@ -695,7 +695,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                 left: 10,
                                 fontSize: MyDimensi / 4,
                             }}>
-                            Freq. Pemberian (Selingan / Snack)
+                            Frekuensi pemberian selingan
                         </Text>
                     </View>
                     <View style={{
@@ -884,9 +884,9 @@ export default function AsupanMpasi({ navigation, route }) {
 
                             }} label="Jenis Makanan" data={[
                                 { label: '', value: '' },
-                                { label: 'Home made', value: 'Home made' },
-                                { label: 'Komersial', value: 'Komersial' },
-                                { label: 'Home made + Komersial', value: 'Home made + Komersial' },
+                                { label: 'MPASI Rumahan', value: 'MPASI Rumahan' },
+                                { label: 'MPASI Instant', value: 'MPASI Instant' },
+                                { label: 'MPASI Rumahan + MPASI Instant', value: 'MPASI Rumahan + MPASI Instant' },
 
                             ]} />
                             <MyGap jarak={10} />
@@ -916,7 +916,7 @@ export default function AsupanMpasi({ navigation, route }) {
 
                                 value={makan.bahan_makanan[item][0]} label="ASI" img={require('../../assets/m1.png')} />
 
-                            {makan.jenis_makanan[item] !== 'Home made' && makan.jenis_makanan[item] !== undefined &&
+                            {makan.jenis_makanan[item] !== 'MPASI Rumahan' && makan.jenis_makanan[item] !== undefined &&
 
                                 <MyMakanan onPress={() => {
                                     let tmp = makan.bahan_makanan;
@@ -927,7 +927,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                         bahan_makanan: tmp
                                     })
 
-                                }} value={makan.bahan_makanan[item][8]} label="MPASI Komersial" img={require('../../assets/m9.png')} />
+                                }} value={makan.bahan_makanan[item][8]} label="MPASI Instant" img={require('../../assets/m9.png')} />
 
                             }
 
@@ -1069,6 +1069,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                 { label: 'Bubur Encer', value: 'Bubur Encer' },
                                 { label: 'Bubur Kental', value: 'Bubur Kental' },
                                 { label: 'Tim', value: 'Tim' },
+                                { label: 'Finger food', value: 'Finger food' },
                                 { label: 'Makanan Keluarga', value: 'Makanan Keluarga' },
 
                             ]} />
@@ -1092,6 +1093,10 @@ export default function AsupanMpasi({ navigation, route }) {
 
                             {snack.tekstur[item] == 'Makanan Keluarga' &&
                                 <MyTexktur img={require('../../assets/t5.png')} label="Makanan padat dengan tekstur seperti makanan keluarga pada umumnya contohnya nasi, lauk pauk, sayur" />
+                            }
+
+                            {snack.tekstur[item] == 'Finger food' &&
+                                <MyTexktur img={require('../../assets/t6.png')} label="Makanan yang dapat digenggam" />
                             }
 
                             <MyGap jarak={10} />
@@ -1145,9 +1150,9 @@ export default function AsupanMpasi({ navigation, route }) {
 
                             }} label="Jenis Makanan" data={[
                                 { label: '', value: '' },
-                                { label: 'Home made', value: 'Home made' },
-                                { label: 'Komersial', value: 'Komersial' },
-                                { label: 'Home made + Komersial', value: 'Home made + Komersial' },
+                                { label: 'MPASI Rumahan', value: 'MPASI Rumahan' },
+                                { label: 'MPASI Instant', value: 'MPASI Instant' },
+                                { label: 'MPASI Rumahan + MPASI Instant', value: 'MPASI Rumahan + MPASI Instant' },
 
                             ]} />
                             <MyGap jarak={10} />
@@ -1177,7 +1182,7 @@ export default function AsupanMpasi({ navigation, route }) {
 
                                 value={snack.bahan_makanan[item][0]} label="ASI" img={require('../../assets/m1.png')} />
 
-                            {snack.jenis_makanan[item] !== 'Home made' && snack.jenis_makanan[item] !== undefined &&
+                            {snack.jenis_makanan[item] !== 'MPASI Rumahan' && snack.jenis_makanan[item] !== undefined &&
 
                                 <MyMakanan onPress={() => {
                                     let tmp = snack.bahan_makanan;
@@ -1188,7 +1193,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                         bahan_makanan: tmp
                                     })
 
-                                }} value={snack.bahan_makanan[item][8]} label="MPASI Komersial" img={require('../../assets/m9.png')} />
+                                }} value={snack.bahan_makanan[item][8]} label="MPASI Instant" img={require('../../assets/m9.png')} />
 
                             }
 

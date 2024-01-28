@@ -82,13 +82,12 @@ export default function AsupanAsi({ navigation, route }) {
                         ...kirim,
                         volume: x
                     })
-                }} label2="(Jika Ibu melakukan perah asi)" value={kirim.volume} keyboardType='number-pad' label="Volume Perah Satuan ml" />
+                }} label2="(Jika Ibu melakukan perah asi)" value={kirim.volume} keyboardType='number-pad' label="*Volume Perah Satuan ml  Volume ASI Perah (ml)" />
                 <MyGap jarak={10} />
                 <MyPicker iconname="time-outline" data={[
-                    { label: 'Pagi', value: 'Pagi' },
-                    { label: 'Siang', value: 'Siang' },
-                    { label: 'Sore', value: 'Sore' },
-                    { label: 'Malam', value: 'Malam' },
+                    { label: 'Pagi (Jam 00.00 – 06.00)', value: 'Pagi' },
+                    { label: 'Siang (Jam 06.00 - 18.00)', value: 'Siang' },
+                    { label: 'Malam (Jam 18.00 – 24.00)', value: 'Malam' },
                 ]} label="Waktu Pemberian" value={kirim.waktu_pemberian} onValueChange={x => {
                     setKirim({
                         ...kirim,
@@ -187,7 +186,7 @@ export default function AsupanAsi({ navigation, route }) {
                 </View>
                 <MyGap jarak={10} />
 
-                <MyInput label="Rata-rata Durasi10 Menysui ( Menit )" keyboardType="number-pad" onChangeText={x => {
+                <MyInput label="Rata-rata Durasi Menysui ( Menit )" keyboardType="number-pad" onChangeText={x => {
                     setKirim({
                         ...kirim,
                         durasi_menyusui: x

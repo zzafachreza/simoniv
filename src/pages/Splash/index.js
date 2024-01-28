@@ -46,7 +46,7 @@ export default function Splash({ navigation }) {
     <SafeAreaView style={{
       flex: 1,
       padding: 0,
-      backgroundColor: colors.primary,
+      backgroundColor: colors.white,
       justifyContent: 'center',
       position: 'relative'
 
@@ -64,7 +64,7 @@ export default function Splash({ navigation }) {
         alignItems: 'center'
       }}>
         <Animated.Image
-          source={require('../../assets/icon.png')}
+          source={require('../../assets/logo.png')}
           resizeMode="contain"
           style={{
             width: img,
@@ -74,7 +74,7 @@ export default function Splash({ navigation }) {
         <Animated.Text style={{
           fontFamily: fonts.secondary[800],
           fontSize: 22,
-          color: colors.white,
+          color: colors.primary,
           marginTop: 10,
           marginBottom: text,
           textAlign: 'center',

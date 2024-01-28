@@ -48,50 +48,61 @@ export default function StatusGiziHasil({ navigation, route }) {
             fid_user: route.params.id
         }).then(res => {
             console.log(res.data);
-            let bl = [];
-            let bv = [];
-            let tl = [];
-            let tv = [];
-            let bbttl = [];
-            let bbttv = [];
-            let imtl = [];
-            let imtv = [];
-            res.data.map(i => {
-                bl.push(moment(i.tanggal).format('MMM-YY'));
-                bv.push(parseFloat(i.berat_skor));
+            if (res.data.length > 0) {
+                let bl = [];
+                let bv = [];
+                let tl = [];
+                let tv = [];
+                let bbttl = [];
+                let bbttv = [];
+                let imtl = [];
+                let imtv = [];
+                res.data.map(i => {
+                    bl.push(moment(i.tanggal).format('MMM-YY'));
+                    bv.push(parseFloat(i.berat_skor));
 
 
-                tl.push(moment(i.tanggal).format('MMM-YY'));
-                tv.push(parseFloat(i.tinggi_skor))
+                    tl.push(moment(i.tanggal).format('MMM-YY'));
+                    tv.push(parseFloat(i.tinggi_skor))
 
-                bbttl.push(moment(i.tanggal).format('MMM-YY'));
-                bbttv.push(parseFloat(i.bbtt_skor))
+                    bbttl.push(moment(i.tanggal).format('MMM-YY'));
+                    bbttv.push(parseFloat(i.bbtt_skor))
 
-                imtl.push(moment(i.tanggal).format('MMM-YY'));
-                imtv.push(parseFloat(i.imt_skor))
-            })
+                    imtl.push(moment(i.tanggal).format('MMM-YY'));
+                    imtv.push(parseFloat(i.imt_skor))
+                })
 
 
-            setBerat({
-                label: bl,
-                value: bv
-            });
-            setTinggi({
-                label: tl,
-                value: tv
-            });
+                setBerat({
+                    label: bl,
+                    value: bv
+                });
+                setTinggi({
+                    label: tl,
+                    value: tv
+                });
 
-            setBBtt({
-                label: bbttl,
-                value: bbttv
-            });
+                setBBtt({
+                    label: bbttl,
+                    value: bbttv
+                });
 
-            setImt({
-                label: imtl,
-                value: imtv
-            });
-            setData(res.data);
-            setLoading(false)
+                setImt({
+                    label: imtl,
+                    value: imtv
+                });
+                setData(res.data);
+                setLoading(false)
+            } else {
+                SweetAlert.showAlertWithOptions({
+                    title: MYAPP,
+                    subTitle: 'Hasil Status Gizi Tidak Ada !',
+                    style: 'error',
+                    cancellable: true
+                },
+                    callback => navigation.goBack());
+            }
+
         })
     }, []);
 

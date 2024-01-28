@@ -36,6 +36,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
         porsi: ''
     });
 
+    const [level, setLevel] = useState('');
 
 
     const MyHasil = ({ label, value, oke, no, rek }) => {
@@ -57,7 +58,43 @@ export default function AsupanAsiHasil({ navigation, route }) {
                         fontFamily: fonts.secondary[400],
                         fontSize: MyDimensi / 5,
                         color: colors.white
-                    }}>Rekomendasi {rek}</Text>
+                    }}>Rekomendasi : {rek}</Text>
+
+                    {level !== 'IBU' && <>
+                        <TouchableOpacity onPress={() => {
+                            axios.post(apiURL + 'insert_pesan', {
+                                fid_user: user.id,
+                                label: label,
+                                rekomendasi: rek
+                            }).then(res => {
+                                console.log(res.data);
+                                if (res.data.status == 200) {
+
+                                    SweetAlert.showAlertWithOptions({
+                                        title: MYAPP,
+                                        subTitle: res.data.message,
+                                        style: 'success',
+                                        cancellable: true
+                                    });
+                                }
+                            })
+                        }} style={{
+                            backgroundColor: colors.white,
+                            padding: 10,
+                            borderRadius: 10,
+                            marginTop: 10,
+                            flexDirection: 'row',
+                            alignItems: 'center'
+                        }}>
+                            <Text style={{
+                                flex: 1,
+                                color: colors.primary,
+                                fontFamily: fonts.secondary[800],
+                                fontSize: MyDimensi / 4,
+                            }}>Kirim Rekomedasi</Text>
+                            <Icon type='ionicon' name='notifications-outline' size={MyDimensi / 3} color={colors.primary} />
+                        </TouchableOpacity>
+                    </>}
                 </View>
 
                 <View style={{ flex: 0.5, }}>
@@ -67,6 +104,10 @@ export default function AsupanAsiHasil({ navigation, route }) {
         )
     }
     useEffect(() => {
+
+        getData('user').then(uu => {
+            setLevel(uu.level)
+        })
         // #3 PORSI
         if (BULAN >= 6 && BULAN <= 8) {
 
@@ -146,6 +187,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
     ]
 
     const __getTransaction = () => {
+        setLoading(true);
         axios.post(apiURL + 'get_asupan_mpasi', {
             fid_user: route.params.id,
             awal: kirim.awal,
@@ -237,7 +279,9 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     total: allTotal,
                     oke: allOke,
                     no: allNo
-                })
+                });
+
+                setLoading(false)
 
 
 
@@ -317,7 +361,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                 }}>
 
 
-                    {(kirim.awal == moment().format('YYYY-MM-DD') && kirim.akhir == moment().format('YYYY-MM-DD')) &&
+                    {data.length == 1 &&
 
                         <ScrollView style={{
                             padding: 20,
@@ -342,7 +386,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     }
 
 
-                    {(kirim.awal !== moment().format('YYYY-MM-DD') || kirim.akhir !== moment().format('YYYY-MM-DD')) && data.length > 1 &&
+                    {data.length > 1 &&
                         <ScrollView style={{
                             padding: 20,
                         }}>

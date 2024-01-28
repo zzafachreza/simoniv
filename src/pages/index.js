@@ -19,6 +19,12 @@ import StatusGizi from './Menu/StatusGizi';
 import StatusGiziHasil from './Menu/StatusGiziHasil';
 import AsupanAsiHasil from './Menu/AsupanAsiHasil';
 import AsupanMpasiHasil from './Menu/AsupanMpasiHasil';
+import Faq from './Menu/Faq';
+import Game from './Menu/Game';
+import GameDetail from './Menu/GameDetail';
+import AsupanAsiHasilSummary from './Menu/AsupanAsiHasilSummary';
+import AsupanMpasiHasilSummary from './Menu/AsupanMpasiHasilSummary';
+import StatusGiziHasilSummary from './Menu/StatusGiziHasilSummary';
 
 
 
@@ -43,6 +49,12 @@ export {
   AsupanAsiHasil,
   StatusGizi,
   StatusGiziHasil,
-  AsupanMpasiHasil
+  AsupanMpasiHasil,
+  Faq,
+  Game,
+  GameDetail,
+  AsupanAsiHasilSummary,
+  AsupanMpasiHasilSummary,
+  StatusGiziHasilSummary,
 
 };

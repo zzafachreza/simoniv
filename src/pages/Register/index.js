@@ -327,7 +327,7 @@ export default function Register({ navigation }) {
                         }} label="Jenis Pengguna" iconname="options" value={data.level} data={[
                             { label: 'IBU', value: 'IBU' },
                             { label: 'KADER', value: 'KADER' },
-                            { label: 'NUTRISIONIS', value: 'NUTRISIONIS' },
+                            { label: 'TENAGA KESEHATAN', value: 'TENAGA KESEHATAN' },
                         ]} />
 
 

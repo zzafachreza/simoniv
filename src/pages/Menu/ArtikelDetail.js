@@ -51,17 +51,15 @@ export default function ArtikelDetail({ navigation, route }) {
                 <View style={{
                     padding: 10
                 }}>
-                    <Text style={{
-                        fontFamily: fonts.secondary[400],
-                        color: colors.primary,
-                        fontSize: MyDimensi / 4
-                    }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
-                    <RenderHtml
-                        contentWidth={windowWidth}
-                        source={{
-                            html: item.keterangan
-                        }}
-                    />
+
+                    <Image source={{
+                        uri: item.keterangan
+                    }} style={{
+                        // flex: 1,
+                        width: '100%',
+                        height: windowHeight,
+                        resizeMode: 'stretch'
+                    }} />
                 </View>
 
             </ScrollView>

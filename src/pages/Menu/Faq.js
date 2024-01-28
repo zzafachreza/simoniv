@@ -7,14 +7,14 @@ import axios from 'axios';
 import { apiURL } from '../../utils/localStorage';
 import moment from 'moment';
 import { MyHeader } from '../../components';
-export default function ({ navigation, route }) {
+export default function Faq({ navigation, route }) {
     const item = route.params;
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);
 
     const getDataTransaksi = () => {
         setLoading(true);
-        axios.post(apiURL + 'pengguna').then(res => {
+        axios.post(apiURL + 'faq').then(res => {
             console.log(res.data);
             setData(res.data);
             setTMP(res.data);
@@ -27,63 +27,36 @@ export default function ({ navigation, route }) {
         getDataTransaksi();
     }, []);
 
-    const __renderItem = ({ item }) => {
+    const __renderItem = ({ item, index }) => {
         return (
-            <TouchableWithoutFeedback onPress={() => {
-                Linking.openURL('https://wa.me/' + item.telepon)
+            <View style={{
+                margin: 10,
+                borderWidth: 1,
+                padding: 10,
+                borderColor: colors.primary,
+                borderRadius: 10,
             }}>
-                <View style={{
-                    flex: 1,
-                    // margin: 5,
-                    marginVertical: 10,
-                    borderWidth: 1,
-                    overflow: 'hidden',
-                    borderColor: colors.border,
-                    marginHorizontal: 10,
-                    borderRadius: 5,
-                    backgroundColor: colors.primary,
-                    flexDirection: 'row'
+                <TouchableWithoutFeedback onPress={() => {
+
                 }}>
-                    <Image
-                        source={{ uri: item.foto_user }}
-                        style={{
-                            // resizeMode: 'contain',
-                            height: 80,
-                            width: 80,
-                        }}
-                    />
                     <View style={{
-                        flex: 1,
-                        width: '100%',
-                        padding: 10,
 
                     }}>
                         <Text style={{
-                            fontFamily: fonts.secondary[600],
-                            color: colors.white,
-                            fontSize: MyDimensi / 3
-                        }}>{item.nama_lengkap}</Text>
-                        <Text style={{
-                            fontFamily: fonts.secondary[400],
-                            color: colors.white,
-                            fontSize: MyDimensi / 3
-                        }}>{item.telepon}</Text>
-                        <Text style={{
-                            fontFamily: fonts.secondary[400],
-                            color: colors.white,
-                            fontSize: MyDimensi / 5
-                        }}>{item.posyandu}</Text>
+                            fontFamily: fonts.secondary[800],
+                            fontSize: MyDimensi / 3.5
+                        }}>{item.tanya}</Text>
                     </View>
-                    <View style={{
-                        padding: 10,
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-
-                        <Icon type='ionicon' name='logo-whatsapp' size={MyDimensi / 2} color={colors.white} />
-                    </View>
+                </TouchableWithoutFeedback>
+                <View style={{
+                    marginTop: 10,
+                }}>
+                    <Text style={{
+                        fontFamily: fonts.secondary[600],
+                        fontSize: MyDimensi / 3.5
+                    }}>{item.jawab}</Text>
                 </View>
-            </TouchableWithoutFeedback >
+            </View>
         )
     }
 
@@ -96,11 +69,11 @@ export default function ({ navigation, route }) {
             backgroundColor: colors.white
         }}>
 
-            <MyHeader judul="Tanya Jawab" onPress={() => navigation.goBack()} />
+            <MyHeader judul="FAQ" onPress={() => navigation.goBack()} />
             {!loading &&
                 <View style={{
                     flex: 1,
-                    paddingHorizontal: 0,
+                    paddingHorizontal: 20,
                 }}>
                     <View style={{
                         position: 'relative'
@@ -129,7 +102,7 @@ export default function ({ navigation, route }) {
                         <TextInput value={key} onChangeText={x => {
                             setKey(x);
                             if (x.length > 0) {
-                                let TMPSrc = data.filter(i => i.nama_lengkap.toLowerCase().indexOf(x.toLowerCase()) > -1);
+                                let TMPSrc = data.filter(i => i.tanya.toLowerCase().indexOf(x.toLowerCase()) > -1);
                                 if (TMPSrc.length > 0) {
                                     setData(TMPSrc);
                                 }

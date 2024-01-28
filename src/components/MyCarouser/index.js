@@ -78,6 +78,7 @@ export default function MyCarouser() {
     }}>
       <Carousel
         loop={true}
+        autoplay
         // layout="stack"
         layoutCardOffset={18}
         data={data}

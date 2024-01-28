@@ -10,7 +10,7 @@ import {
     ActivityIndicator,
 } from 'react-native';
 import { windowWidth, fonts, MyDimensi } from '../../utils/fonts';
-import { getData, MYAPP, storeData, urlAPI, urlApp, urlAvatar } from '../../utils/localStorage';
+import { apiURL, getData, MYAPP, storeData, urlAPI, urlApp, urlAvatar } from '../../utils/localStorage';
 import { colors } from '../../utils/colors';
 import { MyButton, MyGap, MyHeader } from '../../components';
 import { Icon } from 'react-native-elements';
@@ -27,6 +27,7 @@ export default function ({ navigation, route }) {
     const isFocused = useIsFocused();
     const [wa, setWA] = useState('');
     const [open, setOpen] = useState(false);
+    const [pont, setPoint] = useState({});
 
 
 
@@ -35,9 +36,17 @@ export default function ({ navigation, route }) {
 
         if (isFocused) {
             getData('user').then(res => {
-                console.log(res)
-                setOpen(true);
+                console.log(res);
+
                 setUser(res);
+                axios.post(apiURL + 'poin', {
+                    fid_user: res.id
+                }).then(res => {
+                    console.log(res.data.data);
+                    setPoint(res.data.data)
+                    setOpen(true);
+                })
+
 
             });
         }
@@ -165,6 +174,37 @@ export default function ({ navigation, route }) {
                                         <MyList label="Nama Anak" value={user.nama_anak} />
                                         <MyList label="Tanggal Lahir Anak" value={moment(user.tanggal_lahir).format('DD MMMM YYYY')} />
                                         <MyList label="Jenis Kelamin" value={user.jenis_kelamin} />
+
+
+                                        <View style={{
+                                            marginTop: 10,
+                                            padding: 10,
+                                            borderWidth: 1,
+                                            borderColor: colors.border,
+                                            borderRadius: 10,
+                                        }}>
+                                            <Text style={{
+                                                fontFamily: fonts.secondary[600],
+                                                fontSize: MyDimensi / 3
+                                            }}>Poin Game Kuis</Text>
+                                            <View style={{
+                                                flexDirection: 'row',
+                                                marginTop: 10,
+                                                justifyContent: 'space-around'
+                                            }}>
+                                                <MyList label="STAGE 1" value={pont.stage1} />
+                                                <MyList label="STAGE 2" value={pont.stage2} />
+                                                <MyList label="STAGE 3" value={pont.stage3} />
+                                                <MyList label="STAGE 4" value={pont.stage4} />
+                                                <MyList label="STAGE 5" value={pont.stage5} />
+                                            </View>
+                                            <Text style={{
+                                                fontFamily: fonts.secondary[800],
+                                                fontSize: MyDimensi / 2,
+                                                color: colors.black,
+                                                marginTop: 10,
+                                            }}>Total : {parseFloat(parseFloat(pont.stage1) + parseFloat(pont.stage2) + parseFloat(pont.stage3) + parseFloat(pont.stage4) + parseFloat(pont.stage5))} Poin</Text>
+                                        </View>
                                     </>
                                 }
 

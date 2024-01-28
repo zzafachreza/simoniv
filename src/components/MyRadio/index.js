@@ -30,11 +30,12 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 marginVertical: 10,
-                paddingRight: windowWidth / 2,
+                width: '90%',
+                paddingLeft: 10,
             }}>
                 <TouchableWithoutFeedback onPress={onPress}>
                     <View style={{
-
+                        flex: 1,
                         flexDirection: 'row',
                         alignItems: 'center'
                     }}>
@@ -65,6 +66,7 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
 
                 <TouchableWithoutFeedback onPress={onPress2}>
                     <View style={{
+                        flex: 1,
                         flexDirection: 'row',
                         alignItems: 'center'
                     }}>
