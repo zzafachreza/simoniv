@@ -106,10 +106,17 @@ export default function AsupanAsi({ navigation, route }) {
                             if (pilih[0]) {
                                 setPilih({ ...pilih, [0]: false });
                                 let tmp = kirim.waktu_pemberian;
-                                tmp.splice(0)
+                                let tmp2 = kirim.frek_menyusui;
+                                let tmp3 = kirim.durasi_menyusui;
+
+                                tmp.splice(0);
+                                tmp2.splice(0);
+                                tmp3.splice(0);
                                 setKirim({
                                     ...kirim,
-                                    waktu_pemberian: tmp
+                                    waktu_pemberian: tmp,
+                                    frek_menyusui: tmp2,
+                                    durasi_menyusui: tmp3
                                 })
                             } else {
                                 setPilih({ ...pilih, [0]: true });
@@ -145,10 +152,17 @@ export default function AsupanAsi({ navigation, route }) {
                             if (pilih[1]) {
                                 setPilih({ ...pilih, [1]: false })
                                 let tmp = kirim.waktu_pemberian;
-                                tmp.splice(1)
+                                let tmp2 = kirim.frek_menyusui;
+                                let tmp3 = kirim.durasi_menyusui;
+
+                                tmp.splice(1);
+                                tmp2.splice(1);
+                                tmp3.splice(1);
                                 setKirim({
                                     ...kirim,
-                                    waktu_pemberian: tmp
+                                    waktu_pemberian: tmp,
+                                    frek_menyusui: tmp2,
+                                    durasi_menyusui: tmp3
                                 })
                             } else {
                                 setPilih({ ...pilih, [1]: true })
@@ -184,10 +198,17 @@ export default function AsupanAsi({ navigation, route }) {
                             if (pilih[2]) {
                                 setPilih({ ...pilih, [2]: false });
                                 let tmp = kirim.waktu_pemberian;
-                                tmp.splice(2)
+                                let tmp2 = kirim.frek_menyusui;
+                                let tmp3 = kirim.durasi_menyusui;
+
+                                tmp.splice(2);
+                                tmp2.splice(2);
+                                tmp3.splice(2);
                                 setKirim({
                                     ...kirim,
-                                    waktu_pemberian: tmp
+                                    waktu_pemberian: tmp,
+                                    frek_menyusui: tmp2,
+                                    durasi_menyusui: tmp3
                                 })
                             } else {
                                 setPilih({ ...pilih, [2]: true });
