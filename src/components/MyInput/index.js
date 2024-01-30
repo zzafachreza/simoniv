@@ -8,6 +8,7 @@ import { TextInput } from 'react-native-gesture-handler';
 export default function MyInput({
   onFocus,
   label,
+  onEndEditing,
   nolabel = false,
   borderColor = colors.primary,
   backgroundColor = colors.white,
@@ -70,6 +71,7 @@ export default function MyInput({
         position: 'relative'
       }}>
         <TextInput
+          onEndEditing={onEndEditing}
           editable={editable}
           placeholderTextColor={colors.placeholder}
           maxLength={maxLength}
