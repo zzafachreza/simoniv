@@ -211,7 +211,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     </View>
 
 
-                    <View style={{
+                    {/* <View style={{
                         flex: 1,
                         padding: 10,
                         justifyContent: 'center',
@@ -262,7 +262,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                             // center={[10, 50]}
                             absolute
                         />
-                    </View>
+                    </View> */}
                 </View>
             </View>}
 

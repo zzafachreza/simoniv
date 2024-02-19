@@ -14,7 +14,7 @@ export default function ({ navigation, route }) {
 
     const getDataTransaksi = () => {
         setLoading(true);
-        axios.post(apiURL + 'pengguna').then(res => {
+        axios.post(apiURL + 'konsultan').then(res => {
             console.log(res.data);
             setData(res.data);
             setTMP(res.data);
@@ -34,22 +34,20 @@ export default function ({ navigation, route }) {
             }}>
                 <View style={{
                     flex: 1,
-                    // margin: 5,
-                    marginVertical: 10,
+                    margin: 5,
                     borderWidth: 1,
                     overflow: 'hidden',
                     borderColor: colors.border,
-                    marginHorizontal: 10,
+
                     borderRadius: 5,
                     backgroundColor: colors.primary,
-                    flexDirection: 'row'
                 }}>
                     <Image
-                        source={{ uri: item.foto_user }}
+                        source={{ uri: item.image }}
                         style={{
                             // resizeMode: 'contain',
-                            height: 80,
-                            width: 80,
+                            height: 200,
+                            width: '100%',
                         }}
                     />
                     <View style={{
@@ -59,20 +57,23 @@ export default function ({ navigation, route }) {
 
                     }}>
                         <Text style={{
-                            fontFamily: fonts.secondary[600],
+                            fontFamily: fonts.secondary[400],
                             color: colors.white,
-                            fontSize: MyDimensi / 3
+                            fontSize: MyDimensi / 4,
+                            marginBottom: 10,
+                        }}>{item.keahlian}</Text>
+                        <Text style={{
+                            fontFamily: fonts.secondary[800],
+                            color: colors.white,
+                            fontSize: MyDimensi / 3,
+                            marginBottom: 10,
                         }}>{item.nama_lengkap}</Text>
                         <Text style={{
                             fontFamily: fonts.secondary[400],
                             color: colors.white,
-                            fontSize: MyDimensi / 3
+                            fontSize: MyDimensi / 6
                         }}>{item.telepon}</Text>
-                        <Text style={{
-                            fontFamily: fonts.secondary[400],
-                            color: colors.white,
-                            fontSize: MyDimensi / 5
-                        }}>{item.posyandu}</Text>
+
                     </View>
                     <View style={{
                         padding: 10,
@@ -147,7 +148,7 @@ export default function ({ navigation, route }) {
                             fontSize: MyDimensi / 4
                         }} />
                     </View>
-                    <FlatList data={data} numColumns={1} showsVerticalScrollIndicator={false} renderItem={__renderItem} />
+                    <FlatList data={data} numColumns={2} showsVerticalScrollIndicator={false} renderItem={__renderItem} />
 
                 </View>
             }

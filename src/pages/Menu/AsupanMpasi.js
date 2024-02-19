@@ -458,7 +458,12 @@ export default function AsupanMpasi({ navigation, route }) {
                     }}>Frekuensi Pemberian Makanan</Text>
 
 
-                    <MyCalendar label="Tanggal Pemberian" iconname="calendar-outline" value={kirim.tanggal} />
+                    <MyCalendar label="Tanggal Pemberian" onDateChange={x => {
+                        setKirim({
+                            ...kirim,
+                            tanggal: x
+                        })
+                    }} iconname="calendar-outline" value={kirim.tanggal} />
                     <MyGap jarak={10} />
 
 
@@ -885,8 +890,8 @@ export default function AsupanMpasi({ navigation, route }) {
                             }} label="Jenis Makanan" data={[
                                 { label: '', value: '' },
                                 { label: 'MPASI Rumahan', value: 'MPASI Rumahan' },
-                                { label: 'MPASI Instant', value: 'MPASI Instant' },
-                                { label: 'MPASI Rumahan + MPASI Instant', value: 'MPASI Rumahan + MPASI Instant' },
+                                { label: 'MPASI Instan', value: 'MPASI Instan' },
+                                { label: 'MPASI Rumahan + MPASI Instan', value: 'MPASI Rumahan + MPASI Instan' },
 
                             ]} />
                             <MyGap jarak={10} />
@@ -927,7 +932,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                         bahan_makanan: tmp
                                     })
 
-                                }} value={makan.bahan_makanan[item][8]} label="MPASI Instant" img={require('../../assets/m9.png')} />
+                                }} value={makan.bahan_makanan[item][8]} label="MPASI Instan" img={require('../../assets/m9.png')} />
 
                             }
 
@@ -1009,32 +1014,37 @@ export default function AsupanMpasi({ navigation, route }) {
                     )
                 })}
 
-                <View style={{
-                    padding: 10,
-                    borderWidth: 1,
-                    margin: 20,
-                    borderRadius: 10,
-                    borderColor: colors.border
-                }}>
-                    <Text style={{
-                        fontFamily: fonts.secondary[400],
-                        fontSize: MyDimensi / 5,
-                        color: colors.primary,
-                    }}>* inputan khusus untuk memilih jenis makanan komersial</Text>
-                    <MyInput label="Merek Makanan Komersial" onChangeText={x => {
-                        setKirim({
-                            ...kirim,
-                            merek_komersial: x
-                        })
-                    }} />
-                    <MyGap jarak={10} />
-                    <MyInput label="Rasa/varian Makanan Komersial" onChangeText={x => {
-                        setKirim({
-                            ...kirim,
-                            rasa_komersial: x
-                        })
-                    }} />
-                </View>
+
+
+                {makan.jenis_makanan[0] !== 'MPASI Rumahan' && makan.jenis_makanan[0] !== undefined &&
+                    <View style={{
+                        padding: 10,
+                        borderWidth: 1,
+                        margin: 20,
+                        borderRadius: 10,
+                        borderColor: colors.border
+                    }}>
+                        <Text style={{
+                            fontFamily: fonts.secondary[400],
+                            fontSize: MyDimensi / 5,
+                            color: colors.primary,
+                        }}>* inputan khusus untuk memilih jenis makanan komersial</Text>
+                        <MyInput label="Merek MPASI Instan" onChangeText={x => {
+                            setKirim({
+                                ...kirim,
+                                merek_komersial: x
+                            })
+                        }} />
+                        <MyGap jarak={10} />
+                        <MyInput label="Rasa/varian MPASI Instan" onChangeText={x => {
+                            setKirim({
+                                ...kirim,
+                                rasa_komersial: x
+                            })
+                        }} />
+                    </View>
+
+                }
                 {/* maknan utama */}
 
                 {arrSnack.map((item, index) => {
@@ -1151,8 +1161,8 @@ export default function AsupanMpasi({ navigation, route }) {
                             }} label="Jenis Makanan" data={[
                                 { label: '', value: '' },
                                 { label: 'MPASI Rumahan', value: 'MPASI Rumahan' },
-                                { label: 'MPASI Instant', value: 'MPASI Instant' },
-                                { label: 'MPASI Rumahan + MPASI Instant', value: 'MPASI Rumahan + MPASI Instant' },
+                                { label: 'MPASI Instan', value: 'MPASI Instan' },
+                                { label: 'MPASI Rumahan + MPASI Instan', value: 'MPASI Rumahan + MPASI Instan' },
 
                             ]} />
                             <MyGap jarak={10} />
@@ -1193,7 +1203,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                         bahan_makanan: tmp
                                     })
 
-                                }} value={snack.bahan_makanan[item][8]} label="MPASI Instant" img={require('../../assets/m9.png')} />
+                                }} value={snack.bahan_makanan[item][8]} label="MPASI Instan" img={require('../../assets/m9.png')} />
 
                             }
 

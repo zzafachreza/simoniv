@@ -92,7 +92,7 @@ export default function AsupanAsi({ navigation, route }) {
                             ...kirim,
                             volume: x
                         })
-                    }} label2="(Jika Ibu melakukan perah asi)" value={kirim.volume} keyboardType='number-pad' label="*Volume Perah Satuan ml  Volume ASI Perah (ml)" />
+                    }} label2="(Jika Ibu melakukan perah asi)" value={kirim.volume} keyboardType='number-pad' label="*Volume ASI Perah (ml)" />
                     <MyGap jarak={10} />
 
                     <View style={{
@@ -101,7 +101,11 @@ export default function AsupanAsi({ navigation, route }) {
                         borderRadius: 10,
                         borderColor: colors.border,
                     }}>
-
+                        <Text style={{
+                            fontFamily: fonts.secondary[600],
+                            fontSize: MyDimensi / 4,
+                            color: colors.primary,
+                        }}>Jadwal pemberian ASI (klik sesuai jadwal pemberian)</Text>
                         <TouchableWithoutFeedback onPress={() => {
                             if (pilih[0]) {
                                 setPilih({ ...pilih, [0]: false });
