@@ -56,6 +56,8 @@ export default function AsupanAsi({ navigation, route }) {
                         subTitle: res.data.message,
                         style: 'success',
                         cancellable: true
+                    }, callback => {
+                        navigation.navigate('AsupanAsiHasil', user)
                     })
                 }
             }).finally(() => {

@@ -11,6 +11,7 @@ import moment from 'moment'
 export default function ArtikelDetail({ navigation, route }) {
 
     const item = route.params;
+    console.log(item)
     return (
         <SafeAreaView style={{
             flex: 1,
@@ -52,10 +53,11 @@ export default function ArtikelDetail({ navigation, route }) {
                     padding: 10
                 }}>
 
+
                     <Image source={{
                         uri: item.keterangan
                     }} style={{
-                        // flex: 1,
+
                         width: '100%',
                         height: windowHeight,
                         resizeMode: 'stretch'

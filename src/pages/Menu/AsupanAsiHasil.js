@@ -76,6 +76,26 @@ export default function AsupanAsiHasil({ navigation, route }) {
                         setKirim({
                             ...kirim,
                             awal: x
+                        });
+
+                        axios.post(apiURL + 'get_asupan_asi', {
+                            fid_user: route.params.id,
+                            awal: x,
+                            akhir: kirim.akhir,
+                        }).then(res => {
+                            console.log(res.data);
+                            if (res.data.length > 0) {
+                                setData(res.data);
+
+                            } else {
+                                showMessage({
+                                    message: 'Tidak ada riwayat hari ini !'
+                                })
+                            }
+                            // setData(res.data);
+
+                        }).finally(() => {
+                            setLoading(false)
                         })
                     }} iconname="calendar-outline" />
                 </View>
@@ -88,26 +108,31 @@ export default function AsupanAsiHasil({ navigation, route }) {
                         setKirim({
                             ...kirim,
                             akhir: x
+                        });
+
+                        axios.post(apiURL + 'get_asupan_asi', {
+                            fid_user: route.params.id,
+                            awal: kirim.awal,
+                            akhir: x,
+                        }).then(res => {
+                            console.log(res.data);
+                            if (res.data.length > 0) {
+                                setData(res.data);
+
+                            } else {
+                                showMessage({
+                                    message: 'Tidak ada riwayat hari ini !'
+                                })
+                            }
+                            // setData(res.data);
+
+                        }).finally(() => {
+                            setLoading(false)
                         })
+                        __getTransaction();
                     }} label="Sampai" iconname="calendar-outline" />
                 </View>
-                <View style={{
-                    flex: 0.5,
-                    // paddingLeft: 5,
-                    paddingTop: 20,
-                    justifyContent: 'center',
 
-                }}>
-                    <TouchableOpacity onPress={__getTransaction} style={{
-                        backgroundColor: colors.primary,
-                        height: 50,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        borderRadius: 30,
-                    }}>
-                        <Icon color={colors.white} type='ionicon' name='search' />
-                    </TouchableOpacity>
-                </View>
             </View>
 
             {!loading && data.length > 0 && <View style={{

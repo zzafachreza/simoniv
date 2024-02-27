@@ -60,7 +60,7 @@ export default function MyCalendar({
           top: 15,
           left: 20,
           fontFamily: fonts.secondary[600],
-          fontSize: MyDimensi / 4.5
+          fontSize: MyDimensi / 5.5
         }}>{moment(value).format('DD MMMM YYYY')}</Text>
         <DatePicker
 
@@ -81,7 +81,7 @@ export default function MyCalendar({
             },
             dateInput: {
               fontFamily: fonts.secondary[600],
-              fontSize: MyDimensi / 4,
+              fontSize: MyDimensi / 5,
               textAlign: 'left',
               alignItems: 'flex-start',
               opacity: 0,

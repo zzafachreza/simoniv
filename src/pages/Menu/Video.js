@@ -84,6 +84,7 @@ export default function ({ navigation, route }) {
             {!loading &&
                 <View style={{
                     flex: 1,
+                    marginVertical: 5,
                     paddingHorizontal: 0,
                 }}>
                     <View style={{
@@ -131,7 +132,7 @@ export default function ({ navigation, route }) {
                             fontSize: MyDimensi / 4
                         }} />
                     </View>
-                    <FlatList data={data} numColumns={2} showsVerticalScrollIndicator={false} renderItem={__renderItem} />
+                    <FlatList data={data} numColumns={1} showsVerticalScrollIndicator={false} renderItem={__renderItem} />
 
                 </View>
             }

@@ -621,9 +621,9 @@ export default function AsupanMpasi({ navigation, route }) {
 
 
                         <TouchableWithoutFeedback onPress={() => {
-                            if (kirim.frek_makanan == 1) {
+                            if (kirim.frek_makanan == 0) {
                                 showMessage({
-                                    message: 'Minimal Frekuensi Pemberian Makanan Utama 1',
+                                    message: 'Minimal Frekuensi Pemberian Makanan Utama 0',
                                     type: 'danger'
                                 })
                             } else {
@@ -711,9 +711,9 @@ export default function AsupanMpasi({ navigation, route }) {
 
 
                         <TouchableWithoutFeedback onPress={() => {
-                            if (kirim.frek_snack == 1) {
+                            if (kirim.frek_snack == 0) {
                                 showMessage({
-                                    message: 'Minimal Frekuensi Pemberian Snack 1',
+                                    message: 'Minimal Frekuensi Pemberian Snack 0',
                                     type: 'danger'
                                 })
                             } else {
@@ -774,6 +774,141 @@ export default function AsupanMpasi({ navigation, route }) {
                             </View>
                         </TouchableWithoutFeedback>
                     </View>
+
+                    {/* makanan */}
+
+                    <MyGap jarak={10} />
+                    <MyPicker onValueChange={x => {
+
+                        let tmp = makan;
+                        tmp.jenis_makanan[0] = x
+                        setMakan({
+                            ...makan,
+                            jenis_makanan: tmp.jenis_makanan
+                        })
+
+                    }} label="Jenis Makanan" data={[
+                        { label: '', value: '' },
+                        { label: 'MPASI Rumahan', value: 'MPASI Rumahan' },
+                        { label: 'MPASI Instan', value: 'MPASI Instan' },
+                        { label: 'MPASI Rumahan + MPASI Instan', value: 'MPASI Rumahan + MPASI Instan' },
+
+                    ]} />
+                    <MyGap jarak={10} />
+
+
+                    <Text
+                        style={{
+                            fontFamily: fonts.secondary[600],
+                            color: colors.primary,
+                            left: 10,
+                            fontSize: MyDimensi / 4,
+                        }}>
+                        Jenis Bahan Makanan
+                    </Text>
+                    <MyMakanan
+
+                        onPress={() => {
+                            let tmp = makan.bahan_makanan;
+                            tmp[0][0] = tmp[0][0] == 0 ? 1 : 0,
+                                console.log(tmp)
+                            setMakan({
+                                ...makan,
+                                bahan_makanan: tmp
+                            })
+
+                        }}
+
+                        value={makan.bahan_makanan[0][0]} label="ASI" img={require('../../assets/m1.png')} />
+
+                    {makan.jenis_makanan[0] !== 'MPASI Rumahan' && makan.jenis_makanan[0] !== undefined &&
+
+                        <MyMakanan onPress={() => {
+                            let tmp = makan.bahan_makanan;
+                            tmp[0][8] = tmp[0][8] == 0 ? 1 : 0,
+                                console.log(tmp)
+                            setMakan({
+                                ...makan,
+                                bahan_makanan: tmp
+                            })
+
+                        }} value={makan.bahan_makanan[0][8]} label="MPASI Instan" img={require('../../assets/m9.png')} />
+
+                    }
+
+                    <MyMakanan
+                        onPress={() => {
+                            let tmp = makan.bahan_makanan;
+                            tmp[0][1] = tmp[0][1] == 0 ? 1 : 0,
+                                console.log(tmp)
+                            setMakan({
+                                ...makan,
+                                bahan_makanan: tmp
+                            })
+
+                        }}
+                        value={makan.bahan_makanan[0][1]} label="Bahan Makanan Pokok" img={require('../../assets/m2.png')} />
+                    <MyMakanan onPress={() => {
+                        let tmp = makan.bahan_makanan;
+                        tmp[0][2] = tmp[0][2] == 0 ? 1 : 0,
+                            console.log(tmp)
+                        setMakan({
+                            ...makan,
+                            bahan_makanan: tmp
+                        })
+
+                    }} value={makan.bahan_makanan[0][2]} label="Protein Hewani" img={require('../../assets/m3.png')} />
+                    <MyMakanan onPress={() => {
+                        let tmp = makan.bahan_makanan;
+                        tmp[0][3] = tmp[0][3] == 0 ? 1 : 0,
+                            console.log(tmp)
+                        setMakan({
+                            ...makan,
+                            bahan_makanan: tmp
+                        })
+
+                    }} value={makan.bahan_makanan[0][3]} label="Telur" img={require('../../assets/m4.png')} />
+                    <MyMakanan onPress={() => {
+                        let tmp = makan.bahan_makanan;
+                        tmp[0][4] = tmp[0][4] == 0 ? 1 : 0,
+                            console.log(tmp)
+                        setMakan({
+                            ...makan,
+                            bahan_makanan: tmp
+                        })
+
+                    }} value={makan.bahan_makanan[0][4]} label="Nabati dan Kacang-kacangan" img={require('../../assets/m5.png')} />
+                    <MyMakanan onPress={() => {
+                        let tmp = makan.bahan_makanan;
+                        tmp[0][5] = tmp[0][5] == 0 ? 1 : 0,
+                            console.log(tmp)
+                        setMakan({
+                            ...makan,
+                            bahan_makanan: tmp
+                        })
+
+                    }} value={makan.bahan_makanan[0][5]} label="Susu dan Produk Susu" img={require('../../assets/m6.png')} />
+                    <MyMakanan onPress={() => {
+                        let tmp = makan.bahan_makanan;
+                        tmp[0][6] = tmp[0][6] == 0 ? 1 : 0,
+                            console.log(tmp)
+                        setMakan({
+                            ...makan,
+                            bahan_makanan: tmp
+                        })
+
+                    }} value={makan.bahan_makanan[0][6]} label="Buah & Sayur Tinggi Vit A" img={require('../../assets/m7.png')} />
+                    <MyMakanan onPress={() => {
+                        let tmp = makan.bahan_makanan;
+                        tmp[0][7] = tmp[0][7] == 0 ? 1 : 0,
+                            console.log(tmp)
+                        setMakan({
+                            ...makan,
+                            bahan_makanan: tmp
+                        })
+
+                    }} value={makan.bahan_makanan[0][7]} label="Buah & Sayur Lainnya" img={require('../../assets/m8.png')} />
+
 
 
 
@@ -877,138 +1012,6 @@ export default function AsupanMpasi({ navigation, route }) {
                                 <MyTexktur img={require('../../assets/p4.png')} label="Apabila MPASI yang dihabiskan 1 mangkok 250 ml atau sekitar 18-20 sendok makan" />
                             }
 
-                            <MyGap jarak={10} />
-                            <MyPicker onValueChange={x => {
-
-                                let tmp = makan;
-                                tmp.jenis_makanan[item] = x
-                                setMakan({
-                                    ...makan,
-                                    jenis_makanan: tmp.jenis_makanan
-                                })
-
-                            }} label="Jenis Makanan" data={[
-                                { label: '', value: '' },
-                                { label: 'MPASI Rumahan', value: 'MPASI Rumahan' },
-                                { label: 'MPASI Instan', value: 'MPASI Instan' },
-                                { label: 'MPASI Rumahan + MPASI Instan', value: 'MPASI Rumahan + MPASI Instan' },
-
-                            ]} />
-                            <MyGap jarak={10} />
-
-
-                            <Text
-                                style={{
-                                    fontFamily: fonts.secondary[600],
-                                    color: colors.primary,
-                                    left: 10,
-                                    fontSize: MyDimensi / 4,
-                                }}>
-                                Jenis Bahan Makanan
-                            </Text>
-                            <MyMakanan
-
-                                onPress={() => {
-                                    let tmp = makan.bahan_makanan;
-                                    tmp[item][0] = tmp[item][0] == 0 ? 1 : 0,
-                                        console.log(tmp)
-                                    setMakan({
-                                        ...makan,
-                                        bahan_makanan: tmp
-                                    })
-
-                                }}
-
-                                value={makan.bahan_makanan[item][0]} label="ASI" img={require('../../assets/m1.png')} />
-
-                            {makan.jenis_makanan[item] !== 'MPASI Rumahan' && makan.jenis_makanan[item] !== undefined &&
-
-                                <MyMakanan onPress={() => {
-                                    let tmp = makan.bahan_makanan;
-                                    tmp[item][8] = tmp[item][8] == 0 ? 1 : 0,
-                                        console.log(tmp)
-                                    setMakan({
-                                        ...makan,
-                                        bahan_makanan: tmp
-                                    })
-
-                                }} value={makan.bahan_makanan[item][8]} label="MPASI Instan" img={require('../../assets/m9.png')} />
-
-                            }
-
-                            <MyMakanan
-                                onPress={() => {
-                                    let tmp = makan.bahan_makanan;
-                                    tmp[item][1] = tmp[item][1] == 0 ? 1 : 0,
-                                        console.log(tmp)
-                                    setMakan({
-                                        ...makan,
-                                        bahan_makanan: tmp
-                                    })
-
-                                }}
-                                value={makan.bahan_makanan[item][1]} label="Bahan Makanan Pokok" img={require('../../assets/m2.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = makan.bahan_makanan;
-                                tmp[item][2] = tmp[item][2] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setMakan({
-                                    ...makan,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={makan.bahan_makanan[item][2]} label="Protein Hewani" img={require('../../assets/m3.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = makan.bahan_makanan;
-                                tmp[item][3] = tmp[item][3] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setMakan({
-                                    ...makan,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={makan.bahan_makanan[item][3]} label="Telur" img={require('../../assets/m4.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = makan.bahan_makanan;
-                                tmp[item][4] = tmp[item][4] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setMakan({
-                                    ...makan,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={makan.bahan_makanan[item][4]} label="Nabati dan Kacang-kacangan" img={require('../../assets/m5.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = makan.bahan_makanan;
-                                tmp[item][5] = tmp[item][5] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setMakan({
-                                    ...makan,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={makan.bahan_makanan[item][5]} label="Susu dan Produk Susu" img={require('../../assets/m6.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = makan.bahan_makanan;
-                                tmp[item][6] = tmp[item][6] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setMakan({
-                                    ...makan,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={makan.bahan_makanan[item][6]} label="Buah & Sayur Tinggi Vit A" img={require('../../assets/m7.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = makan.bahan_makanan;
-                                tmp[item][7] = tmp[item][7] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setMakan({
-                                    ...makan,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={makan.bahan_makanan[item][7]} label="Buah & Sayur Lainnya" img={require('../../assets/m8.png')} />
-
 
                         </View>
                     )
@@ -1063,226 +1066,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                 marginBottom: 20
                             }}>Snack {item + 1}x</Text>
 
-
-                            <MyPicker label="Tekstur" onValueChange={x => {
-
-                                let tmp = snack;
-                                tmp.tekstur[item] = x
-                                setSnack({
-                                    ...snack,
-                                    tekstur: tmp.tekstur
-                                })
-
-                            }} data={[
-                                { label: '', value: '' },
-                                { label: 'Cair', value: 'Cair' },
-                                { label: 'Bubur Encer', value: 'Bubur Encer' },
-                                { label: 'Bubur Kental', value: 'Bubur Kental' },
-                                { label: 'Tim', value: 'Tim' },
-                                { label: 'Finger food', value: 'Finger food' },
-                                { label: 'Makanan Keluarga', value: 'Makanan Keluarga' },
-
-                            ]} />
-
-                            {snack.tekstur[item] == 'Cair' &&
-                                <MyTexktur img={require('../../assets/t1.png')} label="MPASI yang berbentuk cair seperti susu, jus buah, kuah kaldu." />
-                            }
-
-                            {snack.tekstur[item] == 'Bubur Encer' &&
-                                <MyTexktur img={require('../../assets/t2.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur mudah tumpah" />
-                            }
-
-                            {snack.tekstur[item] == 'Bubur Kental' &&
-                                <MyTexktur img={require('../../assets/t3.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur tidak mudah tumpah" />
-                            }
-
-                            {snack.tekstur[item] == 'Tim' &&
-
-                                <MyTexktur img={require('../../assets/t4.png')} label="Makanan setengah padat, lembek dan bahan makanan masih bisa dikenali" />
-                            }
-
-                            {snack.tekstur[item] == 'Makanan Keluarga' &&
-                                <MyTexktur img={require('../../assets/t5.png')} label="Makanan padat dengan tekstur seperti makanan keluarga pada umumnya contohnya nasi, lauk pauk, sayur" />
-                            }
-
-                            {snack.tekstur[item] == 'Finger food' &&
-                                <MyTexktur img={require('../../assets/t6.png')} label="Makanan yang dapat digenggam" />
-                            }
-
-                            <MyGap jarak={10} />
-                            <MyPicker label="Porsi sekali makan (ukuran mangkok 250 ml)"
-
-                                onValueChange={x => {
-
-                                    let tmp = snack;
-                                    tmp.porsi[item] = x
-                                    setSnack({
-                                        ...snack,
-                                        porsi: tmp.porsi
-                                    })
-
-                                }}
-
-                                data={[
-                                    { label: '', value: '' },
-                                    { label: '< 1/2 mangkok', value: '0.25' },
-                                    { label: '1/2 mangkok', value: '0.50' },
-                                    { label: '3/4 mangkok', value: '0.75' },
-                                    { label: '1 mangkok', value: '1' },
-
-                                ]} />
-
-                            {snack.porsi[item] == '0.25' &&
-                                <MyTexktur img={require('../../assets/p1.png')} label="Apabila MPASI yang dihabiskan kurang dari ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
-                            }
-
-                            {snack.porsi[item] == '0.50' &&
-                                <MyTexktur img={require('../../assets/p2.png')} label="Apabila MPASI yang dihabiskan sekitar ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
-                            }
-
-                            {snack.porsi[item] == '0.75' &&
-                                <MyTexktur img={require('../../assets/p3.png')} label="Apabila MPASI yang dihabiskan sekitar ¾ mangkok 250 ml atau sktr 13 - 15 sendok makan" />
-                            }
-
-                            {snack.porsi[item] == '1' &&
-                                <MyTexktur img={require('../../assets/p4.png')} label="Apabila MPASI yang dihabiskan 1 mangkok 250 ml atau sekitar 18-20 sendok makan" />
-                            }
-
-                            <MyGap jarak={10} />
-                            <MyPicker onValueChange={x => {
-
-                                let tmp = snack;
-                                tmp.jenis_makanan[item] = x
-                                setSnack({
-                                    ...snack,
-                                    jenis_makanan: tmp.jenis_makanan
-                                })
-
-                            }} label="Jenis Makanan" data={[
-                                { label: '', value: '' },
-                                { label: 'MPASI Rumahan', value: 'MPASI Rumahan' },
-                                { label: 'MPASI Instan', value: 'MPASI Instan' },
-                                { label: 'MPASI Rumahan + MPASI Instan', value: 'MPASI Rumahan + MPASI Instan' },
-
-                            ]} />
-                            <MyGap jarak={10} />
-
-
-                            <Text
-                                style={{
-                                    fontFamily: fonts.secondary[600],
-                                    color: colors.primary,
-                                    left: 10,
-                                    fontSize: MyDimensi / 4,
-                                }}>
-                                Jenis Bahan Makanan
-                            </Text>
-                            <MyMakanan
-
-                                onPress={() => {
-                                    let tmp = snack.bahan_makanan;
-                                    tmp[item][0] = tmp[item][0] == 0 ? 1 : 0,
-                                        console.log(tmp)
-                                    setSnack({
-                                        ...snack,
-                                        bahan_makanan: tmp
-                                    })
-
-                                }}
-
-                                value={snack.bahan_makanan[item][0]} label="ASI" img={require('../../assets/m1.png')} />
-
-                            {snack.jenis_makanan[item] !== 'MPASI Rumahan' && snack.jenis_makanan[item] !== undefined &&
-
-                                <MyMakanan onPress={() => {
-                                    let tmp = snack.bahan_makanan;
-                                    tmp[item][8] = tmp[item][8] == 0 ? 1 : 0,
-                                        console.log(tmp)
-                                    setSnack({
-                                        ...snack,
-                                        bahan_makanan: tmp
-                                    })
-
-                                }} value={snack.bahan_makanan[item][8]} label="MPASI Instan" img={require('../../assets/m9.png')} />
-
-                            }
-
-                            <MyMakanan
-                                onPress={() => {
-                                    let tmp = snack.bahan_makanan;
-                                    tmp[item][1] = tmp[item][1] == 0 ? 1 : 0,
-                                        console.log(tmp)
-                                    setSnack({
-                                        ...snack,
-                                        bahan_makanan: tmp
-                                    })
-
-                                }}
-                                value={snack.bahan_makanan[item][1]} label="Bahan Makanan Pokok" img={require('../../assets/m2.png')} />
-
-
-
-
-                            <MyMakanan onPress={() => {
-                                let tmp = snack.bahan_makanan;
-                                tmp[item][2] = tmp[item][2] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setSnack({
-                                    ...snack,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={snack.bahan_makanan[item][2]} label="Protein Hewani" img={require('../../assets/m3.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = snack.bahan_makanan;
-                                tmp[item][3] = tmp[item][3] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setSnack({
-                                    ...snack,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={snack.bahan_makanan[item][3]} label="Telur" img={require('../../assets/m4.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = snack.bahan_makanan;
-                                tmp[item][4] = tmp[item][4] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setSnack({
-                                    ...snack,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={snack.bahan_makanan[item][4]} label="Nabati dan Kacang-kacangan" img={require('../../assets/m5.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = snack.bahan_makanan;
-                                tmp[item][5] = tmp[item][5] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setSnack({
-                                    ...snack,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={snack.bahan_makanan[item][5]} label="Susu dan Produk Susu" img={require('../../assets/m6.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = snack.bahan_makanan;
-                                tmp[item][6] = tmp[item][6] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setSnack({
-                                    ...snack,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={snack.bahan_makanan[item][6]} label="Buah & Sayur Tinggi Vit A" img={require('../../assets/m7.png')} />
-                            <MyMakanan onPress={() => {
-                                let tmp = snack.bahan_makanan;
-                                tmp[item][7] = tmp[item][7] == 0 ? 1 : 0,
-                                    console.log(tmp)
-                                setSnack({
-                                    ...snack,
-                                    bahan_makanan: tmp
-                                })
-
-                            }} value={snack.bahan_makanan[item][7]} label="Buah & Sayur Lainnya" img={require('../../assets/m8.png')} />
+                            <MyInput label="Nama makanan" />
 
 
                         </View>

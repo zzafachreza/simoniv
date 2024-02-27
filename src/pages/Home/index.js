@@ -173,7 +173,7 @@ export default function Home({ navigation, route }) {
               fontFamily: fonts.secondary[800],
               fontSize: MyDimensi / 3.5,
               color: colors.foourty
-            }}>Kader Posyandu {user.posyandu}</Text>
+            }}>{user.level == 'KADER' ? `Kader Posyandu ${user.posyandu}` : 'TENAGA KESEHATAN'}</Text>
 
           </View>
 
