@@ -123,6 +123,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                 sayur_buah: 'Berikan sayur dan buah setiap hari',
                 pemberian: 'Tingkatkan interaksi dengan anak  dalam memberikan MPASI',
                 kebersihan: 'Perhatikan kebersihan dalam memberikan MPASI',
+                beragam: 'Berikan sumber bahan makanan yang beraneka ragam dan telur atau sumber protein hewani.',
             })
 
 
@@ -139,6 +140,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                 sayur_buah: 'Berikan sayur dan buah setiap hari',
                 pemberian: 'Tingkatkan interaksi dengan anak  dalam memberikan MPASI',
                 kebersihan: 'Perhatikan kebersihan dalam memberikan MPASI',
+                beragam: 'Berikan sumber bahan makanan yang beraneka ragam dan telur atau sumber protein hewani.',
             })
 
         } else if (BULAN >= 12) {
@@ -153,6 +155,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                 sayur_buah: 'Berikan sayur dan buah setiap hari',
                 pemberian: 'Tingkatkan interaksi dengan anak  dalam memberikan MPASI',
                 kebersihan: 'Perhatikan kebersihan dalam memberikan MPASI',
+                beragam: 'Berikan sumber bahan makanan yang beraneka ragam dan telur atau sumber protein hewani.',
             })
 
         }
@@ -179,6 +182,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
         'Porsi',
         'Bahan',
         'Konsumsi telur/hewani',
+        'MP-ASI beragam dan mengandung hewani',
         'Minuman manis',
         'Jajanan tidak sehat',
         'Sayur buah',
@@ -208,6 +212,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     7: [],
                     8: [],
                     9: [],
+                    10: [],
 
                 };
                 let oke = {
@@ -221,6 +226,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     7: [],
                     8: [],
                     9: [],
+                    10: [],
                 };
                 let no = {
                     0: [],
@@ -233,6 +239,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     7: [],
                     8: [],
                     9: [],
+                    10: [],
                 };
 
                 res.data.map((i, index) => {
@@ -246,6 +253,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     total[7].push(i.sayur_buah);
                     total[8].push(i.pemberian);
                     total[9].push(i.kebersihan);
+                    total[10].push(i.beragam);
 
                     i.frekuensi > 0 ? oke[0].push(1) : no[0].push(1);
                     i.tekstur > 0 ? oke[1].push(1) : no[1].push(1);
@@ -257,6 +265,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     i.sayur_buah > 0 ? oke[7].push(1) : no[7].push(1);
                     i.pemberian > 0 ? oke[8].push(1) : no[8].push(1);
                     i.kebersihan > 0 ? oke[9].push(1) : no[9].push(1);
+                    i.beragam > 0 ? oke[10].push(1) : no[10].push(1);
 
                 });
                 setSummary({
@@ -372,9 +381,10 @@ export default function AsupanAsiHasil({ navigation, route }) {
                             <MyHasil label="Porsi" value={data[0].porsi} oke="Porsi makanan sudah sesuai dengan rekomendasi menurut umur" no="Porsi makanan kurang dari 3/4 mangkok" rek={rekomendasi.porsi} />
                             <MyHasil label="Bahan" value={data[0].bahan} oke="Anak sudah diberikan sumber bahan makanan yang beraneka ragam" no="Anak belum mendapatkan bahan makanan hewani/susu dan produk susu/telur/sayur dan buah tinggi vitamin A" rek={rekomendasi.bahan} />
                             <MyHasil label="Konsumsi telur/hewani" value={data[0].konsumsi} oke="Anak sudah mendapatkan telur dan sumber protein hewani" no="Anak belum mendapatkan telur dan sumber protein hewani" rek={rekomendasi.konsumsi} />
+                            <MyHasil label="MP-ASI beragam dan mengandung hewani." value={data[0].beragam} oke="Anak tidak diberikan minuman manis" no="Anak diberikan minuman manis" rek={rekomendasi.beragam} />
                             <MyHasil label="Minuman manis" value={data[0].minuman} oke="Anak tidak diberikan minuman manis" no="Anak diberikan minuman manis" rek={rekomendasi.minuman} />
 
-                            <MyHasil label="Jajanan tidak sehat" value={data[0].jajanan} oke="Anak tidak diberikan jajanan tidak sehat" no="Anak diberikan jajanan tidak sehat" rek={rekomendasi.jajanan} />
+                            <MyHasil label="Jajanan tidak sehat" value={data[0].jajanan} oke="Anak sudah diberikan sumber bahan makanan yang beraneka ragam dan sudah mendapatkan telur atau sumber protein hewani" no="Anak belum mendapatkan bahan makanan yang beraneka ragam dan atau belum mendapatkan telur atau sumber protein hewan" rek={rekomendasi.jajanan} />
 
                             <MyHasil label="Sayur buah" value={data[0].sayur_buah} oke="Anak sudah diberikan sayur buah" no="Anak sudah diberikan sayur buah" rek={rekomendasi.sayur_buah} />
                             <MyHasil label="Cara pemberian" value={data[0].pemberian} oke="Cara pemberian sudah sesuai" no="Cara pemberian belum sesuai" rek={rekomendasi.pemberian} />
@@ -481,7 +491,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                         shadowColor={colors.danger}
                                         bgColor="#fff"
                                     >
-                                        <Text style={{ fontSize: MyDimensi / 2 }}>{(all.oke / all.total) * 100}%</Text>
+                                        <Text style={{ fontSize: MyDimensi / 2 }}>{parseFloat((all.oke / all.total) * 100).toFixed(1)}%</Text>
                                     </ProgressCircle>
 
                                     <PieChart

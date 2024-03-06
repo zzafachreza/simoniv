@@ -15,6 +15,7 @@ export default function AsupanMpasi({ navigation, route }) {
     const user = route.params;
     const BULAN = parseFloat(moment().diff(user.tanggal_lahir, 'month', false));
     const [loading, setLoading] = useState(false);
+    const [ceklis, setCeklis] = useState(false)
     const [kirim, setKirim] = useState({
         fid_user: route.params.id,
         umur: BULAN,
@@ -88,60 +89,76 @@ export default function AsupanMpasi({ navigation, route }) {
     }
 
 
-    const MyMakanan = ({ label, value, img, onPress }) => {
+    const MyMakanan = ({ label, value, img, onPress, img2 }) => {
         return (
             <View style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginVertical: 0,
+                borderWidth: 1,
+                borderColor: value > 0 ? colors.primary : colors.border,
+                marginVertical: 2,
+                borderRadius: 10,
+                paddingHorizontal: 5,
                 marginHorizontal: 10,
             }}>
                 <View style={{
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     marginVertical: 10,
-                    paddingRight: windowWidth / 2,
                 }}>
 
                     <TouchableWithoutFeedback onPress={onPress}>
-                        <View style={{
-
-                            flexDirection: 'row',
-                            alignItems: 'center'
-                        }}>
+                        <View>
                             <View style={{
-                                width: MyDimensi / 2,
-                                height: MyDimensi / 2,
-                                backgroundColor: colors.border,
-                                borderRadius: MyDimensi / 4,
+
+                                flexDirection: 'row',
+                                alignItems: 'center'
+                            }}>
+                                <View style={{
+                                    width: MyDimensi / 2,
+                                    height: MyDimensi / 2,
+                                    backgroundColor: colors.border,
+                                    borderRadius: MyDimensi / 4,
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}>
+
+                                    {value > 0 &&
+
+                                        <View style={{
+                                            width: MyDimensi / 3,
+                                            height: MyDimensi / 3,
+                                            backgroundColor: colors.primary,
+                                            borderRadius: MyDimensi / 6,
+                                        }} />
+                                    }
+                                </View>
+
+                                <Text style={{
+                                    marginLeft: 10,
+                                    // marginHorizontal: 10,
+                                    fontFamily: fonts.secondary[600],
+                                    fontSize: MyDimensi / 4
+                                }}>{label}</Text>
+
+                                <Image source={img} style={{
+                                    left: 10,
+                                    width: MyDimensi / 2,
+                                    height: MyDimensi / 2
+                                }} />
+
+                            </View>
+                            <View style={{
+                                flex: 1,
+                                marginTop: 5,
                                 justifyContent: 'center',
                                 alignItems: 'center'
                             }}>
-
-                                {value > 0 &&
-
-                                    <View style={{
-                                        width: MyDimensi / 3,
-                                        height: MyDimensi / 3,
-                                        backgroundColor: colors.primary,
-                                        borderRadius: MyDimensi / 6,
-                                    }} />
-                                }
+                                <Image source={img2} style={{
+                                    width: windowWidth / 1.5,
+                                    height: 180,
+                                    resizeMode: 'contain',
+                                    alignSelf: 'center'
+                                }} />
                             </View>
-
-                            <Text style={{
-                                marginLeft: 10,
-                                // marginHorizontal: 10,
-                                fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4
-                            }}>{label}</Text>
-
-                            <Image source={img} style={{
-                                left: 10,
-                                width: MyDimensi / 2,
-                                height: MyDimensi / 2
-                            }} />
-
                         </View>
                     </TouchableWithoutFeedback>
                 </View>
@@ -170,247 +187,289 @@ export default function AsupanMpasi({ navigation, route }) {
     }
 
     const sendServer = () => {
-        setLoading(true);
-
-        let FREKUENSI = 0;
-        let TEKSTUR = 0;
-        let PORSI = 0;
-        let BAHAN = 0;
-        let KONSUMSI = 0;
-        let MINUMAN = 0;
-        let JAJANAN = 0;
-        let SAYUR_BUAH = 0;
-        let PEMBERIAN = 0;
-        let KEBERSIHAN = 0;
-
-
-
-        try {
-
-            // #1 FREKUENSI
-            if (BULAN >= 6 && BULAN <= 8) {
-                if (kirim.diberi_asi == 'Ya') {
-                    if (kirim.frek_makanan >= 2 && kirim.frek_snack >= 1) {
-                        FREKUENSI = 1;
-                    } else {
-                        FREKUENSI = 0;
-                    }
-                } else {
-                    if (kirim.frek_makanan >= 3 && kirim.frek_snack >= 1) {
-                        FREKUENSI = 1;
-                    } else {
-                        FREKUENSI = 0;
-                    }
-                }
-            } else if (BULAN >= 9 && BULAN <= 11) {
-
-                if (kirim.diberi_asi == 'Ya') {
-                    if (kirim.frek_makanan >= 3 && kirim.frek_snack >= 1) {
-                        FREKUENSI = 1;
-                    } else {
-                        FREKUENSI = 0;
-                    }
-                } else {
-                    if (kirim.frek_makanan >= 4 && kirim.frek_snack >= 1) {
-                        FREKUENSI = 1;
-                    } else {
-                        FREKUENSI = 0;
-                    }
-                }
-
-            } else if (BULAN >= 12) {
-                if (kirim.diberi_asi == 'Ya') {
-                    if (kirim.frek_makanan >= 3 && kirim.frek_snack >= 1) {
-                        FREKUENSI = 1;
-                    } else {
-                        FREKUENSI = 0;
-                    }
-                } else {
-                    if (kirim.frek_makanan >= 4 && kirim.frek_snack >= 1) {
-                        FREKUENSI = 1;
-                    } else {
-                        FREKUENSI = 0;
-                    }
-                }
-            }
-
-            // #2 TEKSTUR
-            if (BULAN >= 6 && BULAN <= 8) {
-                let FILMAK = makan.tekstur.filter(i => i.toLowerCase().indexOf(('Bubur Kental').toLowerCase()) > -1);
-                if (FILMAK.length >= 1) {
-                    TEKSTUR = 1;
-                } else {
-                    TEKSTUR = 0
-                }
-            } else if (BULAN >= 9 && BULAN <= 11) {
-                let FILMAK = makan.tekstur.filter(i => i.toLowerCase().indexOf(('Tim').toLowerCase()) > -1);
-                if (FILMAK.length >= 1) {
-                    TEKSTUR = 1;
-                } else {
-                    TEKSTUR = 0
-                }
-
-            } else if (BULAN >= 12) {
-                let FILMAK = makan.tekstur.filter(i => i.toLowerCase().indexOf(('Makanan Keluarga').toLowerCase()) > -1);
-                if (FILMAK.length >= 1) {
-                    TEKSTUR = 1;
-                } else {
-                    TEKSTUR = 0
-                }
-
-            }
-            // #3 PORSI
-            if (BULAN >= 6 && BULAN <= 8) {
-
-                makan.porsi;
-                let tmp = 0
-                makan.porsi.map(i => {
-                    if (i >= 0.25 && i <= 0.50) {
-                        tmp += 1;
-                    } else {
-                        tmp += 0;
-                    }
-                })
-
-                if (makan.porsi.length == tmp) {
-                    PORSI = 1
-                } else {
-                    PORSI = 0;
-                }
-
-
-
-            } else if (BULAN >= 9 && BULAN <= 11) {
-
-                makan.porsi;
-                let tmp = 0
-                makan.porsi.map(i => {
-                    if (i >= 0.50 && i <= 0.75) {
-                        tmp += 1;
-                    } else {
-                        tmp += 0;
-                    }
-                })
-
-                if (makan.porsi.length == tmp) {
-                    PORSI = 1
-                } else {
-                    PORSI = 0;
-                }
-
-            } else if (BULAN >= 12) {
-
-                makan.porsi;
-                let tmp = 0
-                makan.porsi.map(i => {
-                    if (i >= 0.75 && i <= 1) {
-                        tmp += 1;
-                    } else {
-                        tmp += 0;
-                    }
-                })
-
-                if (makan.porsi.length == tmp) {
-                    PORSI = 1
-                } else {
-                    PORSI = 0;
-                }
-            }
-
-            // #4 BAHAN
-            let TMPBAHAN = 0;
-            makan.bahan_makanan.map(i => {
-                TMPBAHAN += i.filter(z => z == 1).length;
-
-            });
-            if (TMPBAHAN >= 5) {
-                BAHAN = 1;
-            } else {
-                BAHAN = 0;
-            }
-
-            // #5 KONSUMSI
-            if (kirim.tambahan1 == 'Ya') {
-                KONSUMSI = 1;
-            } else {
-                KONSUMSI = 0;
-            }
-
-            // #6 MINUMAN
-            if (kirim.tambahan2 == 'Ya') {
-                MINUMAN = 0;
-            } else {
-                MINUMAN = 1;
-            }
-
-            // #7 JAJAAN
-            if (kirim.tambahan3 == 'Ya') {
-                JAJANAN = 0;
-            } else {
-                JAJANAN = 1;
-            }
-
-            // #8 SAYUR_BUAH
-            if (kirim.tambahan4 == 'Ya') {
-                SAYUR_BUAH = 1;
-            } else {
-                SAYUR_BUAH = 0;
-            }
-
-            // #9 PEMBERIAN
-            if (kirim.beri1 == 'Ya' && kirim.beri2 == 'Tidak' && kirim.beri3 == 'Ya' && kirim.beri4 == 'Ya') {
-                PEMBERIAN = 1;
-            } else {
-                PEMBERIAN = 0;
-            }
-
-            // #10 KEBERSIHAN
-            if (kirim.bersih1 == 'Ya' && kirim.bersih2 == 'Ya') {
-                KEBERSIHAN = 1;
-            } else {
-                KEBERSIHAN = 0;
-            }
-
-
-
-
-
-
-
-            axios.post(apiURL + 'insert_mpasi', {
-                formulir: kirim,
-                makanan: makan,
-                snack: snack,
-                rumus: {
-                    frekuensi: FREKUENSI,
-                    tekstur: TEKSTUR,
-                    porsi: PORSI,
-                    bahan: BAHAN,
-                    konsumsi: KONSUMSI,
-                    minuman: MINUMAN,
-                    jajanan: JAJANAN,
-                    sayur_buah: SAYUR_BUAH,
-                    pemberian: PEMBERIAN,
-                    kebersihan: KEBERSIHAN,
-
-                }
-            }).then(res => {
-
-                if (res.data.status == 200) {
-                    SweetAlert.showAlertWithOptions({
-                        title: MYAPP,
-                        subTitle: res.data.message,
-                        style: 'success',
-                        cancellable: true
-                    })
-                }
-            }).finally(() => {
-                setLoading(false)
+        if (!ceklis) {
+            SweetAlert.showAlertWithOptions({
+                title: MYAPP,
+                subTitle: 'Anda harus centang pernyataan dibawah terlebih dahulu !',
+                style: 'error',
+                cancellable: true
             })
+        } else {
+            setLoading(true);
+
+            let FREKUENSI = 0;
+            let TEKSTUR = 0;
+            let PORSI = 0;
+            let BAHAN = 0;
+            let KONSUMSI = 0;
+            let MINUMAN = 0;
+            let JAJANAN = 0;
+            let SAYUR_BUAH = 0;
+            let PEMBERIAN = 0;
+            let KEBERSIHAN = 0;
+            let BERAGAM = 0;
 
 
-        } catch (error) {
 
+            try {
+
+                // #1 FREKUENSI
+                if (BULAN >= 6 && BULAN <= 8) {
+                    if (kirim.diberi_asi == 'Ya') {
+                        if (kirim.frek_makanan >= 2 && kirim.frek_snack >= 1) {
+                            FREKUENSI = 1;
+                        } else {
+                            FREKUENSI = 0;
+                        }
+                    } else {
+                        if (kirim.frek_makanan >= 3 && kirim.frek_snack >= 1) {
+                            FREKUENSI = 1;
+                        } else {
+                            FREKUENSI = 0;
+                        }
+                    }
+                } else if (BULAN >= 9 && BULAN <= 11) {
+
+                    if (kirim.diberi_asi == 'Ya') {
+                        if (kirim.frek_makanan >= 3 && kirim.frek_snack >= 1) {
+                            FREKUENSI = 1;
+                        } else {
+                            FREKUENSI = 0;
+                        }
+                    } else {
+                        if (kirim.frek_makanan >= 4 && kirim.frek_snack >= 1) {
+                            FREKUENSI = 1;
+                        } else {
+                            FREKUENSI = 0;
+                        }
+                    }
+
+                } else if (BULAN >= 12) {
+                    if (kirim.diberi_asi == 'Ya') {
+                        if (kirim.frek_makanan >= 3 && kirim.frek_snack >= 1) {
+                            FREKUENSI = 1;
+                        } else {
+                            FREKUENSI = 0;
+                        }
+                    } else {
+                        if (kirim.frek_makanan >= 4 && kirim.frek_snack >= 1) {
+                            FREKUENSI = 1;
+                        } else {
+                            FREKUENSI = 0;
+                        }
+                    }
+                }
+
+                // #2 TEKSTUR
+                if (BULAN >= 6 && BULAN <= 8) {
+                    let FILMAK = makan.tekstur.filter(i => i.toLowerCase().indexOf(('Bubur Kental').toLowerCase()) > -1);
+                    if (FILMAK.length >= 1) {
+                        TEKSTUR = 1;
+                    } else {
+                        TEKSTUR = 0
+                    }
+                } else if (BULAN >= 9 && BULAN <= 11) {
+                    let FILMAK = makan.tekstur.filter(i => i.toLowerCase().indexOf(('Tim').toLowerCase()) > -1);
+                    if (FILMAK.length >= 1) {
+                        TEKSTUR = 1;
+                    } else {
+                        TEKSTUR = 0
+                    }
+
+                } else if (BULAN >= 12) {
+                    let FILMAK = makan.tekstur.filter(i => i.toLowerCase().indexOf(('Makanan Keluarga').toLowerCase()) > -1);
+                    if (FILMAK.length >= 1) {
+                        TEKSTUR = 1;
+                    } else {
+                        TEKSTUR = 0
+                    }
+
+                }
+                // #3 PORSI
+                if (BULAN >= 6 && BULAN <= 8) {
+
+                    makan.porsi;
+                    let tmp = 0
+                    makan.porsi.map(i => {
+                        if (i >= 0.25 && i <= 0.50) {
+                            tmp += 1;
+                        } else {
+                            tmp += 0;
+                        }
+                    })
+
+                    if (makan.porsi.length == tmp) {
+                        PORSI = 1
+                    } else {
+                        PORSI = 0;
+                    }
+
+
+
+                } else if (BULAN >= 9 && BULAN <= 11) {
+
+                    makan.porsi;
+                    let tmp = 0
+                    makan.porsi.map(i => {
+
+                        if (i >= 0.50 && i <= 0.75) {
+                            tmp += 1;
+                        } else {
+                            tmp += 0;
+                        }
+                    })
+
+
+
+
+                    if (makan.porsi.length == tmp) {
+                        PORSI = 1
+                    } else {
+                        PORSI = 0;
+                    }
+
+
+
+                } else if (BULAN >= 12) {
+
+                    makan.porsi;
+                    let tmp = 0
+                    makan.porsi.map(i => {
+                        if (i >= 0.75 && i <= 1) {
+                            tmp += 1;
+                        } else {
+                            tmp += 0;
+                        }
+                    })
+
+                    if (makan.porsi.length == tmp) {
+                        PORSI = 1
+                    } else {
+                        PORSI = 0;
+                    }
+                }
+
+                // #4 BAHAN
+
+                if (makan.bahan_makanan[0][1] == 1 || makan.bahan_makanan[0][8] == 1) {
+                    BAHAN = 1;
+                } else {
+                    BAHAN = 0;
+                }
+
+                // #5 KONSUMSI
+                if (makan.bahan_makanan[0][2] == 1 && makan.bahan_makanan[0][3] == 1) {
+                    KONSUMSI = 1;
+                } else {
+                    KONSUMSI = 0;
+                }
+
+                // #6 MINUMAN
+                if (kirim.tambahan2 == 'Ya') {
+                    MINUMAN = 0;
+                } else {
+                    MINUMAN = 1;
+                }
+
+                // #7 JAJAAN
+                if (kirim.tambahan3 == 'Ya') {
+                    JAJANAN = 0;
+                } else {
+                    JAJANAN = 1;
+                }
+
+                // #8 SAYUR_BUAH
+                if (makan.bahan_makanan[0][6] == 1 && makan.bahan_makanan[0][7] == 1) {
+                    SAYUR_BUAH = 1;
+                } else {
+                    SAYUR_BUAH = 0;
+                }
+
+                // #9 PEMBERIAN
+                if (kirim.beri1 == 'Ya' && kirim.beri2 == 'Tidak' && kirim.beri3 == 'Ya' && kirim.beri4 == 'Ya') {
+                    PEMBERIAN = 1;
+                } else {
+                    PEMBERIAN = 0;
+                }
+
+                // #10 KEBERSIHAN
+                if (kirim.bersih1 == 'Ya' && kirim.bersih2 == 'Ya') {
+                    KEBERSIHAN = 1;
+                } else {
+                    KEBERSIHAN = 0;
+                }
+
+
+
+                // #11 BERAGAM
+                if (BAHAN == 1 && KONSUMSI == 1) {
+                    BERAGAM = 1;
+                } else {
+                    BERAGAM = 0;
+                }
+
+
+
+
+                console.log({
+                    formulir: kirim,
+                    makanan: makan,
+                    snack: snack,
+                    rumus: {
+                        frekuensi: FREKUENSI,
+                        tekstur: TEKSTUR,
+                        porsi: PORSI,
+                        bahan: BAHAN,
+                        konsumsi: KONSUMSI,
+                        minuman: MINUMAN,
+                        jajanan: JAJANAN,
+                        sayur_buah: SAYUR_BUAH,
+                        pemberian: PEMBERIAN,
+                        kebersihan: KEBERSIHAN,
+                        beragam: BERAGAM
+
+                    }
+                })
+
+
+                axios.post(apiURL + 'insert_mpasi', {
+                    formulir: kirim,
+                    makanan: makan,
+                    snack: snack,
+                    rumus: {
+                        frekuensi: FREKUENSI,
+                        tekstur: TEKSTUR,
+                        porsi: PORSI,
+                        bahan: BAHAN,
+                        konsumsi: KONSUMSI,
+                        minuman: MINUMAN,
+                        jajanan: JAJANAN,
+                        sayur_buah: SAYUR_BUAH,
+                        pemberian: PEMBERIAN,
+                        kebersihan: KEBERSIHAN,
+                        beragam: BERAGAM
+
+                    }
+                }).then(res => {
+
+                    if (res.data.status == 200) {
+                        SweetAlert.showAlertWithOptions({
+                            title: MYAPP,
+                            subTitle: res.data.message,
+                            style: 'success',
+                            cancellable: true
+                        }, callback => {
+                            navigation.navigate('AsupanMpasiHasil', user)
+                        })
+                    }
+                }).finally(() => {
+                    setLoading(false)
+                })
+
+
+            } catch (error) {
+
+            }
         }
     }
     return (
@@ -473,29 +532,23 @@ export default function AsupanMpasi({ navigation, route }) {
                             setKirim({
                                 ...kirim,
                                 diberi_asi: 'Ya',
-                                frek_makanan: 0,
-                                frek_snack: 0
+
                             });
-                            getJumlahMakanan(0);
-                            getJumlahSnack(0);
+
                         } else if (BULAN >= 9 && BULAN <= 11) {
                             setKirim({
                                 ...kirim,
                                 diberi_asi: 'Ya',
-                                frek_makanan: 0,
-                                frek_snack: 0
+
                             });
-                            getJumlahMakanan(0);
-                            getJumlahSnack(0);
+
                         } else if (BULAN >= 12) {
                             setKirim({
                                 ...kirim,
                                 diberi_asi: 'Ya',
-                                frek_makanan: 0,
-                                frek_snack: 0
+
                             });
-                            getJumlahMakanan(0);
-                            getJumlahSnack(0);
+
                         } else {
                             showMessage({
                                 message: 'Umur anak masih dibawah 6 Bulan'
@@ -508,29 +561,23 @@ export default function AsupanMpasi({ navigation, route }) {
                                 setKirim({
                                     ...kirim,
                                     diberi_asi: 'Tidak',
-                                    frek_makanan: 0,
-                                    frek_snack: 0
+
                                 });
-                                getJumlahMakanan(0);
-                                getJumlahSnack(0);
+
                             } else if (BULAN >= 9 && BULAN <= 11) {
                                 setKirim({
                                     ...kirim,
                                     diberi_asi: 'Tidak',
-                                    frek_makanan: 0,
-                                    frek_snack: 0
+
                                 });
-                                getJumlahMakanan(0);
-                                getJumlahSnack(0);
+
                             } else if (BULAN >= 12) {
                                 setKirim({
                                     ...kirim,
                                     diberi_asi: 'Tidak',
-                                    frek_makanan: 0,
-                                    frek_snack: 0
+
                                 });
-                                getJumlahMakanan(0);
-                                getJumlahSnack(0);
+
                             } else {
                                 showMessage({
                                     message: 'Umur anak masih dibawah 6 Bulan'
@@ -806,20 +853,25 @@ export default function AsupanMpasi({ navigation, route }) {
                         }}>
                         Jenis Bahan Makanan
                     </Text>
-                    <MyMakanan
 
-                        onPress={() => {
-                            let tmp = makan.bahan_makanan;
-                            tmp[0][0] = tmp[0][0] == 0 ? 1 : 0,
-                                console.log(tmp)
-                            setMakan({
-                                ...makan,
-                                bahan_makanan: tmp
-                            })
 
-                        }}
+                    {kirim.diberi_asi == 'Ya' &&
+                        <MyMakanan
 
-                        value={makan.bahan_makanan[0][0]} label="ASI" img={require('../../assets/m1.png')} />
+                            onPress={() => {
+                                let tmp = makan.bahan_makanan;
+                                tmp[0][0] = tmp[0][0] == 0 ? 1 : 0,
+                                    console.log(tmp)
+                                setMakan({
+                                    ...makan,
+                                    bahan_makanan: tmp
+                                })
+
+                            }}
+
+                            value={makan.bahan_makanan[0][0]} label="ASI" img={require('../../assets/m1.png')} img2={require('../../assets/m11.png')} />
+
+                    }
 
                     {makan.jenis_makanan[0] !== 'MPASI Rumahan' && makan.jenis_makanan[0] !== undefined &&
 
@@ -832,85 +884,90 @@ export default function AsupanMpasi({ navigation, route }) {
                                 bahan_makanan: tmp
                             })
 
-                        }} value={makan.bahan_makanan[0][8]} label="MPASI Instan" img={require('../../assets/m9.png')} />
+                        }} value={makan.bahan_makanan[0][8]} label="MPASI Instan" img2={require('../../assets/m99.png')} img={require('../../assets/m9.png')} />
 
                     }
 
-                    <MyMakanan
-                        onPress={() => {
-                            let tmp = makan.bahan_makanan;
-                            tmp[0][1] = tmp[0][1] == 0 ? 1 : 0,
-                                console.log(tmp)
-                            setMakan({
-                                ...makan,
-                                bahan_makanan: tmp
-                            })
 
-                        }}
-                        value={makan.bahan_makanan[0][1]} label="Bahan Makanan Pokok" img={require('../../assets/m2.png')} />
-                    <MyMakanan onPress={() => {
-                        let tmp = makan.bahan_makanan;
-                        tmp[0][2] = tmp[0][2] == 0 ? 1 : 0,
-                            console.log(tmp)
-                        setMakan({
-                            ...makan,
-                            bahan_makanan: tmp
-                        })
+                    {makan.jenis_makanan[0] !== 'MPASI Instan' &&
+                        <>
+                            <MyMakanan
+                                onPress={() => {
+                                    let tmp = makan.bahan_makanan;
+                                    tmp[0][1] = tmp[0][1] == 0 ? 1 : 0,
+                                        console.log(tmp)
+                                    setMakan({
+                                        ...makan,
+                                        bahan_makanan: tmp
+                                    })
 
-                    }} value={makan.bahan_makanan[0][2]} label="Protein Hewani" img={require('../../assets/m3.png')} />
-                    <MyMakanan onPress={() => {
-                        let tmp = makan.bahan_makanan;
-                        tmp[0][3] = tmp[0][3] == 0 ? 1 : 0,
-                            console.log(tmp)
-                        setMakan({
-                            ...makan,
-                            bahan_makanan: tmp
-                        })
+                                }}
+                                value={makan.bahan_makanan[0][1]} label="Bahan Makanan Pokok" img2={require('../../assets/m22.png')} img={require('../../assets/m2.png')} />
 
-                    }} value={makan.bahan_makanan[0][3]} label="Telur" img={require('../../assets/m4.png')} />
-                    <MyMakanan onPress={() => {
-                        let tmp = makan.bahan_makanan;
-                        tmp[0][4] = tmp[0][4] == 0 ? 1 : 0,
-                            console.log(tmp)
-                        setMakan({
-                            ...makan,
-                            bahan_makanan: tmp
-                        })
+                            <MyMakanan onPress={() => {
+                                let tmp = makan.bahan_makanan;
+                                tmp[0][2] = tmp[0][2] == 0 ? 1 : 0,
+                                    console.log(tmp)
+                                setMakan({
+                                    ...makan,
+                                    bahan_makanan: tmp
+                                })
 
-                    }} value={makan.bahan_makanan[0][4]} label="Nabati dan Kacang-kacangan" img={require('../../assets/m5.png')} />
-                    <MyMakanan onPress={() => {
-                        let tmp = makan.bahan_makanan;
-                        tmp[0][5] = tmp[0][5] == 0 ? 1 : 0,
-                            console.log(tmp)
-                        setMakan({
-                            ...makan,
-                            bahan_makanan: tmp
-                        })
+                            }} value={makan.bahan_makanan[0][2]} label="Protein Hewani" img={require('../../assets/m3.png')} img2={require('../../assets/m33.png')} />
+                            <MyMakanan onPress={() => {
+                                let tmp = makan.bahan_makanan;
+                                tmp[0][3] = tmp[0][3] == 0 ? 1 : 0,
+                                    console.log(tmp)
+                                setMakan({
+                                    ...makan,
+                                    bahan_makanan: tmp
+                                })
 
-                    }} value={makan.bahan_makanan[0][5]} label="Susu dan Produk Susu" img={require('../../assets/m6.png')} />
-                    <MyMakanan onPress={() => {
-                        let tmp = makan.bahan_makanan;
-                        tmp[0][6] = tmp[0][6] == 0 ? 1 : 0,
-                            console.log(tmp)
-                        setMakan({
-                            ...makan,
-                            bahan_makanan: tmp
-                        })
+                            }} value={makan.bahan_makanan[0][3]} label="Telur" img={require('../../assets/m4.png')} img2={require('../../assets/m44.png')} />
+                            <MyMakanan onPress={() => {
+                                let tmp = makan.bahan_makanan;
+                                tmp[0][4] = tmp[0][4] == 0 ? 1 : 0,
+                                    console.log(tmp)
+                                setMakan({
+                                    ...makan,
+                                    bahan_makanan: tmp
+                                })
 
-                    }} value={makan.bahan_makanan[0][6]} label="Buah & Sayur Tinggi Vit A" img={require('../../assets/m7.png')} />
-                    <MyMakanan onPress={() => {
-                        let tmp = makan.bahan_makanan;
-                        tmp[0][7] = tmp[0][7] == 0 ? 1 : 0,
-                            console.log(tmp)
-                        setMakan({
-                            ...makan,
-                            bahan_makanan: tmp
-                        })
+                            }} value={makan.bahan_makanan[0][4]} label="Nabati dan Kacang-kacangan" img={require('../../assets/m5.png')} img2={require('../../assets/m55.png')} />
+                            <MyMakanan onPress={() => {
+                                let tmp = makan.bahan_makanan;
+                                tmp[0][5] = tmp[0][5] == 0 ? 1 : 0,
+                                    console.log(tmp)
+                                setMakan({
+                                    ...makan,
+                                    bahan_makanan: tmp
+                                })
 
-                    }} value={makan.bahan_makanan[0][7]} label="Buah & Sayur Lainnya" img={require('../../assets/m8.png')} />
+                            }} value={makan.bahan_makanan[0][5]} label="Susu dan Produk Susu" img={require('../../assets/m6.png')} img2={require('../../assets/m66.png')} />
+                            <MyMakanan onPress={() => {
+                                let tmp = makan.bahan_makanan;
+                                tmp[0][6] = tmp[0][6] == 0 ? 1 : 0,
+                                    console.log(tmp)
+                                setMakan({
+                                    ...makan,
+                                    bahan_makanan: tmp
+                                })
+
+                            }} value={makan.bahan_makanan[0][6]} label="Buah & Sayur Tinggi Vit A" img={require('../../assets/m7.png')} img2={require('../../assets/m77.png')} />
+                            <MyMakanan onPress={() => {
+                                let tmp = makan.bahan_makanan;
+                                tmp[0][7] = tmp[0][7] == 0 ? 1 : 0,
+                                    console.log(tmp)
+                                setMakan({
+                                    ...makan,
+                                    bahan_makanan: tmp
+                                })
+
+                            }} value={makan.bahan_makanan[0][7]} label="Buah & Sayur Lainnya" img={require('../../assets/m8.png')} img2={require('../../assets/m88.png')} />
 
 
-
+                        </>
+                    }
 
                 </View>
 
@@ -1089,7 +1146,7 @@ export default function AsupanMpasi({ navigation, route }) {
                         marginBottom: 20
                     }}>Informasi Tambahan</Text>
 
-                    <MyRadio onPress={() => {
+                    {/* <MyRadio onPress={() => {
                         setKirim({
                             ...kirim,
                             tambahan1: 'Ya'
@@ -1103,7 +1160,7 @@ export default function AsupanMpasi({ navigation, route }) {
                         }}
 
                         value={kirim.tambahan1} label="1. Anak diberikan salah satu bahan makanan berikut: Telur, Daging, Ikan, Ayam?" />
-                    <MyGap jarak={10} />
+                    <MyGap jarak={10} /> */}
                     <MyRadio onPress={() => {
                         setKirim({
                             ...kirim,
@@ -1117,7 +1174,7 @@ export default function AsupanMpasi({ navigation, route }) {
                             })
                         }}
 
-                        value={kirim.tambahan2} label="2. Anak diberikan salah satu minuman berikut: Minuman bersoda, minuman berperisa, sport drink, sirup, madu, minuman serbuk, susu berperisa, dan minuman lain yang ditambahkan gula atau pemanis?" />
+                        value={kirim.tambahan2} label="1. Anak diberikan salah satu minuman berikut: Minuman bersoda, minuman berperisa, sport drink, sirup, madu, minuman serbuk, susu berperisa, dan minuman lain yang ditambahkan gula atau pemanis?" />
                     <MyGap jarak={10} />
                     <MyRadio onPress={() => {
                         setKirim({
@@ -1132,9 +1189,9 @@ export default function AsupanMpasi({ navigation, route }) {
                             })
                         }}
 
-                        value={kirim.tambahan3} label="3. Anak diberikan salah satu makanan berikut: Permen, coklat, manisan, buah yang dikeringkan, es krim, kue manis, biscuit manis, keripik, kerupuk, kentang goreng, mie instan? " />
+                        value={kirim.tambahan3} label="2. Anak diberikan salah satu makanan berikut: Permen, coklat, manisan, buah yang dikeringkan, es krim, kue manis, biscuit manis, keripik, kerupuk, kentang goreng, mie instan? " />
                     <MyGap jarak={10} />
-                    <MyRadio onPress={() => {
+                    {/* <MyRadio onPress={() => {
                         setKirim({
                             ...kirim,
                             tambahan4: 'Ya'
@@ -1148,7 +1205,7 @@ export default function AsupanMpasi({ navigation, route }) {
                         }}
 
                         value={kirim.tambahan4} label="4. Anak diberikan sayur dan buah?" />
-                    <MyGap jarak={10} />
+                    <MyGap jarak={10} /> */}
                 </View>
 
                 {/* iCara Pemberian */}
@@ -1277,6 +1334,26 @@ export default function AsupanMpasi({ navigation, route }) {
                     <MyGap jarak={10} />
 
                 </View>
+
+                <TouchableWithoutFeedback onPress={() => {
+                    setCeklis(!ceklis)
+                }}>
+                    <View style={{
+                        padding: 10,
+                        margin: 20,
+                        borderRadius: 10,
+                        flexDirection: 'row',
+                        alignItems: 'center'
+                    }}>
+                        <Icon type='ionicon' size={25} color={colors.primary} name={ceklis ? 'checkbox' : 'checkbox-outline'} />
+                        <Text style={{
+                            left: 10,
+                            flex: 1,
+                            fontFamily: fonts.secondary[600],
+                            fontSize: 12,
+                        }}>Pengisian data ini adalah benar dan sesuai pemberian MP-ASI yang sesungguhnya agar ibu memperoleh saran yang tepat untuk perbaikan MP-ASI dan sebagai informasi yang valid dalam upaya pencegahan stunting.</Text>
+                    </View>
+                </TouchableWithoutFeedback>
 
                 {!loading && <View style={{
                     paddingHorizontal: 20,

@@ -362,21 +362,27 @@ export default function Register({ navigation }) {
                         }} label="Kecamatan" iconname="location-outline" data={kecamatan} />
 
                         <MyGap jarak={10} />
-                        <MyPicker onValueChange={x => {
-                            setData({
-                                ...data,
-                                desa: x.split("#")[1],
-                            })
-                        }} label="Desa / Kelurahan" iconname="location-outline" data={desa} />
+                        {data.level != 'TENAGA KESEHATAN' &&
+                            <>
+                                <MyPicker onValueChange={x => {
+                                    setData({
+                                        ...data,
+                                        desa: x.split("#")[1],
+                                    })
+                                }} label="Desa / Kelurahan" iconname="location-outline" data={desa} />
 
-                        <MyGap jarak={10} />
-                        <MyInput iconname="home-outline" label="Posyandu" onChangeText={x => {
-                            setData({
-                                ...data,
-                                posyandu: x
-                            })
-                        }} />
-                        <MyGap jarak={10} />
+                                <MyGap jarak={10} />
+                                <MyInput iconname="home-outline" label="Posyandu" onChangeText={x => {
+                                    setData({
+                                        ...data,
+                                        posyandu: x
+                                    })
+                                }} />
+                                <MyGap jarak={10} />
+                            </>
+
+                        }
+
                         <MyInput
                             placeholder="Masukan nama lengkap"
                             label="Nama Lengkap"

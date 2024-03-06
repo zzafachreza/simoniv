@@ -188,7 +188,6 @@ export default function ({ navigation, route }) {
                                                 fontSize: MyDimensi / 3
                                             }}>Poin Game Kuis</Text>
                                             <View style={{
-                                                flexDirection: 'row',
                                                 marginTop: 10,
                                                 justifyContent: 'space-around'
                                             }}>
@@ -197,13 +196,14 @@ export default function ({ navigation, route }) {
                                                 <MyList label="STAGE 3" value={pont.stage3} />
                                                 <MyList label="STAGE 4" value={pont.stage4} />
                                                 <MyList label="STAGE 5" value={pont.stage5} />
+                                                <MyList label="MPASI" value={pont.mpasi} />
                                             </View>
                                             <Text style={{
                                                 fontFamily: fonts.secondary[800],
                                                 fontSize: MyDimensi / 2,
                                                 color: colors.black,
                                                 marginTop: 10,
-                                            }}>Total : {parseFloat(parseFloat(pont.stage1) + parseFloat(pont.stage2) + parseFloat(pont.stage3) + parseFloat(pont.stage4) + parseFloat(pont.stage5))} Poin</Text>
+                                            }}>Total : {parseFloat(parseFloat(pont.mpasi) + parseFloat(pont.stage1) + parseFloat(pont.stage2) + parseFloat(pont.stage3) + parseFloat(pont.stage4) + parseFloat(pont.stage5))} Poin</Text>
                                         </View>
                                     </>
                                 }
