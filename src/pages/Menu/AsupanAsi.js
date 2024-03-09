@@ -57,7 +57,7 @@ export default function AsupanAsi({ navigation, route }) {
                         style: 'success',
                         cancellable: true
                     }, callback => {
-                        navigation.navigate('AsupanAsiHasil', user)
+                        navigation.replace('AsupanAsiHasil', user)
                     })
                 }
             }).finally(() => {

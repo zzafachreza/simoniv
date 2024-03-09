@@ -51,6 +51,8 @@ export default function StatusGizi({ navigation, route }) {
                         subTitle: res.data.message,
                         style: 'success',
                         cancellable: true
+                    }, callback => {
+                        navigation.replace('StatusGiziHasil', user)
                     })
                 }
             }).finally(() => {

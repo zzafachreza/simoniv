@@ -459,7 +459,7 @@ export default function AsupanMpasi({ navigation, route }) {
                             style: 'success',
                             cancellable: true
                         }, callback => {
-                            navigation.navigate('AsupanMpasiHasil', user)
+                            navigation.replace('AsupanMpasiHasil', user)
                         })
                     }
                 }).finally(() => {
