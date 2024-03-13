@@ -194,7 +194,16 @@ export default function AsupanMpasi({ navigation, route }) {
                 style: 'error',
                 cancellable: true
             })
+        } else if (kirim.beri1.length == 0 || kirim.bersih1.length == 0 || kirim.tambahan2.length == 0 || makan.bahan_makanan[0].filter(zz => zz == 1).length == 0) {
+
+            SweetAlert.showAlertWithOptions({
+                title: MYAPP,
+                subTitle: 'Anda harus mengisi data terlebih dahulu !',
+                style: 'error',
+                cancellable: true
+            })
         } else {
+
             setLoading(true);
 
             let FREKUENSI = 0;
@@ -350,9 +359,25 @@ export default function AsupanMpasi({ navigation, route }) {
                 }
 
                 // #4 BAHAN
+                // let TMPBAHAN = 0;
+                // makan.bahan_makanan[0].map(i => {
+                //     TMPBAHAN += i.filter(z => z == 1).length;
 
-                if (makan.bahan_makanan[0][1] == 1 || makan.bahan_makanan[0][8] == 1) {
-                    BAHAN = 1;
+                // });
+
+                if (makan.bahan_makanan[0].filter(z => z === 1).length >= 5) {
+
+                    if (makan.bahan_makanan[0][1] == 1 && makan.bahan_makanan[0][8] == 1) {
+                        if ((makan.bahan_makanan[0].filter(z => z === 1).length - 1) >= 5) {
+                            BAHAN = 1;
+                        } else {
+                            BAHAN = 0;
+                        }
+                    } else {
+                        BAHAN = 1;
+                    }
+
+
                 } else {
                     BAHAN = 0;
                 }
@@ -379,7 +404,7 @@ export default function AsupanMpasi({ navigation, route }) {
                 }
 
                 // #8 SAYUR_BUAH
-                if (makan.bahan_makanan[0][6] == 1 && makan.bahan_makanan[0][7] == 1) {
+                if (makan.bahan_makanan[0][6] == 1 || makan.bahan_makanan[0][7] == 1) {
                     SAYUR_BUAH = 1;
                 } else {
                     SAYUR_BUAH = 0;
@@ -407,11 +432,7 @@ export default function AsupanMpasi({ navigation, route }) {
                 } else {
                     BERAGAM = 0;
                 }
-
-
-
-
-                console.log({
+                console.log('kirim', {
                     formulir: kirim,
                     makanan: makan,
                     snack: snack,
@@ -430,6 +451,10 @@ export default function AsupanMpasi({ navigation, route }) {
 
                     }
                 })
+
+
+
+
 
 
                 axios.post(apiURL + 'insert_mpasi', {

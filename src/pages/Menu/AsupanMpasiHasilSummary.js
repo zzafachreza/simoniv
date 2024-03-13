@@ -180,7 +180,8 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                         parseFloat(item.jajanan_all) +
                         parseFloat(item.sayur_buah_all) +
                         parseFloat(item.pemberian_all) +
-                        parseFloat(item.kebersihan_all);
+                        parseFloat(item.kebersihan_all) +
+                        parseFloat(item.beragam_all);
 
                     let totalSesuai =
 
@@ -193,7 +194,8 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                         parseFloat(item.jajanan_ya) +
                         parseFloat(item.sayur_buah_ya) +
                         parseFloat(item.pemberian_ya) +
-                        parseFloat(item.kebersihan_ya);
+                        parseFloat(item.kebersihan_ya) +
+                        parseFloat(item.beragam_ya);
 
                     return (
                         <TouchableWithoutFeedback onPress={() => {
@@ -243,6 +245,16 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                                             color: colors.black,
                                             fontSize: MyDimensi / 4
                                         }}>{item.jenis_kelamin}</Text>
+                                        <Text style={{
+                                            fontFamily: fonts.secondary[600],
+                                            color: colors.primary,
+                                            fontSize: MyDimensi / 4
+                                        }}>Kecamatan / Desa / Posyandu</Text>
+                                        <Text style={{
+                                            fontFamily: fonts.secondary[600],
+                                            color: colors.black,
+                                            fontSize: MyDimensi / 4
+                                        }}>{item.kecamatan} / {item.desa} / {item.posyandu}</Text>
                                     </View>
                                     <View>
                                         <View style={{
@@ -256,7 +268,7 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                                                 shadowColor={colors.danger}
                                                 bgColor="#fff"
                                             >
-                                                <Text style={{ fontSize: MyDimensi / 2 }}>{(totalSesuai / totalIsi) * 100}%</Text>
+                                                <Text style={{ fontSize: MyDimensi / 2 }}>{((totalSesuai / totalIsi) * 100).toFixed(1)}%</Text>
                                             </ProgressCircle>
                                         </View>
                                     </View>
@@ -308,6 +320,7 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                                     <MyList label="Porsi" jumlah={item.porsi_all} ya={item.porsi_ya} no={item.porsi_no} />
                                     <MyList label="Bahan" jumlah={item.bahan_all} ya={item.bahan_ya} no={item.bahan_no} />
                                     <MyList label="Konsumsi telur/hewani" jumlah={item.konsumsi_all} ya={item.konsumsi_ya} no={item.konsumsi_no} />
+                                    <MyList label="MP-ASI beragam dan mengandung hewani" jumlah={item.beragam_all} ya={item.beragam_ya} no={item.beragam_no} />
                                     <MyList label="Minuman manis" jumlah={item.minuman_all} ya={item.minuman_ya} no={item.minuman_no} />
                                     <MyList label="Jajanan tidak sehat" jumlah={item.jajanan_all} ya={item.jajanan_ya} no={item.jajanan_no} />
                                     <MyList label="Sayur buah" jumlah={item.sayur_buah_all} ya={item.sayur_buah_ya} no={item.sayur_buah_no} />

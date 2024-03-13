@@ -381,12 +381,12 @@ export default function AsupanAsiHasil({ navigation, route }) {
                             <MyHasil label="Porsi" value={data[0].porsi} oke="Porsi makanan sudah sesuai dengan rekomendasi menurut umur" no="Porsi makanan kurang dari 3/4 mangkok" rek={rekomendasi.porsi} />
                             <MyHasil label="Bahan" value={data[0].bahan} oke="Anak sudah diberikan sumber bahan makanan yang beraneka ragam" no="Anak belum mendapatkan bahan makanan hewani/susu dan produk susu/telur/sayur dan buah tinggi vitamin A" rek={rekomendasi.bahan} />
                             <MyHasil label="Konsumsi telur/hewani" value={data[0].konsumsi} oke="Anak sudah mendapatkan telur dan sumber protein hewani" no="Anak belum mendapatkan telur dan sumber protein hewani" rek={rekomendasi.konsumsi} />
-                            <MyHasil label="MP-ASI beragam dan mengandung hewani" value={data[0].beragam} oke="Anak sudah diberikan sumber bahan makanan yang beraneka ragam dan sudah mendapatkan telur atau sumber protein hewani" no="Anak belum mendapatkan bahan makanan yang beraneka ragam dan atau belum mendapatkan telur atau sumber protein hewani" rek={rekomendasi.beragam} />
+                            <MyHasil label="MP-ASI beragam dan mengandung hewani" value={data[0].beragam} oke="Anak sudah diberikan sumber bahan makanan yang beraneka ragam dan sudah mendapatkan telur atau sumber protein hewani" no="Anak belum mendapatkan bahan makanan hewani/susu dan produk susu/telur/sayur dan buah tinggi vitamin A" rek={rekomendasi.beragam} />
                             <MyHasil label="Minuman manis" value={data[0].minuman} oke="Anak tidak diberikan minuman manis" no="Anak diberikan minuman manis" rek={rekomendasi.minuman} />
 
-                            <MyHasil label="Jajanan tidak sehat" value={data[0].jajanan} oke="Anak sudah diberikan sumber bahan makanan yang beraneka ragam dan sudah mendapatkan telur atau sumber protein hewani" no="Anak belum mendapatkan bahan makanan yang beraneka ragam dan atau belum mendapatkan telur atau sumber protein hewan" rek={rekomendasi.jajanan} />
+                            <MyHasil label="Jajanan tidak sehat" value={data[0].jajanan} oke="Anak tidak diberikan jajanan tidak sehat" no="Anak diberikan jajanan tidak sehat" rek={rekomendasi.jajanan} />
 
-                            <MyHasil label="Sayur buah" value={data[0].sayur_buah} oke="Anak sudah diberikan sayur buah" no="Anak sudah diberikan sayur buah" rek={rekomendasi.sayur_buah} />
+                            <MyHasil label="Sayur buah" value={data[0].sayur_buah} oke="Anak sudah diberikan sayur buah" no="Anak belum diberikan sayur dan buah" rek={rekomendasi.sayur_buah} />
                             <MyHasil label="Cara pemberian" value={data[0].pemberian} oke="Cara pemberian sudah sesuai" no="Cara pemberian belum sesuai" rek={rekomendasi.pemberian} />
                             <MyHasil label="Higienitas" value={data[0].kebersihan} oke="Higienitas sudah sesuai" no="Higienitas belum sesuai" rek={rekomendasi.kebersihan} />
 
