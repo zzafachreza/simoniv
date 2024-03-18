@@ -383,7 +383,7 @@ export default function AsupanMpasi({ navigation, route }) {
                 }
 
                 // #5 KONSUMSI
-                if (makan.bahan_makanan[0][2] == 1 && makan.bahan_makanan[0][3] == 1) {
+                if (makan.bahan_makanan[0][2] == 1 || makan.bahan_makanan[0][3] == 1) {
                     KONSUMSI = 1;
                 } else {
                     KONSUMSI = 0;
