@@ -21,7 +21,8 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                         fontFamily: fonts.secondary[600],
                         color: colors.primary,
                         left: 10,
-                        fontSize: MyDimensi / 4,
+                        fontSize: 12,
+                        maxWidth: '95%'
                     }}>
                     {label}
                 </Text>
@@ -59,7 +60,7 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                         <Text style={{
                             left: 10,
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 4
+                            fontSize: 12
                         }}>Ya</Text>
                     </View>
                 </TouchableWithoutFeedback>
@@ -89,7 +90,7 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                         <Text style={{
                             left: 10,
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 4
+                            fontSize: 12
                         }}>Tidak</Text>
                     </View>
                 </TouchableWithoutFeedback>

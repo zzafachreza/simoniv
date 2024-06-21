@@ -27,13 +27,13 @@ export default function MyPicker({
           alignItems: 'center',
           paddingVertical: 0,
         }}>
-        <Icon type="ionicon" name={iconname} color={colors.primary} size={MyDimensi / 4} />
+        <Icon type="ionicon" name={iconname} color={colors.primary} size={12} />
         <Text
           style={{
             fontFamily: fonts.secondary[600],
             color: colors.primary,
             left: 10,
-            fontSize: MyDimensi / 4,
+            fontSize: 12,
             ...styleLabel,
           }}>
           {label}
@@ -52,7 +52,7 @@ export default function MyPicker({
         <Picker style={{ height: 48, transform: [{ scale: 0.9 }] }}
           selectedValue={value} onValueChange={onValueChange}>
           {data.map(item => {
-            return <Picker.Item textStyle={{ fontSize: MyDimensi / 4 }} value={item.value} label={item.label} />;
+            return <Picker.Item textStyle={{ fontSize: 12 }} value={item.value} label={item.label} />;
           })}
         </Picker>
       </View>

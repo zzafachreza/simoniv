@@ -110,6 +110,8 @@ export default function StatusGizi({ navigation, route }) {
                 }} />
                 <MyGap jarak={20} />
                 <MyButton title="Kirim" onPress={sendServer} />
+                <MyGap jarak={10} />
+                <MyButton title="Lihat Hasil" warna={colors.secondary} colorText={colors.black} iconColor={colors.black} Icons="search" onPress={() => navigation.navigate('StatusGiziHasil', user)} />
             </View>
 
 
@@ -124,30 +126,7 @@ export default function StatusGizi({ navigation, route }) {
                 </View>
             }
 
-            <TouchableWithoutFeedback onPress={() => navigation.navigate('StatusGiziHasil', user)}>
-                <View style={{
-                    position: 'absolute',
-                    bottom: 10,
-                    right: 10,
-                    borderRadius: 30,
-                    backgroundColor: colors.secondary,
-                    padding: 10,
-                    height: 45,
-                    width: windowWidth / 2.5,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    flexDirection: 'row'
-                }}>
-                    <Icon type='ionicon' name='search-outline' color={colors.black} size={MyDimensi / 3.5} />
-                    <Text style={{
-                        // left: 5,
-                        marginLeft: 5,
-                        fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 3.5,
-                        color: colors.black
-                    }}>Lihat Hasil</Text>
-                </View>
-            </TouchableWithoutFeedback>
+
 
         </SafeAreaView>
     )

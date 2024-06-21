@@ -60,12 +60,12 @@ export default function MyCarouser() {
           <Text style={{
             fontFamily: fonts.secondary[600],
             color: colors.white,
-            fontSize: MyDimensi / 4
+            fontSize: 12
           }}>{item.judul}</Text>
           <Text style={{
             fontFamily: fonts.secondary[400],
             color: colors.white,
-            fontSize: MyDimensi / 5
+            fontSize: 10
           }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
         </View>
       </View>

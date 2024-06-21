@@ -213,7 +213,12 @@ export default function Home({ navigation, route }) {
         padding: 10,
         alignItems: 'center',
       }}>
-        <FlatList numColumns={3} data={data} renderItem={({ item }) => {
+        <FlatList contentContainerStyle={{
+
+          justifyContent: "space-between",
+          alignItems: "center",
+          // flex: 1,
+        }} numColumns={3} data={data} renderItem={({ item }) => {
           return (
             <TouchableWithoutFeedback onPress={() => {
 
@@ -232,7 +237,7 @@ export default function Home({ navigation, route }) {
 
             }}>
               <View style={{
-                width: windowWidth / 3.8,
+                width: 100,
                 borderWidth: 0,
                 borderRadius: 10,
                 borderColor: colors.border,
@@ -245,8 +250,8 @@ export default function Home({ navigation, route }) {
                   uri: item.image
                 }} style={{
                   marginTop: 10,
-                  width: windowWidth / 7.5,
-                  height: windowWidth / 7.5,
+                  width: 45,
+                  height: 45,
                 }} />
                 <View style={{
                   // backgroundColor: colors.primary,
@@ -256,7 +261,7 @@ export default function Home({ navigation, route }) {
                 }}>
                   <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: MyDimensi / 4,
+                    fontSize: 11,
                     textAlign: 'center',
 
                   }}>{item.judul}</Text>

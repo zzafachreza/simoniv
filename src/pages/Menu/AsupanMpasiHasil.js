@@ -46,11 +46,11 @@ export default function AsupanAsiHasil({ navigation, route }) {
                 marginTop: 30, paddingLeft: 10, borderRadius: 10, backgroundColor: value > 0 ? colors.primary : colors.danger, flexDirection: 'row', position: 'relative'
             }}>
                 <View style={{ flex: 1 }}>
-                    <Text style={{ fontFamily: fonts.secondary[800], fontSize: MyDimensi / 3, color: colors.white }}>{label}</Text>
+                    <Text style={{ fontFamily: fonts.secondary[800], fontSize: 12, color: colors.white }}>{label}</Text>
                     <Text style={{
                         marginTop: 5,
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 4,
+                        fontSize: 12,
                         color: colors.white
                     }}>{value > 0 ? oke : no}</Text>
                     <Text style={{
@@ -90,7 +90,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                 flex: 1,
                                 color: colors.primary,
                                 fontFamily: fonts.secondary[800],
-                                fontSize: MyDimensi / 4,
+                                fontSize: 12,
                             }}>Kirim Rekomedasi</Text>
                             <Icon type='ionicon' name='notifications-outline' size={MyDimensi / 3} color={colors.primary} />
                         </TouchableOpacity>
@@ -131,7 +131,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
 
             setReokemdasi({
                 frekuensi: 'Frekuensi makan utama minimal 3 kali sehari dan selingan 1 kali sehari',
-                tekstur: 'Tekstur makanan berupa makanan cincang dan bisa digenggam',
+                tekstur: 'Tkstur makanan berupa tim, atau makanan cincang dan makanan bisa digenggam',
                 porsi: '1/2 - 3/4 mangkok ukuran 250 ml',
                 bahan: 'Berikan minimal 5 jenis bahan makanan berikut perhari (ASI, makanan pokok, nabati, hewani, telur, susu/produk susu, sayur buah tinggi vit A , sayur buah lainnya',
                 konsumsi: 'Berikan telur atau makanan hewani setiap hari',
@@ -377,7 +377,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                         }}>
                             <MyHasil label="Frekuensi" value={data[0].frekuensi} oke="Frekuensi  makan sudah sesuai dengan rekomendasi menurut umur" no="Frekuensi pemberian kurang dari 3 kali / anak belum diberikan snack" rek={rekomendasi.frekuensi} />
 
-                            <MyHasil label="Tekstur" value={data[0].tekstur} oke="Tekstur makanan sudah sesuai dengan rekomendasi menurut umur" no="Tekstur makanan sesuai usia seharusnya dalam bentuk tim / bubur kental" rek={rekomendasi.tekstur} />
+                            <MyHasil label="Tekstur" value={data[0].tekstur} oke="Tekstur makanan sudah sesuai dengan rekomendasi menurut umur" no="Tekstur makanan sesuai usia seharusnya dalam bentuk tim/makanan cincang" rek={rekomendasi.tekstur} />
                             <MyHasil label="Porsi" value={data[0].porsi} oke="Porsi makanan sudah sesuai dengan rekomendasi menurut umur" no="Porsi makanan kurang dari 3/4 mangkok" rek={rekomendasi.porsi} />
                             <MyHasil label="Bahan" value={data[0].bahan} oke="Anak sudah diberikan sumber bahan makanan yang beraneka ragam" no="Anak belum mendapatkan bahan makanan hewani/susu dan produk susu/telur/sayur dan buah tinggi vitamin A" rek={rekomendasi.bahan} />
                             <MyHasil label="Konsumsi telur/hewani" value={data[0].konsumsi} oke="Anak sudah mendapatkan telur dan sumber protein hewani" no="Anak belum mendapatkan telur dan sumber protein hewani" rek={rekomendasi.konsumsi} />
@@ -403,18 +403,20 @@ export default function AsupanAsiHasil({ navigation, route }) {
                             {item_nilai.map((i, index) => {
                                 return (
                                     <View style={{
-                                        borderWidth: 1,
                                         padding: 10,
-                                        borderRadius: 10,
-                                        marginVertical: 5,
-                                        borderColor: colors.border,
+                                        borderRadius: 12,
+                                        backgroundColor: colors.primary,
+                                        marginBottom: 8,
                                     }}>
                                         <Text style={{
                                             fontFamily: fonts.secondary[800],
-                                            fontSize: MyDimensi / 3
+                                            fontSize: 12,
+                                            color: colors.white,
+                                            marginBottom: 8,
                                         }}>{i}</Text>
                                         <View style={{
-                                            flexDirection: 'row'
+                                            flexDirection: 'row',
+                                            alignItems: 'center'
                                         }}>
                                             <View style={{
                                                 flex: 1,
@@ -423,11 +425,13 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                             }}>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[600],
-                                                    fontSize: MyDimensi / 4
+                                                    fontSize: 12,
+                                                    color: colors.white
                                                 }}>Total Pengisian</Text>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[800],
-                                                    fontSize: MyDimensi / 4
+                                                    fontSize: 12,
+                                                    color: colors.white
                                                 }}>{summary.total[index].length}</Text>
                                             </View>
                                             <View style={{
@@ -437,11 +441,13 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                             }}>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[600],
-                                                    fontSize: MyDimensi / 4
+                                                    fontSize: 12,
+                                                    color: colors.white
                                                 }}>Sesuai</Text>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[800],
-                                                    fontSize: MyDimensi / 4
+                                                    fontSize: 12,
+                                                    color: colors.white
                                                 }}>{summary.oke[index].length}</Text>
                                             </View>
                                             <View style={{
@@ -451,11 +457,13 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                             }}>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[600],
-                                                    fontSize: MyDimensi / 4
+                                                    fontSize: 12,
+                                                    color: colors.white
                                                 }}>Tidak Sesuai</Text>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[800],
-                                                    fontSize: MyDimensi / 4
+                                                    fontSize: 12,
+                                                    color: colors.white
                                                 }}>{summary.no[index].length}</Text>
                                             </View>
                                         </View>
@@ -472,8 +480,9 @@ export default function AsupanAsiHasil({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[800],
-                                    fontSize: MyDimensi / 3.2,
-                                    color: colors.primary
+                                    fontSize: 14,
+                                    color: colors.primary,
+                                    textAlign: 'center'
                                 }}>Persentase kesesuaian praktek MPASI</Text>
 
                                 <View style={{
@@ -491,7 +500,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                         shadowColor={colors.danger}
                                         bgColor="#fff"
                                     >
-                                        <Text style={{ fontSize: MyDimensi / 2 }}>{parseFloat((all.oke / all.total) * 100).toFixed(1)}%</Text>
+                                        <Text style={{ fontSize: 20 }}>{parseFloat((all.oke / all.total) * 100).toFixed(1)}%</Text>
                                     </ProgressCircle>
 
                                     <PieChart
@@ -501,14 +510,14 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                                 population: parseFloat(all.oke),
                                                 color: colors.primary,
                                                 legendFontColor: "#7F7F7F",
-                                                legendFontSize: 15
+                                                legendFontSize: 12
                                             },
                                             {
                                                 name: "Tidak Sesuai",
                                                 population: parseFloat(all.no),
                                                 color: colors.danger,
                                                 legendFontColor: "#7F7F7F",
-                                                legendFontSize: 15
+                                                legendFontSize: 12
                                             }
                                         ]}
                                         width={windowWidth - 50}

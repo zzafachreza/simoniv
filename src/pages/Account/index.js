@@ -92,6 +92,7 @@ export default function ({ navigation, route }) {
                     style={{
                         fontFamily: fonts.primary[400],
                         color: colors.primary,
+                        fontSize: 12,
                     }}>
                     {label}
                 </Text>
@@ -99,6 +100,7 @@ export default function ({ navigation, route }) {
                     style={{
                         fontFamily: fonts.primary[400],
                         color: colors.black,
+                        fontSize: 12,
                     }}>
                     {value}
                 </Text>
@@ -156,7 +158,7 @@ export default function ({ navigation, route }) {
                             </View>
                             <Text style={{
                                 fontFamily: fonts.secondary[800],
-                                fontSize: MyDimensi / 3,
+                                fontSize: 14,
                                 textAlign: 'center',
                                 marginVertical: 10,
                                 color: colors.primary
@@ -185,7 +187,7 @@ export default function ({ navigation, route }) {
                                         }}>
                                             <Text style={{
                                                 fontFamily: fonts.secondary[600],
-                                                fontSize: MyDimensi / 3
+                                                fontSize: 14
                                             }}>Poin Game Kuis</Text>
                                             <View style={{
                                                 marginTop: 10,
@@ -200,7 +202,7 @@ export default function ({ navigation, route }) {
                                             </View>
                                             <Text style={{
                                                 fontFamily: fonts.secondary[800],
-                                                fontSize: MyDimensi / 2,
+                                                fontSize: 18,
                                                 color: colors.black,
                                                 marginTop: 10,
                                             }}>Total : {parseFloat(parseFloat(pont.mpasi) + parseFloat(pont.stage1) + parseFloat(pont.stage2) + parseFloat(pont.stage3) + parseFloat(pont.stage4) + parseFloat(pont.stage5))} Poin</Text>

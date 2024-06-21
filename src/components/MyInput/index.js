@@ -44,7 +44,7 @@ export default function MyInput({
           alignItems: 'center',
           paddingVertical: !nolabel ? 5 : 0,
         }}>
-        {icon && !nolabel && <Icon type="ionicon" name={iconname} color={colorIcon} size={MyDimensi / 4} />}
+        {icon && !nolabel && <Icon type="ionicon" name={iconname} color={colorIcon} size={12} />}
 
 
         {!nolabel && <Text
@@ -52,7 +52,7 @@ export default function MyInput({
             fontFamily: fonts.secondary[600],
             color: colorIcon,
             left: icon ? 10 : 5,
-            fontSize: MyDimensi / 4,
+            fontSize: 12,
             ...styleLabel,
           }}>
           {label}{label2.length > 0 && <Text
@@ -60,7 +60,7 @@ export default function MyInput({
               fontFamily: fonts.secondary[400],
               color: colorIcon,
               left: icon ? 10 : 5,
-              fontSize: MyDimensi / 5,
+              fontSize: 12,
             }}>
             {'\n'}{label2}
           </Text>}
@@ -92,7 +92,7 @@ export default function MyInput({
             borderWidth: borderWidth,
             paddingLeft: 20,
             color: textColor,
-            fontSize: MyDimensi / 4,
+            fontSize: 12,
             fontFamily: fonts.primary[400],
             ...styleInput,
           }}

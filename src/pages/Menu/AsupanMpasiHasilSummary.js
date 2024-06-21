@@ -63,32 +63,33 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                 borderBottomWidth: 1,
                 paddingVertical: 2,
                 borderBottomColor: colors.border,
+                alignItems: 'center'
             }}>
                 <Text style={{
                     flex: 1,
                     fontFamily: fonts.secondary[600],
                     color: colors.primary,
-                    fontSize: MyDimensi / 5,
+                    fontSize: 10,
                 }}>{label}</Text>
                 <Text style={{
                     flex: 0.5,
                     fontFamily: fonts.secondary[600],
                     color: colors.black,
-                    fontSize: MyDimensi / 5,
+                    fontSize: 10,
                     textAlign: 'center'
                 }}>{jumlah}</Text>
                 <Text style={{
                     flex: 0.5,
                     fontFamily: fonts.secondary[600],
                     color: colors.black,
-                    fontSize: MyDimensi / 5,
+                    fontSize: 10,
                     textAlign: 'center'
                 }}>{ya}</Text>
                 <Text style={{
                     flex: 0.5,
                     fontFamily: fonts.secondary[600],
                     color: colors.black,
-                    fontSize: MyDimensi / 5,
+                    fontSize: 10,
                     textAlign: 'center'
                 }}>{no}</Text>
 
@@ -160,7 +161,7 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                 <Text style={{
                     fontFamily: fonts.secondary[600],
                     color: colors.black,
-                    fontSize: MyDimensi / 4.5,
+                    fontSize: 12.5,
                     marginBottom: 10,
                     marginHorizontal: 10,
                 }}>Periode {moment(kirim.awal).format('DD MMMM YYYY')} s/d {moment(kirim.akhir).format('DD MMMM YYYY')}</Text>
@@ -216,44 +217,44 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: MyDimensi / 4
+                                            fontSize: 12
                                         }}>Nama Ibu</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 4
+                                            fontSize: 12
                                         }}>{item.nama_lengkap}</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: MyDimensi / 4
+                                            fontSize: 12
                                         }}>Nama Anak</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 4
+                                            fontSize: 12
                                         }}>{item.nama_anak} <Text style={{
                                             color: colors.danger
                                         }}>( {parseFloat(moment().diff(item.tanggal_lahir, 'month', false))} Bulan )</Text></Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: MyDimensi / 4
+                                            fontSize: 12
                                         }}>Jenis Kelamin</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 4
+                                            fontSize: 12
                                         }}>{item.jenis_kelamin}</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: MyDimensi / 4
+                                            fontSize: 12
                                         }}>Kecamatan / Desa / Posyandu</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 4
+                                            fontSize: 12
                                         }}>{item.kecamatan} / {item.desa} / {item.posyandu}</Text>
                                     </View>
                                     <View>
@@ -268,7 +269,7 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                                                 shadowColor={colors.danger}
                                                 bgColor="#fff"
                                             >
-                                                <Text style={{ fontSize: MyDimensi / 2 }}>{((totalSesuai / totalIsi) * 100).toFixed(1)}%</Text>
+                                                <Text style={{ fontSize: 18 }}>{((totalSesuai / totalIsi) * 100).toFixed(1)}%</Text>
                                             </ProgressCircle>
                                         </View>
                                     </View>
@@ -290,27 +291,27 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                                             flex: 1,
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: MyDimensi / 5,
+                                            fontSize: 10,
                                         }}>Item Penilaian</Text>
                                         <Text style={{
                                             flex: 0.5,
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 5,
+                                            fontSize: 10,
                                             textAlign: 'center'
                                         }}>Pengisian</Text>
                                         <Text style={{
                                             flex: 0.5,
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 5,
+                                            fontSize: 10,
                                             textAlign: 'center'
                                         }}>Sesuai</Text>
                                         <Text style={{
                                             flex: 0.5,
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 5,
+                                            fontSize: 10,
                                             textAlign: 'center'
                                         }}>Tidak Sesuai</Text>
 

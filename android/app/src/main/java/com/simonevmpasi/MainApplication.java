@@ -1,4 +1,4 @@
-package com.simonev;
+package com.simonevmpasi;
 
 import android.app.Application;
 import android.content.Context;

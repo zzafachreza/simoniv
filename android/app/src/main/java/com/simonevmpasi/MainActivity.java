@@ -1,4 +1,4 @@
-package com.simonev;
+package com.simonevmpasi;
 
 import com.facebook.react.ReactActivity;
 

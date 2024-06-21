@@ -151,7 +151,7 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
 
                 <Text
                   style={{
-                    fontSize: MyDimensi / 5,
+                    fontSize: 10,
                     color: isFocused ? colors.primary : colors.primary,
                   }}>
                   {Newlabel}

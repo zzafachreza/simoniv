@@ -33,13 +33,13 @@ export default function MyCalendar({
           paddingVertical: 0,
           position: 'relative'
         }}>
-        <Icon type="ionicon" name={iconname} color={iconColor} size={MyDimensi / 4} />
+        <Icon type="ionicon" name={iconname} color={iconColor} size={12} />
         <Text
           style={{
             fontFamily: fonts.secondary[600],
             color: textColor,
             left: 10,
-            fontSize: MyDimensi / 4,
+            fontSize: 12,
             ...styleLabel,
           }}>
           {label}

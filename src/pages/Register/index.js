@@ -166,6 +166,11 @@ export default function Register({ navigation }) {
                 message: 'Masukan nomor telepon',
             });
         }
+        else if (data.nama_anak.length === 0) {
+            showMessage({
+                message: 'Masukan nama anak',
+            });
+        }
         else if (data.password.length === 0) {
             showMessage({
                 message: 'Masukan kata sandi kamu',
