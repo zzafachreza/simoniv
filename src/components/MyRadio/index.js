@@ -21,7 +21,7 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                         fontFamily: fonts.secondary[600],
                         color: colors.primary,
                         left: 10,
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         maxWidth: '95%'
                     }}>
                     {label}
@@ -41,26 +41,26 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                         alignItems: 'center'
                     }}>
                         <View style={{
-                            width: MyDimensi / 2,
-                            height: MyDimensi / 2,
+                            width: 20,
+                            height: 20,
                             backgroundColor: colors.border,
-                            borderRadius: MyDimensi / 4,
+                            borderRadius: 100,
                             justifyContent: 'center',
                             alignItems: 'center'
                         }}>
 
                             {value == 'Ya' && <View style={{
-                                width: MyDimensi / 3,
-                                height: MyDimensi / 3,
+                                width: 15,
+                                height: 15,
                                 backgroundColor: colors.primary,
-                                borderRadius: MyDimensi / 6,
+                                borderRadius: 100,
                             }} />}
                         </View>
 
                         <Text style={{
                             left: 10,
                             fontFamily: fonts.secondary[600],
-                            fontSize: 12
+                            fontSize: MyDimensi / 7
                         }}>Ya</Text>
                     </View>
                 </TouchableWithoutFeedback>
@@ -72,25 +72,25 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                         alignItems: 'center'
                     }}>
                         <View style={{
-                            width: MyDimensi / 2,
-                            height: MyDimensi / 2,
+                            width: 20,
+                            height: 20,
                             backgroundColor: colors.border,
-                            borderRadius: MyDimensi / 4,
+                            borderRadius: 100,
                             justifyContent: 'center',
                             alignItems: 'center'
                         }}>
                             {value == 'Tidak' && <View style={{
-                                width: MyDimensi / 3,
-                                height: MyDimensi / 3,
+                                width: 15,
+                                height: 15,
                                 backgroundColor: colors.primary,
-                                borderRadius: MyDimensi / 6,
+                                borderRadius: 100,
                             }} />}
                         </View>
 
                         <Text style={{
                             left: 10,
                             fontFamily: fonts.secondary[600],
-                            fontSize: 12
+                            fontSize: MyDimensi / 7
                         }}>Tidak</Text>
                     </View>
                 </TouchableWithoutFeedback>

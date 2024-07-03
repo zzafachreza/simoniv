@@ -105,7 +105,7 @@ export default function AsupanAsi({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.secondary[600],
-                            fontSize: 12,
+                            fontSize: MyDimensi / 7,
                             color: colors.primary,
                         }}>Jadwal pemberian ASI (klik sesuai jadwal pemberian)</Text>
                         <TouchableWithoutFeedback onPress={() => {
@@ -147,7 +147,7 @@ export default function AsupanAsi({ navigation, route }) {
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: pilih[0] ? colors.white : colors.black,
                                 }}>Pagi (Jam 00.00 - 06.00)</Text>
                                 {pilih[0] && <Icon type='ionicon' name='checkmark-circle' color={colors.white} size={MyDimensi / 3} />}
@@ -193,7 +193,7 @@ export default function AsupanAsi({ navigation, route }) {
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: pilih[1] ? colors.white : colors.black,
                                 }}>Siang (Jam 06.00 - 18.00)</Text>
                                 {pilih[1] && <Icon type='ionicon' name='checkmark-circle' color={colors.white} size={MyDimensi / 3} />}
@@ -239,7 +239,7 @@ export default function AsupanAsi({ navigation, route }) {
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: pilih[2] ? colors.white : colors.black,
                                 }}>Malam (Jam 18.00 - 24.00)</Text>
                                 {pilih[2] && <Icon type='ionicon' name='checkmark-circle' color={colors.white} size={MyDimensi / 3} />}

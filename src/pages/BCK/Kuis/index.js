@@ -486,7 +486,7 @@ export default function Kuis({ navigation, route }) {
 
                             fontFamily: fonts.secondary[600],
                             color: colors.white,
-                            fontSize: 12
+                            fontSize: MyDimensi / 7
                         }}>Soal Sebelumnya</Text>
                     </TouchableOpacity>}
                 </View> */}
@@ -523,7 +523,7 @@ export default function Kuis({ navigation, route }) {
 
                                 fontFamily: fonts.secondary[600],
                                 color: colors.white,
-                                fontSize: 12
+                                fontSize: MyDimensi / 7
                             }}>Lanjut Mengerjakan</Text>
 
                         </TouchableOpacity>}
@@ -582,7 +582,7 @@ export default function Kuis({ navigation, route }) {
 
                             fontFamily: fonts.secondary[600],
                             color: colors.white,
-                            fontSize: 12
+                            fontSize: MyDimensi / 7
                         }}>Selesai Mengerjakan</Text>
 
                     </TouchableOpacity>

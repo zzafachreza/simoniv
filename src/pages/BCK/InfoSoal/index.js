@@ -429,12 +429,12 @@ export default function InfoSoal({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>1. </Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>Berdo’alah terlebih dahulu sebelum mengerjakan soal quiz.</Text>
                             </View>
@@ -443,12 +443,12 @@ export default function InfoSoal({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>2. </Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>Pilih salah satu dari a sampai e, menurut Anda jawaban yang paing tepat. </Text>
                             </View>
@@ -457,12 +457,12 @@ export default function InfoSoal({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>3. </Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>Anda bisa melewati soal dengan menekan tombol <Text style={{
                                     color: colors.secondary
@@ -473,12 +473,12 @@ export default function InfoSoal({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>4. </Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>Anda dapat mengoreksi kembali jawaban soal Anda dengan menekan nomor soal.</Text>
                             </View>
@@ -487,12 +487,12 @@ export default function InfoSoal({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>5. </Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>Jika sudah selesai sebelum waktunya, maka Anda dapat menekan <Text style={{
                                     color: colors.secondary
@@ -503,12 +503,12 @@ export default function InfoSoal({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>6. </Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.white
                                 }}>Soal akan tertutup secara otomatis jika waktunya telah habis.</Text>
                             </View>
@@ -572,7 +572,7 @@ export default function InfoSoal({ navigation, route }) {
 
                             fontFamily: fonts.secondary[600],
                             color: colors.white,
-                            fontSize: 12
+                            fontSize: MyDimensi / 7
                         }}>Soal Sebelumnya</Text>
                     </TouchableOpacity>}
                 </View>
@@ -609,7 +609,7 @@ export default function InfoSoal({ navigation, route }) {
 
                                 fontFamily: fonts.secondary[600],
                                 color: colors.white,
-                                fontSize: 12
+                                fontSize: MyDimensi / 7
                             }}>Lanjut Mengerjakan</Text>
 
                         </TouchableOpacity>}
@@ -636,7 +636,7 @@ export default function InfoSoal({ navigation, route }) {
 
                             fontFamily: fonts.secondary[600],
                             color: colors.white,
-                            fontSize: 12
+                            fontSize: MyDimensi / 7
                         }}>Berhenti Mengerjakan</Text>
 
                     </TouchableOpacity>

@@ -98,7 +98,7 @@ export default function AAInput({ navigation, route }) {
             <View>
                 <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: 12
+                    fontSize: MyDimensi / 7
                 }}>{label}</Text>
                 <View style={{
                     flexDirection: 'row',
@@ -187,7 +187,7 @@ export default function AAInput({ navigation, route }) {
                                     fontFamily: fonts.secondary[600],
                                     color: colors.black,
                                     left: 10,
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                 }}>
                                 Tanggal
                             </Text>
@@ -271,7 +271,7 @@ export default function AAInput({ navigation, route }) {
                         style={{
                             fontFamily: fonts.secondary[600],
                             color: colors.black,
-                            fontSize: 12,
+                            fontSize: MyDimensi / 7,
                         }}>
                         Tekanan Darah (mmHg)
                     </Text>

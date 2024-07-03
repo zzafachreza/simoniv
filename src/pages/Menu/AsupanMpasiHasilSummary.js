@@ -161,7 +161,7 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                 <Text style={{
                     fontFamily: fonts.secondary[600],
                     color: colors.black,
-                    fontSize: 12.5,
+                    fontSize: MyDimensi / 7.5,
                     marginBottom: 10,
                     marginHorizontal: 10,
                 }}>Periode {moment(kirim.awal).format('DD MMMM YYYY')} s/d {moment(kirim.akhir).format('DD MMMM YYYY')}</Text>
@@ -217,44 +217,44 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: 12
+                                            fontSize: MyDimensi / 7
                                         }}>Nama Ibu</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: 12
+                                            fontSize: MyDimensi / 7
                                         }}>{item.nama_lengkap}</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: 12
+                                            fontSize: MyDimensi / 7
                                         }}>Nama Anak</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: 12
+                                            fontSize: MyDimensi / 7
                                         }}>{item.nama_anak} <Text style={{
                                             color: colors.danger
                                         }}>( {parseFloat(moment().diff(item.tanggal_lahir, 'month', false))} Bulan )</Text></Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: 12
+                                            fontSize: MyDimensi / 7
                                         }}>Jenis Kelamin</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: 12
+                                            fontSize: MyDimensi / 7
                                         }}>{item.jenis_kelamin}</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: 12
+                                            fontSize: MyDimensi / 7
                                         }}>Kecamatan / Desa / Posyandu</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: 12
+                                            fontSize: MyDimensi / 7
                                         }}>{item.kecamatan} / {item.desa} / {item.posyandu}</Text>
                                     </View>
                                     <View>

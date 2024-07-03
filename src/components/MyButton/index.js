@@ -28,7 +28,7 @@ export default function MyButton({
 
           marginLeft: kiri ? 5 : 0,
           marginRight: !kiri ? 5 : 0,
-          fontSize: 12,
+          fontSize: MyDimensi / 7,
           fontFamily: fonts.primary[600],
           // fontWeight: fontWeight,
         }}>

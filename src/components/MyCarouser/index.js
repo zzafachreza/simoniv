@@ -60,7 +60,7 @@ export default function MyCarouser() {
           <Text style={{
             fontFamily: fonts.secondary[600],
             color: colors.white,
-            fontSize: 12
+            fontSize: MyDimensi / 7
           }}>{item.judul}</Text>
           <Text style={{
             fontFamily: fonts.secondary[400],

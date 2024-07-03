@@ -22,17 +22,17 @@ export default function AktifitasDetail({ navigation, route }) {
             }}>
                 <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: 12,
+                    fontSize: MyDimensi / 7,
                     flex: 1,
                 }}>{label}</Text>
                 <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: 12,
+                    fontSize: MyDimensi / 7,
                     flex: 0.1,
                 }}>:</Text>
                 <Text style={{
                     fontFamily: fonts.secondary[400],
-                    fontSize: 12,
+                    fontSize: MyDimensi / 7,
                     flex: 1,
                 }}>{value}</Text>
             </View>

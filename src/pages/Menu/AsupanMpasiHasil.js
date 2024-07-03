@@ -36,6 +36,8 @@ export default function AsupanAsiHasil({ navigation, route }) {
         porsi: ''
     });
 
+    const [teksturSesuai, setTeksturSesuai] = useState('');
+
     const [level, setLevel] = useState('');
 
 
@@ -46,11 +48,11 @@ export default function AsupanAsiHasil({ navigation, route }) {
                 marginTop: 30, paddingLeft: 10, borderRadius: 10, backgroundColor: value > 0 ? colors.primary : colors.danger, flexDirection: 'row', position: 'relative'
             }}>
                 <View style={{ flex: 1 }}>
-                    <Text style={{ fontFamily: fonts.secondary[800], fontSize: 12, color: colors.white }}>{label}</Text>
+                    <Text style={{ fontFamily: fonts.secondary[800], fontSize: MyDimensi / 7, color: colors.white }}>{label}</Text>
                     <Text style={{
                         marginTop: 5,
                         fontFamily: fonts.secondary[600],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.white
                     }}>{value > 0 ? oke : no}</Text>
                     <Text style={{
@@ -90,7 +92,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                 flex: 1,
                                 color: colors.primary,
                                 fontFamily: fonts.secondary[800],
-                                fontSize: 12,
+                                fontSize: MyDimensi / 7,
                             }}>Kirim Rekomedasi</Text>
                             <Icon type='ionicon' name='notifications-outline' size={MyDimensi / 3} color={colors.primary} />
                         </TouchableOpacity>
@@ -111,6 +113,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
         // #3 PORSI
         if (BULAN >= 6 && BULAN <= 8) {
 
+            setTeksturSesuai('Bubur Kental');
 
             setReokemdasi({
                 frekuensi: 'Frekuensi makan utama minimal 2 kali sehari dan selingan 1 kali sehari',
@@ -129,9 +132,11 @@ export default function AsupanAsiHasil({ navigation, route }) {
 
         } else if (BULAN >= 9 && BULAN <= 11) {
 
+
+            setTeksturSesuai('Bubur Kental');
             setReokemdasi({
                 frekuensi: 'Frekuensi makan utama minimal 3 kali sehari dan selingan 1 kali sehari',
-                tekstur: 'Tkstur makanan berupa tim, atau makanan cincang dan makanan bisa digenggam',
+                tekstur: 'Tekstur makanan berupa tim, atau makanan cincang dan makanan bisa digenggam',
                 porsi: '1/2 - 3/4 mangkok ukuran 250 ml',
                 bahan: 'Berikan minimal 5 jenis bahan makanan berikut perhari (ASI, makanan pokok, nabati, hewani, telur, susu/produk susu, sayur buah tinggi vit A , sayur buah lainnya',
                 konsumsi: 'Berikan telur atau makanan hewani setiap hari',
@@ -377,7 +382,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                         }}>
                             <MyHasil label="Frekuensi" value={data[0].frekuensi} oke="Frekuensi  makan sudah sesuai dengan rekomendasi menurut umur" no="Frekuensi pemberian kurang dari 3 kali / anak belum diberikan snack" rek={rekomendasi.frekuensi} />
 
-                            <MyHasil label="Tekstur" value={data[0].tekstur} oke="Tekstur makanan sudah sesuai dengan rekomendasi menurut umur" no="Tekstur makanan sesuai usia seharusnya dalam bentuk tim/makanan cincang" rek={rekomendasi.tekstur} />
+                            <MyHasil label="Tekstur" value={data[0].tekstur} oke="Tekstur makanan sudah sesuai dengan rekomendasi menurut umur" no="Tekstur makanan belum sesuai dengan rekomendasi menurut usia" rek={rekomendasi.tekstur} />
                             <MyHasil label="Porsi" value={data[0].porsi} oke="Porsi makanan sudah sesuai dengan rekomendasi menurut umur" no="Porsi makanan kurang dari 3/4 mangkok" rek={rekomendasi.porsi} />
                             <MyHasil label="Bahan" value={data[0].bahan} oke="Anak sudah diberikan sumber bahan makanan yang beraneka ragam" no="Anak belum mendapatkan bahan makanan hewani/susu dan produk susu/telur/sayur dan buah tinggi vitamin A" rek={rekomendasi.bahan} />
                             <MyHasil label="Konsumsi telur/hewani" value={data[0].konsumsi} oke="Anak sudah mendapatkan telur dan sumber protein hewani" no="Anak belum mendapatkan telur dan sumber protein hewani" rek={rekomendasi.konsumsi} />
@@ -410,7 +415,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                     }}>
                                         <Text style={{
                                             fontFamily: fonts.secondary[800],
-                                            fontSize: 12,
+                                            fontSize: MyDimensi / 7,
                                             color: colors.white,
                                             marginBottom: 8,
                                         }}>{i}</Text>
@@ -425,12 +430,12 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                             }}>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[600],
-                                                    fontSize: 12,
+                                                    fontSize: MyDimensi / 7,
                                                     color: colors.white
                                                 }}>Total Pengisian</Text>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[800],
-                                                    fontSize: 12,
+                                                    fontSize: MyDimensi / 7,
                                                     color: colors.white
                                                 }}>{summary.total[index].length}</Text>
                                             </View>
@@ -441,12 +446,12 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                             }}>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[600],
-                                                    fontSize: 12,
+                                                    fontSize: MyDimensi / 7,
                                                     color: colors.white
                                                 }}>Sesuai</Text>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[800],
-                                                    fontSize: 12,
+                                                    fontSize: MyDimensi / 7,
                                                     color: colors.white
                                                 }}>{summary.oke[index].length}</Text>
                                             </View>
@@ -457,12 +462,12 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                             }}>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[600],
-                                                    fontSize: 12,
+                                                    fontSize: MyDimensi / 7,
                                                     color: colors.white
                                                 }}>Tidak Sesuai</Text>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[800],
-                                                    fontSize: 12,
+                                                    fontSize: MyDimensi / 7,
                                                     color: colors.white
                                                 }}>{summary.no[index].length}</Text>
                                             </View>
@@ -510,14 +515,14 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                                 population: parseFloat(all.oke),
                                                 color: colors.primary,
                                                 legendFontColor: "#7F7F7F",
-                                                legendFontSize: 12
+                                                legendfontSize: MyDimensi / 7
                                             },
                                             {
                                                 name: "Tidak Sesuai",
                                                 population: parseFloat(all.no),
                                                 color: colors.danger,
                                                 legendFontColor: "#7F7F7F",
-                                                legendFontSize: 12
+                                                legendfontSize: MyDimensi / 7
                                             }
                                         ]}
                                         width={windowWidth - 50}

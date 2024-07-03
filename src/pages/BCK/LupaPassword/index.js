@@ -22,7 +22,7 @@ export default function LupaPassword({ navigation, route }) {
                 <Text style={{
                     fontFamily: fonts.secondary[400],
                     color: colors.black,
-                    fontSize: 12
+                    fontSize: MyDimensi / 7
                 }}>Silahkan masukkan no. Handphone yang terdaftar di akun kamu.</Text>
                 <MyGap jarak={10} />
                 <MyInput value={telepon} onChangeText={x => setTelepon(x)} autoFocus keyboardType='phone-pad' label="No. Handphone" iconname="logo-whatsapp" placeholder="No. Handphone" />

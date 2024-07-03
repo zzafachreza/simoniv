@@ -100,7 +100,7 @@ export default function Pengguna({ navigation }) {
 
                     <Text style={{
                         fontFamily: fonts.primary[400],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.primary
                     }}>{item.level}</Text>
                 </View>

@@ -102,7 +102,7 @@ export default function EReport({ navigation, route }) {
                     style={{
                         fontFamily: fonts.primary[400],
                         color: colors.white,
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         flex: 1,
                     }}>
                     {label}
@@ -258,12 +258,12 @@ export default function EReport({ navigation, route }) {
                                 }}>
                                     <Text style={{
                                         textAlign: 'center',
-                                        fontSize: 12,
+                                        fontSize: MyDimensi / 7,
                                         fontFamily: fonts.secondary[600]
                                     }}>Instruktur</Text>
                                     <Text style={{
                                         marginTop: 40,
-                                        fontSize: 12,
+                                        fontSize: MyDimensi / 7,
                                         fontFamily: fonts.secondary[600]
                                     }}>(____________)</Text>
                                 </View>
@@ -274,12 +274,12 @@ export default function EReport({ navigation, route }) {
                                 }}>
                                     <Text style={{
                                         textAlign: 'center',
-                                        fontSize: 12,
+                                        fontSize: MyDimensi / 7,
                                         fontFamily: fonts.secondary[600]
                                     }}>Peserta</Text>
                                     <Text style={{
                                         marginTop: 40,
-                                        fontSize: 12,
+                                        fontSize: MyDimensi / 7,
                                         fontFamily: fonts.secondary[600]
                                     }}>({user.nama_lengkap})</Text>
                                 </View>

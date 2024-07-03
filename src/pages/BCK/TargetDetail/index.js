@@ -520,7 +520,7 @@ export default function TargetDetail({ navigation, route }) {
                                             left: 10,
                                             color: colors.white,
                                             fontFamily: fonts.secondary[600],
-                                            fontSize: 12
+                                            fontSize: MyDimensi / 7
                                         }}>Capaian Rp</Text>
 
                                     </View>
@@ -532,7 +532,7 @@ export default function TargetDetail({ navigation, route }) {
                                             borderRadius: 10,
                                             paddingLeft: 10,
                                             color: colors.black,
-                                            fontSize: 12,
+                                            fontSize: MyDimensi / 7,
                                             fontFamily: fonts.primary[400],
                                         }}
                                         value={kirim.capaian}

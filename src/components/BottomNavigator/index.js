@@ -121,7 +121,7 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
                 color: isFocused ? colors.primary : '#919095',
                 paddingTop: 5,
                 paddingBottom: 0,
-                fontSize: 12,
+                fontSize: MyDimensi / 7,
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   tab: iconName => ({
     // paddingTop: 5,
     // paddingBottom: 5,
-    // fontSize: 12,
+    // fontSize: MyDimensi / 7,
     // justifyContent: 'center',
     // alignItems: 'center',
     // textAlign: 'center',

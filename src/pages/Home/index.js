@@ -128,14 +128,14 @@ export default function Home({ navigation, route }) {
           }}>
             <Text style={{
               fontFamily: fonts.secondary[800],
-              fontSize: MyDimensi / 3,
+              fontSize: MyDimensi / 7,
               color: colors.black
             }}>{user.nama_anak}</Text>
 
           </View>
           <Text style={{
             fontFamily: fonts.secondary[800],
-            fontSize: MyDimensi / 3,
+            fontSize: MyDimensi / 7,
             color: colors.foourty
           }}>{parseFloat(moment().diff(user.tanggal_lahir, 'month', false))} Bulan {parseFloat(moment().format('DD')) - parseFloat(moment(user.tanggal_lahir).format('DD'))} Hari</Text>
 
@@ -166,12 +166,12 @@ export default function Home({ navigation, route }) {
           }}>
             <Text style={{
               fontFamily: fonts.secondary[800],
-              fontSize: MyDimensi / 4,
+              fontSize: MyDimensi / 7,
               color: colors.black
             }}>Halo, Selamat Datang {user.nama_lengkap}</Text>
             <Text style={{
               fontFamily: fonts.secondary[800],
-              fontSize: MyDimensi / 3.5,
+              fontSize: MyDimensi / 7,
               color: colors.foourty
             }}>{user.level == 'KADER' ? `Kader Posyandu ${user.posyandu}` : 'TENAGA KESEHATAN'}</Text>
 
@@ -261,7 +261,7 @@ export default function Home({ navigation, route }) {
                 }}>
                   <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: 11,
+                    fontSize: MyDimensi / 7,
                     textAlign: 'center',
 
                   }}>{item.judul}</Text>

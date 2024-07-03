@@ -213,12 +213,12 @@ export default function MenuDownload({ navigation, route }) {
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.white
                     }}>1. </Text>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.white
                     }}>Berdo’alah terlebih dahulu sebelum mengerjakan tugas.</Text>
                 </View>
@@ -227,12 +227,12 @@ export default function MenuDownload({ navigation, route }) {
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.white
                     }}>2. </Text>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.white
                     }}>Pilih menu Download Formulir A, B & C untuk mengetahui tugas-tugas yang harus diselesaikan.</Text>
                 </View>
@@ -241,12 +241,12 @@ export default function MenuDownload({ navigation, route }) {
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.white
                     }}>3. </Text>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.white
                     }}>
                         Selanjutnya kerjakan tugas sesuai penjelasan berikut :{'\n'}
@@ -261,12 +261,12 @@ export default function MenuDownload({ navigation, route }) {
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.white
                     }}>4. </Text>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: 12,
+                        fontSize: MyDimensi / 7,
                         color: colors.white
                     }}>
                         Setelah semua tugas dapat diselesaikan maka berkas dan hasil video dikumpulkan kepada Instruktur untuk dilakukan diskusi/kajian bersama.
@@ -321,7 +321,7 @@ export default function MenuDownload({ navigation, route }) {
                             <Text style={{
                                 color: colors.primary,
                                 fontFamily: fonts.secondary[400],
-                                fontSize: 12,
+                                fontSize: MyDimensi / 7,
                             }}>Formulir Identifikasi Bahaya, Pengendalian dan Penilaian Resiko K3</Text>
                         </View>
                         <Icon type='ionicon' name='download-outline' />
@@ -347,7 +347,7 @@ export default function MenuDownload({ navigation, route }) {
                             <Text style={{
                                 color: colors.primary,
                                 fontFamily: fonts.secondary[400],
-                                fontSize: 12,
+                                fontSize: MyDimensi / 7,
                             }}>Formulir Kiken Yochi Training (KYT)</Text>
                         </View>
                         <Icon type='ionicon' name='download-outline' />
@@ -373,7 +373,7 @@ export default function MenuDownload({ navigation, route }) {
                             <Text style={{
                                 color: colors.primary,
                                 fontFamily: fonts.secondary[400],
-                                fontSize: 12,
+                                fontSize: MyDimensi / 7,
                             }}>Tugas Membuat Konten Video Pembelajaran Aksi Kiken Yochi Training (KYT)</Text>
                         </View>
                         <Icon type='ionicon' name='download-outline' />

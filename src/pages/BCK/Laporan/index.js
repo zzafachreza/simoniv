@@ -112,20 +112,20 @@ export default function Laporan({ navigation }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.foourty,
                                     flex: 0.4,
                                 }}>Total Tagihan</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.foourty,
                                     flex: 0.2,
                                 }}>:</Text>
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.foourty
                                 }}>{new Intl.NumberFormat().format(item.total)}</Text>
                             </View>
@@ -134,20 +134,20 @@ export default function Laporan({ navigation }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.foourty,
                                     flex: 0.4,
                                 }}>Diterima</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.foourty,
                                     flex: 0.2,
                                 }}>:</Text>
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.foourty
                                 }}>{new Intl.NumberFormat().format(item.bayar)}</Text>
                             </View>
@@ -156,20 +156,20 @@ export default function Laporan({ navigation }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.foourty,
                                     flex: 0.4,
                                 }}>Kembalian</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.foourty,
                                     flex: 0.2,
                                 }}>:</Text>
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: 12,
+                                    fontSize: MyDimensi / 7,
                                     color: colors.foourty
                                 }}>{new Intl.NumberFormat().format(item.kembalian)}</Text>
                             </View>

@@ -207,7 +207,7 @@ export default function Kategori({ navigation, route }) {
                             borderRadius: 20,
                         }}>
                             <Text style={{
-                                fontSize: 12,
+                                fontSize: MyDimensi / 7,
                                 fontFamily: fonts.secondary[600],
                                 color: colors.white
                             }}>Lihat Detail</Text>
