@@ -43,7 +43,7 @@ export default function ArtikelDetail({ navigation, route }) {
                     <Text style={{
                         flex: 1,
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 3,
+                        fontSize: MyDimensi / 24,
                         color: colors.black,
                         textAlign: 'center'
                     }}>{item.judul}</Text>

@@ -213,12 +213,12 @@ export default function MenuDownload({ navigation, route }) {
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
                     }}>1. </Text>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
                     }}>Berdo’alah terlebih dahulu sebelum mengerjakan tugas.</Text>
                 </View>
@@ -227,26 +227,26 @@ export default function MenuDownload({ navigation, route }) {
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
                     }}>2. </Text>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
-                    }}>Pilih menu Download Formulir A, B & C untuk mengetahui tugas-tugas yang harus diselesaikan.</Text>
-                </View>
+                    }}> Pilih menu Download Formulir A, B & C untuk mengetahui tugas - tugas yang harus diselesaikan.</Text >
+                </View >
                 <View style={{
                     flexDirection: 'row'
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
                     }}>3. </Text>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
                     }}>
                         Selanjutnya kerjakan tugas sesuai penjelasan berikut :{'\n'}
@@ -255,25 +255,25 @@ export default function MenuDownload({ navigation, route }) {
                         Formulir C : Membuat video aksi Kiken Yochi Training (KYT)
 
                     </Text>
-                </View>
+                </View >
                 <View style={{
                     flexDirection: 'row'
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
                     }}>4. </Text>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
                     }}>
                         Setelah semua tugas dapat diselesaikan maka berkas dan hasil video dikumpulkan kepada Instruktur untuk dilakukan diskusi/kajian bersama.
                     </Text>
-                </View>
+                </View >
 
-            </View>
+            </View >
 
             <View style={{
                 marginTop: 10,
@@ -321,7 +321,7 @@ export default function MenuDownload({ navigation, route }) {
                             <Text style={{
                                 color: colors.primary,
                                 fontFamily: fonts.secondary[400],
-                                fontSize: MyDimensi / 7,
+                                fontSize: MyDimensi / 28,
                             }}>Formulir Identifikasi Bahaya, Pengendalian dan Penilaian Resiko K3</Text>
                         </View>
                         <Icon type='ionicon' name='download-outline' />
@@ -347,12 +347,12 @@ export default function MenuDownload({ navigation, route }) {
                             <Text style={{
                                 color: colors.primary,
                                 fontFamily: fonts.secondary[400],
-                                fontSize: MyDimensi / 7,
+                                fontSize: MyDimensi / 28,
                             }}>Formulir Kiken Yochi Training (KYT)</Text>
                         </View>
                         <Icon type='ionicon' name='download-outline' />
 
-                    </TouchableOpacity>
+                    </TouchableOpacity >
                     <TouchableOpacity onPress={() => __downloadPDF('f3.pdf', 'FORMULIR_C')} style={{
                         marginVertical: 10,
                         backgroundColor: colors.secondary,
@@ -373,14 +373,14 @@ export default function MenuDownload({ navigation, route }) {
                             <Text style={{
                                 color: colors.primary,
                                 fontFamily: fonts.secondary[400],
-                                fontSize: MyDimensi / 7,
+                                fontSize: MyDimensi / 28,
                             }}>Tugas Membuat Konten Video Pembelajaran Aksi Kiken Yochi Training (KYT)</Text>
                         </View>
                         <Icon type='ionicon' name='download-outline' />
 
-                    </TouchableOpacity>
-                </View>
-            </View>
+                    </TouchableOpacity >
+                </View >
+            </View >
 
 
         </SafeAreaView >

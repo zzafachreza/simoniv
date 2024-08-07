@@ -58,13 +58,13 @@ const MyMakanan = ({ label, value, img, onPress, img2 }) => {
                                 marginLeft: 10,
                                 // marginHorizontal: 10,
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 7
+                                fontSize: MyDimensi / 28
                             }}>{label}</Text>
 
                             <Image source={img} style={{
                                 left: 10,
-                                width: MyDimensi / 3,
-                                height: MyDimensi / 3
+                                width: MyDimensi / 12,
+                                height: MyDimensi / 12
                             }} />
 
                         </View>
@@ -82,9 +82,9 @@ const MyMakanan = ({ label, value, img, onPress, img2 }) => {
                         </View>
                     </View>
                 </TouchableWithoutFeedback>
-            </View>
+            </View >
 
-        </View>
+        </View >
 
     )
 }
@@ -179,11 +179,11 @@ export default function AsupanMpasi({ navigation, route }) {
                     width: 60, height: 60, borderRadius: 10,
                 }} />
                 <View style={{ paddingHorizontal: 10, }}>
-                    <Text style={{ maxWidth: '92%', fontFamily: fonts.secondary[400], fontSize: MyDimensi / 7, }}>
+                    <Text style={{ maxWidth: '92%', fontFamily: fonts.secondary[400], fontSize: MyDimensi / 28, }}>
                         {label}
                     </Text>
                 </View>
-            </View>
+            </View >
         )
     }
 
@@ -521,7 +521,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     fontFamily: fonts.secondary[800],
                     color: colors.primary,
                     textAlign: 'center',
-                    fontSize: MyDimensi / 4
+                    fontSize: MyDimensi / 28
                 }}>Input MPASI Disini</Text>
 
 
@@ -529,7 +529,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     fontFamily: fonts.secondary[800],
                     color: colors.foourty,
                     textAlign: 'center',
-                    fontSize: MyDimensi / 6
+                    fontSize: MyDimensi / 240
                 }}>Umur Anak : {BULAN} Bulan</Text>
 
 
@@ -549,7 +549,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         color: colors.secondary,
-                        fontSize: MyDimensi / 6,
+                        fontSize: MyDimensi / 240,
                         marginBottom: 20
                     }}>Frekuensi Pemberian Makanan</Text>
 
@@ -632,12 +632,12 @@ export default function AsupanMpasi({ navigation, route }) {
                             marginBottom: 10,
                         }}>
                             {kirim.diberi_asi == 'Ya' &&
-                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 7 }}>
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 28 }}>
                                     Frekuensi makan utama minimal 2 kali sehari dan selingan 1 kali sehari
                                 </Text>
                             }
                             {kirim.diberi_asi == 'Tidak' &&
-                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 7 }}>
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 28 }}>
                                     Frekuensi makan utama minimal 3 kali sehari dan selingan 1 kali sehari
                                 </Text>
                             }
@@ -649,33 +649,35 @@ export default function AsupanMpasi({ navigation, route }) {
                             marginBottom: 10,
                         }}>
                             {kirim.diberi_asi == 'Ya' &&
-                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 7 }}>
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 28 }}>
                                     Frekuensi makan utama minimal 3 kali sehari dan selingan 1 kali sehari
                                 </Text>
                             }
                             {kirim.diberi_asi == 'Tidak' &&
-                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 7 }}>
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 28 }}>
                                     Frekuensi makan utama minimal 4 kali sehari dan selingan 1 kali sehari
                                 </Text>
                             }
-                        </View>
+                        </View >
                     }
 
-                    {BULAN >= 12 &&
+                    {
+                        BULAN >= 12 &&
                         <View style={{
                             marginBottom: 10,
                         }}>
                             {kirim.diberi_asi == 'Ya' &&
-                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 7 }}>
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 28 }}>
                                     Frekuensi makan utama minimal 3 kali sehari dan selingan 1 kali sehari
                                 </Text>
                             }
-                            {kirim.diberi_asi == 'Tidak' &&
-                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 7 }}>
+                            {
+                                kirim.diberi_asi == 'Tidak' &&
+                                <Text style={{ fontFamily: fonts.secondary[400], color: colors.black, fontSize: MyDimensi / 28 }}>
                                     Frekuensi makan utama minimal 4 kali sehari dan selingan 1 kali sehari
-                                </Text>
+                                </Text >
                             }
-                        </View>
+                        </View >
                     }
 
 
@@ -692,11 +694,11 @@ export default function AsupanMpasi({ navigation, route }) {
                                 fontFamily: fonts.secondary[600],
                                 color: colors.primary,
                                 left: 10,
-                                fontSize: MyDimensi / 7,
+                                fontSize: MyDimensi / 28,
                             }}>
                             Frekuensi pemberian makan utama
                         </Text>
-                    </View>
+                    </View >
                     <View style={{
                         flexDirection: 'row',
                         alignItems: 'center',
@@ -725,21 +727,21 @@ export default function AsupanMpasi({ navigation, route }) {
                                 alignItems: 'center',
                             }}>
                                 <View style={{
-                                    width: MyDimensi / 1.5,
-                                    height: MyDimensi / 1.5,
+                                    width: MyDimensi / 10,
+                                    height: MyDimensi / 10,
                                     backgroundColor: colors.primary,
                                     borderRadius: 14,
                                     justifyContent: 'center',
                                     alignItems: 'center'
                                 }}>
-                                    <Icon type='ionicon' name='remove' color={colors.white} />
+                                    <Icon type='ionicon' name='remove' color={colors.white} size={MyDimensi / 24} />
                                 </View>
                             </View>
                         </TouchableWithoutFeedback>
                         <Text style={{
                             flex: 1,
                             fontFamily: fonts.secondary[800],
-                            fontSize: MyDimensi / 2.5,
+                            fontSize: MyDimensi / 12,
                             textAlign: 'center',
                         }}>{kirim.frek_makanan}</Text>
                         <TouchableWithoutFeedback onPress={() => {
@@ -755,14 +757,14 @@ export default function AsupanMpasi({ navigation, route }) {
                                 alignItems: 'center'
                             }}>
                                 <View style={{
-                                    width: MyDimensi / 1.5,
-                                    height: MyDimensi / 1.5,
+                                    width: MyDimensi / 10,
+                                    height: MyDimensi / 10,
                                     backgroundColor: colors.primary,
                                     borderRadius: 14,
                                     justifyContent: 'center',
                                     alignItems: 'center'
                                 }}>
-                                    <Icon type='ionicon' name='add' color={colors.white} />
+                                    <Icon type='ionicon' name='add' color={colors.white} size={MyDimensi / 24} />
                                 </View>
                             </View>
                         </TouchableWithoutFeedback>
@@ -782,11 +784,11 @@ export default function AsupanMpasi({ navigation, route }) {
                                 fontFamily: fonts.secondary[600],
                                 color: colors.primary,
                                 left: 10,
-                                fontSize: MyDimensi / 7,
+                                fontSize: MyDimensi / 28,
                             }}>
                             Frekuensi pemberian selingan
                         </Text>
-                    </View>
+                    </View >
                     <View style={{
                         flexDirection: 'row',
                         alignItems: 'center',
@@ -816,21 +818,21 @@ export default function AsupanMpasi({ navigation, route }) {
                                 alignItems: 'center',
                             }}>
                                 <View style={{
-                                    width: MyDimensi / 1.5,
-                                    height: MyDimensi / 1.5,
+                                    width: MyDimensi / 10,
+                                    height: MyDimensi / 10,
                                     backgroundColor: colors.primary,
                                     borderRadius: 14,
                                     justifyContent: 'center',
                                     alignItems: 'center'
                                 }}>
-                                    <Icon type='ionicon' name='remove' color={colors.white} />
+                                    <Icon type='ionicon' name='remove' color={colors.white} size={MyDimensi / 24} />
                                 </View>
                             </View>
                         </TouchableWithoutFeedback>
                         <Text style={{
                             flex: 1,
                             fontFamily: fonts.secondary[800],
-                            fontSize: MyDimensi / 2.5,
+                            fontSize: MyDimensi / 12,
                             textAlign: 'center',
                         }}>{kirim.frek_snack}</Text>
                         <TouchableWithoutFeedback onPress={() => {
@@ -846,14 +848,14 @@ export default function AsupanMpasi({ navigation, route }) {
                                 alignItems: 'center'
                             }}>
                                 <View style={{
-                                    width: MyDimensi / 1.5,
-                                    height: MyDimensi / 1.5,
+                                    width: MyDimensi / 10,
+                                    height: MyDimensi / 10,
                                     backgroundColor: colors.primary,
                                     borderRadius: 14,
                                     justifyContent: 'center',
                                     alignItems: 'center'
                                 }}>
-                                    <Icon type='ionicon' name='add' color={colors.white} />
+                                    <Icon type='ionicon' name='add' color={colors.white} size={MyDimensi / 24} />
                                 </View>
                             </View>
                         </TouchableWithoutFeedback>
@@ -886,13 +888,14 @@ export default function AsupanMpasi({ navigation, route }) {
                             fontFamily: fonts.secondary[600],
                             color: colors.primary,
                             left: 10,
-                            fontSize: MyDimensi / 7,
+                            fontSize: MyDimensi / 28,
                         }}>
                         Jenis Bahan Makanan
                     </Text>
 
 
-                    {kirim.diberi_asi == 'Ya' &&
+                    {
+                        kirim.diberi_asi == 'Ya' &&
                         <MyMakanan
 
                             onPress={() => {
@@ -910,7 +913,8 @@ export default function AsupanMpasi({ navigation, route }) {
 
                     }
 
-                    {makan.jenis_makanan[0] !== 'MPASI Rumahan' && makan.jenis_makanan[0] !== undefined &&
+                    {
+                        makan.jenis_makanan[0] !== 'MPASI Rumahan' && makan.jenis_makanan[0] !== undefined &&
 
                         <MyMakanan onPress={() => {
                             let tmp = makan.bahan_makanan;
@@ -926,7 +930,8 @@ export default function AsupanMpasi({ navigation, route }) {
                     }
 
 
-                    {makan.jenis_makanan[0] !== 'MPASI Instan' &&
+                    {
+                        makan.jenis_makanan[0] !== 'MPASI Instan' &&
                         <>
                             <MyMakanan
                                 onPress={() => {
@@ -970,7 +975,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                     bahan_makanan: tmp
                                 })
 
-                            }} value={makan.bahan_makanan[0][4]} label="Nabati dan Kacang-kacangan" img={require('../../assets/m5.png')} img2={require('../../assets/m55.png')} />
+                            }} value={makan.bahan_makanan[0][4]} label="Nabati & Kacang-kacangan" img={require('../../assets/m5.png')} img2={require('../../assets/m55.png')} />
                             <MyMakanan onPress={() => {
                                 let tmp = makan.bahan_makanan;
                                 tmp[0][5] = tmp[0][5] == 0 ? 1 : 0,
@@ -1006,114 +1011,117 @@ export default function AsupanMpasi({ navigation, route }) {
                         </>
                     }
 
-                </View>
+                </View >
 
                 {/* maknan utama */}
 
-                {arrMakan.map((item, index) => {
-                    return (
-                        <View style={{
-                            padding: 10,
-                            borderWidth: 1,
-                            margin: 20,
-                            borderRadius: 10,
-                            borderColor: colors.border
-                        }}>
-                            <Text style={{
-                                fontFamily: fonts.secondary[800],
-                                color: colors.secondary,
-                                fontSize: MyDimensi / 6,
-                                marginBottom: 20
-                            }}>Makanan Utama {item + 1}x</Text>
+                {
+                    arrMakan.map((item, index) => {
+                        return (
+                            <View style={{
+                                padding: 10,
+                                borderWidth: 1,
+                                margin: 20,
+                                borderRadius: 10,
+                                borderColor: colors.border
+                            }}>
+                                <Text style={{
+                                    fontFamily: fonts.secondary[800],
+                                    color: colors.secondary,
+                                    fontSize: MyDimensi / 240,
+                                    marginBottom: 20
+                                }}>Makanan Utama {item + 1}x</Text>
 
-                            <MyPicker label="Tekstur" onValueChange={x => {
-
-                                let tmp = makan;
-                                tmp.tekstur[item] = x
-                                setMakan({
-                                    ...makan,
-                                    tekstur: tmp.tekstur
-                                })
-
-                            }} data={[
-                                { label: '', value: '' },
-                                { label: 'Cair', value: 'Cair' },
-                                { label: 'Bubur Encer', value: 'Bubur Encer' },
-                                { label: 'Bubur Kental', value: 'Bubur Kental' },
-                                { label: 'Tim/Makanan Cincang', value: 'Tim/Makanan Cincang' },
-                                { label: 'Makanan Keluarga', value: 'Makanan Keluarga' },
-
-                            ]} />
-
-                            {makan.tekstur[item] == 'Cair' &&
-                                <MyTexktur img={require('../../assets/t1.png')} label="MPASI yang berbentuk cair seperti susu, jus buah, kuah kaldu." />
-                            }
-
-                            {makan.tekstur[item] == 'Bubur Encer' &&
-                                <MyTexktur img={require('../../assets/t2.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur mudah tumpah" />
-                            }
-
-                            {makan.tekstur[item] == 'Bubur Kental' &&
-                                <MyTexktur img={require('../../assets/t3.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur tidak mudah tumpah" />
-                            }
-
-                            {makan.tekstur[item] == 'Tim/Makanan Cincang' &&
-
-                                <MyTexktur img={require('../../assets/t4.png')} label="Makanan cincang atau makanan setengah padat, lembek, dan bahan makanan masih bisa dikenali" />
-                            }
-
-                            {makan.tekstur[item] == 'Makanan Keluarga' &&
-                                <MyTexktur img={require('../../assets/t5.png')} label="Makanan padat dengan tekstur seperti makanan keluarga pada umumnya contohnya nasi, lauk pauk, sayur" />
-                            }
-
-
-                            <MyGap jarak={10} />
-                            <MyPicker label="Porsi sekali makan (ukuran mangkok 250 ml)"
-
-                                onValueChange={x => {
+                                <MyPicker label="Tekstur" onValueChange={x => {
 
                                     let tmp = makan;
-                                    tmp.porsi[item] = x
+                                    tmp.tekstur[item] = x
                                     setMakan({
                                         ...makan,
-                                        porsi: tmp.porsi
+                                        tekstur: tmp.tekstur
                                     })
 
-                                }}
-
-                                data={[
+                                }} data={[
                                     { label: '', value: '' },
-                                    { label: '< 1/2 mangkok', value: '0.25' },
-                                    { label: '1/2 mangkok', value: '0.50' },
-                                    { label: '3/4 mangkok', value: '0.75' },
-                                    { label: '1 mangkok', value: '1' },
+                                    { label: 'Cair', value: 'Cair' },
+                                    { label: 'Bubur Encer', value: 'Bubur Encer' },
+                                    { label: 'Bubur Kental', value: 'Bubur Kental' },
+                                    { label: 'Tim/Makanan Cincang', value: 'Tim/Makanan Cincang' },
+                                    { label: 'Makanan Keluarga', value: 'Makanan Keluarga' },
 
                                 ]} />
 
-                            {makan.porsi[item] == '0.25' &&
-                                <MyTexktur img={require('../../assets/p1.png')} label="Apabila MPASI yang dihabiskan kurang dari ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
-                            }
+                                {makan.tekstur[item] == 'Cair' &&
+                                    <MyTexktur img={require('../../assets/t1.png')} label="MPASI yang berbentuk cair seperti susu, jus buah, kuah kaldu." />
+                                }
 
-                            {makan.porsi[item] == '0.50' &&
-                                <MyTexktur img={require('../../assets/p2.png')} label="Apabila MPASI yang dihabiskan sekitar ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
-                            }
+                                {makan.tekstur[item] == 'Bubur Encer' &&
+                                    <MyTexktur img={require('../../assets/t2.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur mudah tumpah" />
+                                }
 
-                            {makan.porsi[item] == '0.75' &&
-                                <MyTexktur img={require('../../assets/p3.png')} label="Apabila MPASI yang dihabiskan sekitar ¾ mangkok 250 ml atau sktr 13 - 15 sendok makan" />
-                            }
+                                {makan.tekstur[item] == 'Bubur Kental' &&
+                                    <MyTexktur img={require('../../assets/t3.png')} label="Makanan lunak apabila disendok lalu dimiringkan, bubur tidak mudah tumpah" />
+                                }
 
-                            {makan.porsi[item] == '1' &&
-                                <MyTexktur img={require('../../assets/p4.png')} label="Apabila MPASI yang dihabiskan 1 mangkok 250 ml atau sekitar 18-20 sendok makan" />
-                            }
+                                {makan.tekstur[item] == 'Tim/Makanan Cincang' &&
+
+                                    <MyTexktur img={require('../../assets/t4.png')} label="Makanan cincang atau makanan setengah padat, lembek, dan bahan makanan masih bisa dikenali" />
+                                }
+
+                                {makan.tekstur[item] == 'Makanan Keluarga' &&
+                                    <MyTexktur img={require('../../assets/t5.png')} label="Makanan padat dengan tekstur seperti makanan keluarga pada umumnya contohnya nasi, lauk pauk, sayur" />
+                                }
 
 
-                        </View>
-                    )
-                })}
+                                <MyGap jarak={10} />
+                                <MyPicker label="Porsi sekali makan (ukuran mangkok 250 ml)"
+
+                                    onValueChange={x => {
+
+                                        let tmp = makan;
+                                        tmp.porsi[item] = x
+                                        setMakan({
+                                            ...makan,
+                                            porsi: tmp.porsi
+                                        })
+
+                                    }}
+
+                                    data={[
+                                        { label: '', value: '' },
+                                        { label: '< 1/2 mangkok', value: '0.25' },
+                                        { label: '1/2 mangkok', value: '0.50' },
+                                        { label: '3/4 mangkok', value: '0.75' },
+                                        { label: '1 mangkok', value: '1' },
+
+                                    ]} />
+
+                                {makan.porsi[item] == '0.25' &&
+                                    <MyTexktur img={require('../../assets/p1.png')} label="Apabila MPASI yang dihabiskan kurang dari ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
+                                }
+
+                                {makan.porsi[item] == '0.50' &&
+                                    <MyTexktur img={require('../../assets/p2.png')} label="Apabila MPASI yang dihabiskan sekitar ½ mangkok 250 ml atau 25 sendok teh pres ukuran 5 ml" />
+                                }
+
+                                {makan.porsi[item] == '0.75' &&
+                                    <MyTexktur img={require('../../assets/p3.png')} label="Apabila MPASI yang dihabiskan sekitar ¾ mangkok 250 ml atau sktr 13 - 15 sendok makan" />
+                                }
+
+                                {makan.porsi[item] == '1' &&
+                                    <MyTexktur img={require('../../assets/p4.png')} label="Apabila MPASI yang dihabiskan 1 mangkok 250 ml atau sekitar 18-20 sendok makan" />
+                                }
+
+
+                            </View>
+                        )
+                    })
+                }
 
 
 
-                {makan.jenis_makanan[0] !== 'MPASI Rumahan' && makan.jenis_makanan[0] !== undefined &&
+                {
+                    makan.jenis_makanan[0] !== 'MPASI Rumahan' && makan.jenis_makanan[0] !== undefined &&
                     <View style={{
                         padding: 10,
                         borderWidth: 1,
@@ -1144,28 +1152,30 @@ export default function AsupanMpasi({ navigation, route }) {
                 }
                 {/* maknan utama */}
 
-                {arrSnack.map((item, index) => {
-                    return (
-                        <View style={{
-                            padding: 10,
-                            borderWidth: 1,
-                            margin: 20,
-                            borderRadius: 10,
-                            borderColor: colors.border
-                        }}>
-                            <Text style={{
-                                fontFamily: fonts.secondary[800],
-                                color: colors.secondary,
-                                fontSize: MyDimensi / 6,
-                                marginBottom: 20
-                            }}>Snack {item + 1}x</Text>
+                {
+                    arrSnack.map((item, index) => {
+                        return (
+                            <View style={{
+                                padding: 10,
+                                borderWidth: 1,
+                                margin: 20,
+                                borderRadius: 10,
+                                borderColor: colors.border
+                            }}>
+                                <Text style={{
+                                    fontFamily: fonts.secondary[800],
+                                    color: colors.secondary,
+                                    fontSize: MyDimensi / 240,
+                                    marginBottom: 20
+                                }}>Snack {item + 1}x</Text>
 
-                            <MyInput label="Nama makanan" />
+                                <MyInput label="Nama makanan" />
 
 
-                        </View>
-                    )
-                })}
+                            </View>
+                        )
+                    })
+                }
 
                 {/* informasi tambahan */}
 
@@ -1179,7 +1189,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         color: colors.secondary,
-                        fontSize: MyDimensi / 6,
+                        fontSize: MyDimensi / 240,
                         marginBottom: 20
                     }}>Informasi Tambahan</Text>
 
@@ -1257,7 +1267,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         color: colors.secondary,
-                        fontSize: MyDimensi / 6,
+                        fontSize: MyDimensi / 240,
                         marginBottom: 20
                     }}>Cara Pemberian</Text>
 
@@ -1335,7 +1345,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         color: colors.secondary,
-                        fontSize: MyDimensi / 6,
+                        fontSize: MyDimensi / 240,
                         marginBottom: 20
                     }}>Kebersihan/Higienitas</Text>
 
@@ -1387,10 +1397,10 @@ export default function AsupanMpasi({ navigation, route }) {
                             left: 10,
                             flex: 1,
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 7,
+                            fontSize: MyDimensi / 28,
                         }}>Pengisian data ini adalah benar dan sesuai pemberian MP-ASI yang sesungguhnya agar ibu memperoleh saran yang tepat untuk perbaikan MP-ASI dan sebagai informasi yang valid dalam upaya pencegahan stunting.</Text>
                     </View>
-                </TouchableWithoutFeedback>
+                </TouchableWithoutFeedback >
 
                 {!loading && <View style={{
                     paddingHorizontal: 20,
@@ -1400,7 +1410,8 @@ export default function AsupanMpasi({ navigation, route }) {
                 </View>}
 
 
-                {!loading &&
+                {
+                    !loading &&
                     <View style={{
                         paddingHorizontal: 20,
                         paddingBottom: 20,
@@ -1409,7 +1420,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     </View>
 
                 }
-            </ScrollView>
+            </ScrollView >
 
             {loading &&
                 <View style={{
@@ -1424,7 +1435,7 @@ export default function AsupanMpasi({ navigation, route }) {
 
 
 
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
 

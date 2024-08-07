@@ -48,61 +48,62 @@ export default function AsupanAsiHasil({ navigation, route }) {
                 marginTop: 30, paddingLeft: 10, borderRadius: 10, backgroundColor: value > 0 ? colors.primary : colors.danger, flexDirection: 'row', position: 'relative'
             }}>
                 <View style={{ flex: 1 }}>
-                    <Text style={{ fontFamily: fonts.secondary[800], fontSize: MyDimensi / 7, color: colors.white }}>{label}</Text>
+                    <Text style={{ fontFamily: fonts.secondary[800], fontSize: MyDimensi / 28, color: colors.white }}>{label}</Text>
                     <Text style={{
                         marginTop: 5,
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
                     }}>{value > 0 ? oke : no}</Text>
                     <Text style={{
                         marginTop: 5,
                         fontFamily: fonts.secondary[400],
-                        fontSize: MyDimensi / 5,
+                        fontSize: MyDimensi / 28,
                         color: colors.white
                     }}>Rekomendasi : {rek}</Text>
 
-                    {level !== 'IBU' && <>
-                        <TouchableOpacity onPress={() => {
-                            axios.post(apiURL + 'insert_pesan', {
-                                fid_user: user.id,
-                                label: label,
-                                rekomendasi: rek
-                            }).then(res => {
-                                console.log(res.data);
-                                if (res.data.status == 200) {
+                    {
+                        level !== 'IBU' && <>
+                            <TouchableOpacity onPress={() => {
+                                axios.post(apiURL + 'insert_pesan', {
+                                    fid_user: user.id,
+                                    label: label,
+                                    rekomendasi: rek
+                                }).then(res => {
+                                    console.log(res.data);
+                                    if (res.data.status == 200) {
 
-                                    SweetAlert.showAlertWithOptions({
-                                        title: MYAPP,
-                                        subTitle: res.data.message,
-                                        style: 'success',
-                                        cancellable: true
-                                    });
-                                }
-                            })
-                        }} style={{
-                            backgroundColor: colors.white,
-                            padding: 10,
-                            borderRadius: 10,
-                            marginTop: 10,
-                            flexDirection: 'row',
-                            alignItems: 'center'
-                        }}>
-                            <Text style={{
-                                flex: 1,
-                                color: colors.primary,
-                                fontFamily: fonts.secondary[800],
-                                fontSize: MyDimensi / 7,
-                            }}>Kirim Rekomedasi</Text>
-                            <Icon type='ionicon' name='notifications-outline' size={MyDimensi / 3} color={colors.primary} />
-                        </TouchableOpacity>
-                    </>}
-                </View>
+                                        SweetAlert.showAlertWithOptions({
+                                            title: MYAPP,
+                                            subTitle: res.data.message,
+                                            style: 'success',
+                                            cancellable: true
+                                        });
+                                    }
+                                })
+                            }} style={{
+                                backgroundColor: colors.white,
+                                padding: 10,
+                                borderRadius: 10,
+                                marginTop: 10,
+                                flexDirection: 'row',
+                                alignItems: 'center'
+                            }}>
+                                <Text style={{
+                                    flex: 1,
+                                    color: colors.primary,
+                                    fontFamily: fonts.secondary[800],
+                                    fontSize: MyDimensi / 28,
+                                }}>Kirim Rekomedasi</Text>
+                                <Icon type='ionicon' name='notifications-outline' size={MyDimensi / 3} color={colors.primary} />
+                            </TouchableOpacity >
+                        </>}
+                </View >
 
                 <View style={{ flex: 0.5, }}>
                     <Image style={{ width: 100, height: 100, resizeMode: 'contain', top: -30, zIndex: 99, }} source={value > 0 ? require('../../assets/oke.png') : require('../../assets/no.png')} />
                 </View>
-            </View>
+            </View >
         )
     }
     useEffect(() => {
@@ -415,7 +416,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                     }}>
                                         <Text style={{
                                             fontFamily: fonts.secondary[800],
-                                            fontSize: MyDimensi / 7,
+                                            fontSize: MyDimensi / 28,
                                             color: colors.white,
                                             marginBottom: 8,
                                         }}>{i}</Text>
@@ -430,12 +431,12 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                             }}>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[600],
-                                                    fontSize: MyDimensi / 7,
+                                                    fontSize: MyDimensi / 28,
                                                     color: colors.white
                                                 }}>Total Pengisian</Text>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[800],
-                                                    fontSize: MyDimensi / 7,
+                                                    fontSize: MyDimensi / 28,
                                                     color: colors.white
                                                 }}>{summary.total[index].length}</Text>
                                             </View>
@@ -446,12 +447,12 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                             }}>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[600],
-                                                    fontSize: MyDimensi / 7,
+                                                    fontSize: MyDimensi / 28,
                                                     color: colors.white
                                                 }}>Sesuai</Text>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[800],
-                                                    fontSize: MyDimensi / 7,
+                                                    fontSize: MyDimensi / 28,
                                                     color: colors.white
                                                 }}>{summary.oke[index].length}</Text>
                                             </View>
@@ -462,17 +463,17 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                             }}>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[600],
-                                                    fontSize: MyDimensi / 7,
+                                                    fontSize: MyDimensi / 28,
                                                     color: colors.white
                                                 }}>Tidak Sesuai</Text>
                                                 <Text style={{
                                                     fontFamily: fonts.secondary[800],
-                                                    fontSize: MyDimensi / 7,
+                                                    fontSize: MyDimensi / 28,
                                                     color: colors.white
                                                 }}>{summary.no[index].length}</Text>
-                                            </View>
-                                        </View>
-                                    </View>
+                                            </View >
+                                        </View >
+                                    </View >
                                 )
                             })}
 
@@ -515,14 +516,14 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                                 population: parseFloat(all.oke),
                                                 color: colors.primary,
                                                 legendFontColor: "#7F7F7F",
-                                                legendfontSize: MyDimensi / 7
+                                                legendfontSize: MyDimensi / 28
                                             },
                                             {
                                                 name: "Tidak Sesuai",
                                                 population: parseFloat(all.no),
                                                 color: colors.danger,
                                                 legendFontColor: "#7F7F7F",
-                                                legendfontSize: MyDimensi / 7
+                                                legendfontSize: MyDimensi / 28
                                             }
                                         ]}
                                         width={windowWidth - 50}
@@ -555,12 +556,12 @@ export default function AsupanAsiHasil({ navigation, route }) {
                                 </View>
                             </View>
                             <MyGap jarak={40} />
-                        </ScrollView>
+                        </ScrollView >
 
                     }
 
 
-                </View>}
+                </View >}
 
             {
                 loading && <View style={{

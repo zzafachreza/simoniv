@@ -59,19 +59,19 @@ export default function ({ navigation, route }) {
                         <Text style={{
                             fontFamily: fonts.secondary[400],
                             color: colors.white,
-                            fontSize: MyDimensi / 4,
+                            fontSize: MyDimensi / 28,
                             marginBottom: 10,
                         }}>{item.keahlian}</Text>
                         <Text style={{
                             fontFamily: fonts.secondary[800],
                             color: colors.white,
-                            fontSize: MyDimensi / 3,
+                            fontSize: MyDimensi / 28,
                             marginBottom: 10,
                         }}>{item.nama_lengkap}</Text>
                         <Text style={{
                             fontFamily: fonts.secondary[400],
                             color: colors.white,
-                            fontSize: MyDimensi / 6
+                            fontSize: MyDimensi / 240
                         }}>{item.telepon}</Text>
 
                     </View>
@@ -81,7 +81,7 @@ export default function ({ navigation, route }) {
                         alignItems: 'center'
                     }}>
 
-                        <Icon type='ionicon' name='logo-whatsapp' size={MyDimensi / 2} color={colors.white} />
+                        <Icon type='ionicon' name='logo-whatsapp' size={MyDimensi / 24} color={colors.white} />
                     </View>
                 </View>
             </TouchableWithoutFeedback >
@@ -145,7 +145,7 @@ export default function ({ navigation, route }) {
                             paddingLeft: 40,
                             borderColor: colors.primary,
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 4
+                            fontSize: MyDimensi / 28
                         }} />
                     </View>
                     <FlatList data={data} numColumns={2} showsVerticalScrollIndicator={false} renderItem={__renderItem} />

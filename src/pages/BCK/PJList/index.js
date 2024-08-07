@@ -128,7 +128,7 @@ export default function PJList({ navigation }) {
                                     }}>{item.judul}</Text>
                                     <Text style={{
                                         fontFamily: fonts.primary[400],
-                                        fontSize: MyDimensi / 7,
+                                        fontSize: MyDimensi / 28,
                                         color: colors.primary,
                                     }}>{item.nama_lengkap} - {item.kategori}</Text>
                                 </View>
@@ -217,7 +217,7 @@ export default function PJList({ navigation }) {
                                     }}>{item.judul}</Text>
                                     <Text style={{
                                         fontFamily: fonts.primary[400],
-                                        fontSize: MyDimensi / 7,
+                                        fontSize: MyDimensi / 28,
                                         color: colors.primary,
                                     }}>{item.nama_lengkap} - {item.kategori}</Text>
                                 </View>
@@ -260,14 +260,14 @@ export default function PJList({ navigation }) {
                     })}
 
                 </View>
-            </ScrollView>
+            </ScrollView >
 
             <View style={{
                 padding: 20,
             }}>
                 <MyButton onPress={() => navigation.navigate('PJListAdd')} warna={colors.black} title="Tambah PJ List" Icons="duplicate" iconColor={colors.white} colorText={colors.white} />
             </View>
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
 

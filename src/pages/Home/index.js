@@ -128,21 +128,22 @@ export default function Home({ navigation, route }) {
           }}>
             <Text style={{
               fontFamily: fonts.secondary[800],
-              fontSize: MyDimensi / 7,
+              fontSize: MyDimensi / 28,
               color: colors.black
             }}>{user.nama_anak}</Text>
 
           </View>
           <Text style={{
             fontFamily: fonts.secondary[800],
-            fontSize: MyDimensi / 7,
+            fontSize: MyDimensi / 28,
             color: colors.foourty
           }}>{parseFloat(moment().diff(user.tanggal_lahir, 'month', false))} Bulan {parseFloat(moment().format('DD')) - parseFloat(moment(user.tanggal_lahir).format('DD'))} Hari</Text>
 
-        </View>
+        </View >
       }
 
-      {user.level !== 'IBU' &&
+      {
+        user.level !== 'IBU' &&
 
         <View style={{
           flexDirection: 'row',
@@ -166,19 +167,19 @@ export default function Home({ navigation, route }) {
           }}>
             <Text style={{
               fontFamily: fonts.secondary[800],
-              fontSize: MyDimensi / 7,
+              fontSize: MyDimensi / 28,
               color: colors.black
             }}>Halo, Selamat Datang {user.nama_lengkap}</Text>
             <Text style={{
               fontFamily: fonts.secondary[800],
-              fontSize: MyDimensi / 7,
+              fontSize: MyDimensi / 28,
               color: colors.foourty
             }}>{user.level == 'KADER' ? `Kader Posyandu ${user.posyandu}` : 'TENAGA KESEHATAN'}</Text>
 
-          </View>
+          </View >
 
 
-        </View>
+        </View >
       }
       {/* <View style={{
         backgroundColor: colors.myback,
@@ -261,7 +262,7 @@ export default function Home({ navigation, route }) {
                 }}>
                   <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: MyDimensi / 7,
+                    fontSize: MyDimensi / 28,
                     textAlign: 'center',
 
                   }}>{item.judul}</Text>
@@ -270,7 +271,7 @@ export default function Home({ navigation, route }) {
             </TouchableWithoutFeedback>
           )
         }} />
-        <MyGap jarak={30} />
+        < MyGap jarak={30} />
         {/* <View style={{
           flexDirection: 'row',
           paddingHorizontal: 10,
@@ -290,7 +291,7 @@ export default function Home({ navigation, route }) {
           </TouchableWithoutFeedback>
         </View> */}
 
-      </View>
+      </View >
 
 
 

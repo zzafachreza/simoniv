@@ -81,7 +81,7 @@ export default function StatusGizi({ navigation, route }) {
                     color: colors.secondary,
                     textAlign: 'center',
                     fontFamily: fonts.secondary[800],
-                    fontSize: MyDimensi / 2.5,
+                    fontSize: MyDimensi / 24,
                     marginBottom: 10,
                 }}>{user.jenis_kelamin}</Text>
                 <MyCalendar value={kirim.tanggal} onDateChange={x => {

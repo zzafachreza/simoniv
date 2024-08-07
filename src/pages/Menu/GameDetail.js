@@ -64,7 +64,7 @@ export default function GameDetail({ navigation, route }) {
             }}>
                 <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: MyDimensi / 4,
+                    fontSize: MyDimensi / 28,
                     color: colors.black,
                 }}>{item.soal}</Text>
 
@@ -102,7 +102,7 @@ export default function GameDetail({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         textAlign: 'center',
-                        fontSize: MyDimensi / 2,
+                        fontSize: MyDimensi / 12,
                     }}>{item.stage}</Text>
 
                     <View style={{
@@ -111,7 +111,7 @@ export default function GameDetail({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 2
+                            fontSize: MyDimensi / 28
                         }}>{data[nomor].soal}</Text>
 
                         {jawab == '' &&
@@ -187,7 +187,7 @@ export default function GameDetail({ navigation, route }) {
                             <Text style={{
                                 textAlign: 'center',
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 2.5
+                                fontSize: MyDimensi / 28
                             }}>{data[nomor].keterangan}</Text>
                         </View>}
                     </View>
@@ -244,16 +244,17 @@ export default function GameDetail({ navigation, route }) {
                                 backgroundColor: colors.primary,
                                 borderRadius: 10,
                                 marginBottom: 10,
-                                flexDirection: 'row'
+                                flexDirection: 'row',
+                                alignItems: 'center'
                             }}>
                                 <Text style={{
                                     flex: 1,
                                     // textAlign: 'center',
                                     color: colors.white,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 3
+                                    fontSize: MyDimensi / 22
                                 }}>SELANJUTNYA</Text>
-                                <Icon type='ionicon' name='arrow-forward-circle-outline' color={colors.white} size={MyDimensi / 2} />
+                                <Icon type='ionicon' name='arrow-forward-circle-outline' color={colors.white} size={MyDimensi / 12} />
                             </View>
                         </TouchableWithoutFeedback>
                     }

@@ -28,14 +28,14 @@ export default function MyHeader({ onPress, judul }) {
         borderRadius: 20,
         borderColor: colors.border,
       }}>
-        <Icon type='ionicon' name='chevron-back-outline' size={MyDimensi / 2} color={colors.black} />
+        <Icon type='ionicon' name='chevron-back-outline' size={MyDimensi / 24} color={colors.black} />
       </TouchableOpacity>
       <Text style={{
         flex: 1,
         left: 20,
         textAlign: 'left',
         fontFamily: fonts.secondary[600],
-        fontSize: MyDimensi / 3,
+        fontSize: MyDimensi / 28,
         color: colors.black
       }}>{judul}</Text>
     </View>

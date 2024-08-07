@@ -44,7 +44,7 @@ export default function MyInput({
           alignItems: 'center',
           paddingVertical: !nolabel ? 5 : 0,
         }}>
-        {icon && !nolabel && <Icon type="ionicon" name={iconname} color={colorIcon} size={MyDimensi / 7} />}
+        {icon && !nolabel && <Icon type="ionicon" name={iconname} color={colorIcon} size={MyDimensi / 18} />}
 
 
         {!nolabel && <Text
@@ -52,7 +52,7 @@ export default function MyInput({
             fontFamily: fonts.secondary[600],
             color: colorIcon,
             left: icon ? 10 : 5,
-            fontSize: MyDimensi / 7,
+            fontSize: MyDimensi / 28,
             ...styleLabel,
           }}>
           {label}{label2.length > 0 && <Text
@@ -60,13 +60,13 @@ export default function MyInput({
               fontFamily: fonts.secondary[400],
               color: colorIcon,
               left: icon ? 10 : 5,
-              fontSize: MyDimensi / 7,
+              fontSize: MyDimensi / 28,
             }}>
             {'\n'}{label2}
           </Text>}
         </Text>}
 
-      </View>
+      </View >
       <View style={{
         position: 'relative'
       }}>
@@ -92,7 +92,7 @@ export default function MyInput({
             borderWidth: borderWidth,
             paddingLeft: 20,
             color: textColor,
-            fontSize: MyDimensi / 7,
+            fontSize: MyDimensi / 28,
             fontFamily: fonts.primary[400],
             ...styleInput,
           }}
@@ -117,7 +117,7 @@ export default function MyInput({
           </TouchableOpacity>}
       </View>
 
-    </View>
+    </View >
   );
 }
 

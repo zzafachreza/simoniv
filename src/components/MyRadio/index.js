@@ -15,13 +15,13 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                     paddingVertical: 0,
                     position: 'relative'
                 }}>
-                <Icon type="ionicon" name={iconname} color={colors.primary} size={MyDimensi / 4} />
+                <Icon type="ionicon" name={iconname} color={colors.primary} size={MyDimensi / 24} />
                 <Text
                     style={{
                         fontFamily: fonts.secondary[600],
                         color: colors.primary,
                         left: 10,
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         maxWidth: '95%'
                     }}>
                     {label}
@@ -60,10 +60,10 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                         <Text style={{
                             left: 10,
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 7
+                            fontSize: MyDimensi / 28
                         }}>Ya</Text>
                     </View>
-                </TouchableWithoutFeedback>
+                </TouchableWithoutFeedback >
 
                 <TouchableWithoutFeedback onPress={onPress2}>
                     <View style={{
@@ -90,12 +90,12 @@ export default function MyRadio({ label, iconname, value, onPress, onPress2 }) {
                         <Text style={{
                             left: 10,
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 7
+                            fontSize: MyDimensi / 28
                         }}>Tidak</Text>
                     </View>
-                </TouchableWithoutFeedback>
-            </View>
-        </View>
+                </TouchableWithoutFeedback >
+            </View >
+        </View >
     )
 }
 

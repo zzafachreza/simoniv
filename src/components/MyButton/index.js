@@ -21,21 +21,21 @@ export default function MyButton({
     <TouchableOpacity
       style={styles(warna, radius, borderSize, borderColor).btn}
       onPress={onPress}>
-      {kiri && <Icon type="ionicon" name={Icons} color={iconColor} size={MyDimensi / 4} />}
+      {kiri && <Icon type="ionicon" name={Icons} color={iconColor} size={MyDimensi / 22} />}
       <Text
         style={{
           color: colorText,
 
           marginLeft: kiri ? 5 : 0,
           marginRight: !kiri ? 5 : 0,
-          fontSize: MyDimensi / 7,
+          fontSize: MyDimensi / 28,
           fontFamily: fonts.primary[600],
           // fontWeight: fontWeight,
         }}>
         {title}
       </Text>
-      {!kiri && <Icon type="ionicon" name={Icons} color={iconColor} size={MyDimensi / 4} />}
-    </TouchableOpacity>
+      {!kiri && <Icon type="ionicon" name={Icons} color={iconColor} size={MyDimensi / 22} />}
+    </TouchableOpacity >
   );
 }
 

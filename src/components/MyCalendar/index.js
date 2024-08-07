@@ -33,18 +33,18 @@ export default function MyCalendar({
           paddingVertical: 0,
           position: 'relative'
         }}>
-        <Icon type="ionicon" name={iconname} color={iconColor} size={MyDimensi / 7} />
+        <Icon type="ionicon" name={iconname} color={iconColor} size={MyDimensi / 18} />
         <Text
           style={{
             fontFamily: fonts.secondary[600],
             color: textColor,
             left: 10,
-            fontSize: MyDimensi / 7,
+            fontSize: MyDimensi / 28,
             ...styleLabel,
           }}>
           {label}
         </Text>
-      </View>
+      </View >
 
       <View style={{
         backgroundColor: colors.white,
@@ -60,7 +60,7 @@ export default function MyCalendar({
           top: 15,
           left: 20,
           fontFamily: fonts.secondary[600],
-          fontSize: MyDimensi / 7
+          fontSize: MyDimensi / 28
         }}>{moment(value).format('DD MMMM YYYY')}</Text>
         <DatePicker
 
@@ -93,7 +93,7 @@ export default function MyCalendar({
           onDateChange={onDateChange}
         />
 
-      </View>
+      </View >
     </>
   );
 }

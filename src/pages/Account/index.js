@@ -92,7 +92,7 @@ export default function ({ navigation, route }) {
                     style={{
                         fontFamily: fonts.primary[400],
                         color: colors.primary,
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                     }}>
                     {label}
                 </Text>
@@ -100,11 +100,11 @@ export default function ({ navigation, route }) {
                     style={{
                         fontFamily: fonts.primary[400],
                         color: colors.black,
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                     }}>
                     {value}
-                </Text>
-            </View>
+                </Text >
+            </View >
         )
     }
     return (

@@ -105,7 +105,7 @@ export default function AsupanAsi({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 7,
+                            fontSize: MyDimensi / 28,
                             color: colors.primary,
                         }}>Jadwal pemberian ASI (klik sesuai jadwal pemberian)</Text>
                         <TouchableWithoutFeedback onPress={() => {
@@ -147,10 +147,10 @@ export default function AsupanAsi({ navigation, route }) {
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 7,
+                                    fontSize: MyDimensi / 28,
                                     color: pilih[0] ? colors.white : colors.black,
                                 }}>Pagi (Jam 00.00 - 06.00)</Text>
-                                {pilih[0] && <Icon type='ionicon' name='checkmark-circle' color={colors.white} size={MyDimensi / 3} />}
+                                {pilih[0] && <Icon type='ionicon' name='checkmark-circle' color={colors.white} size={MyDimensi / 12} />}
                             </View>
                         </TouchableWithoutFeedback>
 
@@ -193,10 +193,10 @@ export default function AsupanAsi({ navigation, route }) {
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 7,
+                                    fontSize: MyDimensi / 28,
                                     color: pilih[1] ? colors.white : colors.black,
                                 }}>Siang (Jam 06.00 - 18.00)</Text>
-                                {pilih[1] && <Icon type='ionicon' name='checkmark-circle' color={colors.white} size={MyDimensi / 3} />}
+                                {pilih[1] && <Icon type='ionicon' name='checkmark-circle' color={colors.white} size={MyDimensi / 12} />}
                             </View>
                         </TouchableWithoutFeedback>
 
@@ -239,51 +239,54 @@ export default function AsupanAsi({ navigation, route }) {
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 7,
+                                    fontSize: MyDimensi / 28,
                                     color: pilih[2] ? colors.white : colors.black,
                                 }}>Malam (Jam 18.00 - 24.00)</Text>
-                                {pilih[2] && <Icon type='ionicon' name='checkmark-circle' color={colors.white} size={MyDimensi / 3} />}
+                                {pilih[2] && <Icon type='ionicon' name='checkmark-circle' color={colors.white} size={MyDimensi / 12} />}
                             </View>
-                        </TouchableWithoutFeedback>
+                        </TouchableWithoutFeedback >
 
-                    </View>
+                    </View >
 
                     <MyGap jarak={10} />
 
 
                     {/* PAGI */}
-                    {pilih[0] && <View style={{ borderWidth: 1, borderRadius: 10, overflow: 'hidden', borderColor: colors.primary, }}>
-                        <Text style={{ textAlign: 'center', fontFamily: fonts.secondary[800], color: colors.white, fontSize: 18, marginBottom: 10, backgroundColor: colors.primary, }}>Pagi</Text>
-                        <View style={{ padding: 10, }}>
+                    {
+                        pilih[0] && <View style={{ borderWidth: 1, borderRadius: 10, overflow: 'hidden', borderColor: colors.primary, }}>
+                            <Text style={{ textAlign: 'center', fontFamily: fonts.secondary[800], color: colors.white, fontSize: 18, marginBottom: 10, backgroundColor: colors.primary, }}>Pagi</Text>
+                            <View style={{ padding: 10, }}>
 
-                            <MyInput iconname="options-outline" label="Frekuensi Menyusui" keyboardType="number-pad" onEndEditing={x => {
+                                <MyInput iconname="options-outline" label="Frekuensi Menyusui" keyboardType="number-pad" onEndEditing={x => {
 
-                                let tmp = kirim.frek_menyusui;
-                                tmp[0] = x.nativeEvent.text;
+                                    let tmp = kirim.frek_menyusui;
+                                    tmp[0] = x.nativeEvent.text;
 
-                                setKirim({
-                                    ...kirim,
-                                    frek_menyusui: tmp
-                                })
-                            }} />
+                                    setKirim({
+                                        ...kirim,
+                                        frek_menyusui: tmp
+                                    })
+                                }} />
 
-                            <MyGap jarak={10} />
+                                <MyGap jarak={10} />
 
-                            <MyInput iconname="stopwatch-outline" label="Rata-rata Durasi Menyusui ( Menit )" keyboardType="number-pad" onEndEditing={x => {
-                                let tmp = kirim.durasi_menyusui;
-                                tmp[0] = x.nativeEvent.text;
+                                <MyInput iconname="stopwatch-outline" label="Rata-rata Durasi Menyusui ( Menit )" keyboardType="number-pad" onEndEditing={x => {
+                                    let tmp = kirim.durasi_menyusui;
+                                    tmp[0] = x.nativeEvent.text;
 
-                                setKirim({
-                                    ...kirim,
-                                    durasi_menyusui: tmp
-                                })
-                            }} />
+                                    setKirim({
+                                        ...kirim,
+                                        durasi_menyusui: tmp
+                                    })
+                                }} />
+                            </View>
                         </View>
-                    </View>}
+                    }
                     <MyGap jarak={10} />
                     {/* SIANG */}
 
-                    {pilih[1] &&
+                    {
+                        pilih[1] &&
                         <View style={{ borderWidth: 1, borderRadius: 10, overflow: 'hidden', borderColor: colors.primary, }}>
                             <Text style={{ textAlign: 'center', fontFamily: fonts.secondary[800], color: colors.white, fontSize: 18, marginBottom: 10, backgroundColor: colors.primary, }}>Siang</Text>
                             <View style={{ padding: 10, }}>
@@ -315,7 +318,8 @@ export default function AsupanAsi({ navigation, route }) {
                     }
                     <MyGap jarak={10} />
                     {/* MALAM */}
-                    {pilih[2] &&
+                    {
+                        pilih[2] &&
                         <View style={{ borderWidth: 1, borderRadius: 10, overflow: 'hidden', borderColor: colors.primary, }}>
                             <Text style={{ textAlign: 'center', fontFamily: fonts.secondary[800], color: colors.white, fontSize: 18, marginBottom: 10, backgroundColor: colors.primary, }}>Malam</Text>
                             <View style={{ padding: 10, }}>
@@ -352,9 +356,9 @@ export default function AsupanAsi({ navigation, route }) {
                     <MyGap jarak={10} />
                     <MyButton title="Lihat Hasil" warna={colors.secondary} colorText={colors.black} iconColor={colors.black} Icons="search" onPress={() => navigation.navigate('AsupanAsiHasil', user)} />
 
-                </View>
+                </View >
 
-            </ScrollView>
+            </ScrollView >
 
             {loading &&
                 <View style={{
@@ -368,7 +372,7 @@ export default function AsupanAsi({ navigation, route }) {
             }
 
 
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
 

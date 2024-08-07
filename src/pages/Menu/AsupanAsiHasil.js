@@ -149,13 +149,13 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         color: colors.primary,
-                        fontSize: MyDimensi / 3,
+                        fontSize: MyDimensi / 24,
                         marginHorizontal: 10,
                     }}>Asupan ASI</Text>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
                         color: colors.black,
-                        fontSize: MyDimensi / 4.2,
+                        fontSize: MyDimensi / 28.2,
                         marginBottom: 10,
                         marginHorizontal: 10,
                     }}>Periode {moment(kirim.awal).format('DD MMMM YYYY')} s/d {moment(kirim.akhir).format('DD MMMM YYYY')}</Text>
@@ -170,7 +170,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 3,
+                            fontSize: MyDimensi / 24,
                             flex: 1,
                         }}>Volume ASI Perah </Text>
                         <Text style={{
@@ -195,7 +195,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 3,
+                            fontSize: MyDimensi / 24,
                             flex: 1,
                         }}>Frekuensi pemberian </Text>
                         <Text style={{
@@ -220,7 +220,7 @@ export default function AsupanAsiHasil({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 3,
+                            fontSize: MyDimensi / 24,
                             flex: 1,
                         }}>Rata-rata durasi pemberian </Text>
                         <Text style={{

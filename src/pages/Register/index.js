@@ -313,12 +313,12 @@ export default function Register({ navigation }) {
                         paddingHorizontal: 10,
                     }}>
                         <Text style={{
-                            fontSize: MyDimensi / 2,
+                            fontSize: MyDimensi / 20,
                             fontFamily: fonts.primary[800],
                             color: colors.black,
                         }}>Daftar</Text>
                         <Text style={{
-                            fontSize: MyDimensi / 4,
+                            fontSize: MyDimensi / 24,
                             fontFamily: fonts.primary[400],
                             color: colors.black,
                             marginBottom: 10,

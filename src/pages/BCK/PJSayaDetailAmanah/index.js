@@ -162,7 +162,7 @@ export default function PJSayaDetailAmanah({ navigation, route }) {
                                 <Text style={{
                                     fontFamily: fonts.primary[400],
                                     color: colors.primary,
-                                    fontSize: MyDimensi / 7
+                                    fontSize: MyDimensi / 28
                                 }}>{moment(item.tanggal_detail).format('dddd, DD MMMM YYYY')}</Text>
                             </View>
 

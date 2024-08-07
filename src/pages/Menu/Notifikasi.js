@@ -43,7 +43,7 @@ export default function Notifikasi({ navigation, route }) {
     return (
         <SafeAreaView style={{
             flex: 1,
-            backgroundColor: colors.white
+            backgroundColor: colors.background
         }}>
 
             <MyHeader judul="Notifikasi" onPress={() => navigation.goBack()} />
@@ -53,8 +53,11 @@ export default function Notifikasi({ navigation, route }) {
             }}>
                 <FlatList data={data} renderItem={({ item, index }) => {
                     return <View style={{
-                        borderBottomWidth: 1,
-                        borderBottomColor: colors.border,
+                        borderWidth: 1,
+                        margin: 10,
+                        borderRadius: 8,
+                        borderColor: colors.border,
+                        overflow: "hidden",
                         flexDirection: 'row'
                     }}>
                         <View style={{
@@ -63,15 +66,15 @@ export default function Notifikasi({ navigation, route }) {
                         }}>
                             <Text style={{
                                 fontFamily: fonts.secondary[800],
-                                fontSize: MyDimensi / 3,
+                                fontSize: MyDimensi / 28,
                             }}>{item.label}</Text>
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                             }}>{item.rekomendasi}</Text>
                             <Text style={{
                                 fontFamily: fonts.secondary[400],
-                                fontSize: MyDimensi / 5,
+                                fontSize: MyDimensi / 28,
                                 color: colors.primary
                             }}>{moment(item.tanggal).format('dddd DD MMMM YYYY')}</Text>
                         </View>

@@ -111,7 +111,7 @@ export default function SHutang({ navigation, route }) {
                             // borderWidth: 1,
                             paddingLeft: 10,
                             color: colors.black,
-                            fontSize: MyDimensi / 7,
+                            fontSize: MyDimensi / 28,
                             fontFamily: fonts.primary[400],
 
                         }

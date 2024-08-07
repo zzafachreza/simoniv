@@ -98,7 +98,7 @@ export default function Minimal({ navigation }) {
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
                                 color: colors.white,
-                                fontSize: MyDimensi / 7
+                                fontSize: MyDimensi / 28
                             }}>Stock Toko Saat ini : {item.stok}</Text>
                         </View>
                         <View style={{
@@ -112,7 +112,7 @@ export default function Minimal({ navigation }) {
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
                                 color: colors.white,
-                                fontSize: MyDimensi / 7
+                                fontSize: MyDimensi / 28
                             }}>Minimal : {item.minimal}</Text>
                         </View>
                     </View>
@@ -129,46 +129,46 @@ export default function Minimal({ navigation }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: MyDimensi / 7,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.foourty,
                                     flex: 0.4,
                                 }}>Merek</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: MyDimensi / 7,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.foourty,
                                     flex: 0.2,
                                 }}>:</Text>
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 7,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.foourty
                                 }}>{item.merek}</Text>
-                            </View>
+                            </View >
                             <View style={{
                                 flexDirection: 'row'
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: MyDimensi / 7,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.foourty,
                                     flex: 0.4,
                                 }}>Harga</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[400],
-                                    fontSize: MyDimensi / 7,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.foourty,
                                     flex: 0.2,
-                                }}>:</Text>
+                                }}>:</Text >
                                 <Text style={{
                                     flex: 1,
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 7,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.foourty
                                 }}>{new Intl.NumberFormat().format(item.harga_jual)}</Text>
-                            </View>
-                        </View>
+                            </View >
+                        </View >
 
                         <View style={{
                             flex: 1,
@@ -177,7 +177,7 @@ export default function Minimal({ navigation }) {
 
                             <Text style={{
                                 fontFamily: fonts.secondary[400],
-                                fontSize: MyDimensi / 7,
+                                fontSize: MyDimensi / 28,
                                 color: colors.foourty,
                                 flex: 0.4,
                             }}>Motor Lainnya</Text>
@@ -185,13 +185,13 @@ export default function Minimal({ navigation }) {
                             <Text style={{
                                 flex: 1,
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 7,
+                                fontSize: MyDimensi / 28,
                                 color: colors.primary
                             }}>{item.motor_lainnya}</Text>
 
-                        </View>
-                    </View>
-                </View>
+                        </View >
+                    </View >
+                </View >
                 <View style={{
                     backgroundColor: colors.secondary,
                     justifyContent: 'center',

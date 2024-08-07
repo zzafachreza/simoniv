@@ -102,7 +102,7 @@ export default function EReport({ navigation, route }) {
                     style={{
                         fontFamily: fonts.primary[400],
                         color: colors.white,
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         flex: 1,
                     }}>
                     {label}
@@ -117,7 +117,7 @@ export default function EReport({ navigation, route }) {
                     }}>
                     {value}
                 </Text>
-            </View>
+            </View >
         )
     }
     return (
@@ -258,12 +258,12 @@ export default function EReport({ navigation, route }) {
                                 }}>
                                     <Text style={{
                                         textAlign: 'center',
-                                        fontSize: MyDimensi / 7,
+                                        fontSize: MyDimensi / 28,
                                         fontFamily: fonts.secondary[600]
                                     }}>Instruktur</Text>
                                     <Text style={{
                                         marginTop: 40,
-                                        fontSize: MyDimensi / 7,
+                                        fontSize: MyDimensi / 28,
                                         fontFamily: fonts.secondary[600]
                                     }}>(____________)</Text>
                                 </View>
@@ -274,17 +274,17 @@ export default function EReport({ navigation, route }) {
                                 }}>
                                     <Text style={{
                                         textAlign: 'center',
-                                        fontSize: MyDimensi / 7,
+                                        fontSize: MyDimensi / 28,
                                         fontFamily: fonts.secondary[600]
                                     }}>Peserta</Text>
                                     <Text style={{
                                         marginTop: 40,
-                                        fontSize: MyDimensi / 7,
+                                        fontSize: MyDimensi / 28,
                                         fontFamily: fonts.secondary[600]
                                     }}>({user.nama_lengkap})</Text>
                                 </View>
-                            </View>
-                        </ViewShot>
+                            </View >
+                        </ViewShot >
                         <View style={{
                             padding: 20,
                         }}>
@@ -304,7 +304,7 @@ export default function EReport({ navigation, route }) {
                             }} title="Download E-REPORT" warna={colors.secondary} />
                         </View>
 
-                    </View>
+                    </View >
 
                 </>
             }

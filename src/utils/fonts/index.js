@@ -3,7 +3,7 @@ import { Dimensions } from 'react-native';
 
 export const windowWidth = Dimensions.get('window').width;
 export const windowHeight = Dimensions.get('window').height;
-export const MyDimensi = (windowHeight * windowHeight) / 10000;
+export const MyDimensi = (windowWidth * windowHeight) / 1000;
 
 export const fonts = {
   primary: {

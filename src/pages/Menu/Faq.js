@@ -44,7 +44,7 @@ export default function Faq({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.secondary[800],
-                            fontSize: MyDimensi / 3.5
+                            fontSize: MyDimensi / 28
                         }}>{item.tanya}</Text>
                     </View>
                 </TouchableWithoutFeedback>
@@ -53,7 +53,7 @@ export default function Faq({ navigation, route }) {
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[600],
-                        fontSize: MyDimensi / 3.5
+                        fontSize: MyDimensi / 28
                     }}>{item.jawab}</Text>
                 </View>
             </View>
@@ -117,7 +117,7 @@ export default function Faq({ navigation, route }) {
                             paddingLeft: 40,
                             borderColor: colors.primary,
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 4
+                            fontSize: MyDimensi / 28
                         }} />
                     </View>
                     <FlatList data={data} numColumns={1} showsVerticalScrollIndicator={false} renderItem={__renderItem} />

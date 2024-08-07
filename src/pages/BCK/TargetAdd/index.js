@@ -164,7 +164,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 left: 10,
                                                 color: colors.primary,
                                                 fontFamily: fonts.secondary[600],
-                                                fontSize: MyDimensi / 7
+                                                fontSize: MyDimensi / 28
                                             }}>Minimal</Text>
                                         </View>
 
@@ -175,7 +175,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 borderRadius: 10,
                                                 paddingLeft: 10,
                                                 color: colors.black,
-                                                fontSize: MyDimensi / 7,
+                                                fontSize: MyDimensi / 28,
                                                 fontFamily: fonts.primary[400],
                                             }}
                                             value={kirim.hijau_min}
@@ -213,7 +213,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 left: 10,
                                                 color: colors.primary,
                                                 fontFamily: fonts.secondary[600],
-                                                fontSize: MyDimensi / 7
+                                                fontSize: MyDimensi / 28
                                             }}>Maksimal</Text>
                                         </View>
 
@@ -224,7 +224,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 borderRadius: 10,
                                                 paddingLeft: 10,
                                                 color: colors.black,
-                                                fontSize: MyDimensi / 7,
+                                                fontSize: MyDimensi / 28,
                                                 fontFamily: fonts.primary[400],
                                             }}
                                             value={kirim.hijau_max}
@@ -281,7 +281,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 left: 10,
                                                 color: colors.primary,
                                                 fontFamily: fonts.secondary[600],
-                                                fontSize: MyDimensi / 7
+                                                fontSize: MyDimensi / 28
                                             }}>Minimal</Text>
                                         </View>
 
@@ -292,7 +292,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 borderRadius: 10,
                                                 paddingLeft: 10,
                                                 color: colors.black,
-                                                fontSize: MyDimensi / 7,
+                                                fontSize: MyDimensi / 28,
                                                 fontFamily: fonts.primary[400],
                                             }}
                                             value={kirim.kuning_min}
@@ -330,7 +330,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 left: 10,
                                                 color: colors.primary,
                                                 fontFamily: fonts.secondary[600],
-                                                fontSize: MyDimensi / 7
+                                                fontSize: MyDimensi / 28
                                             }}>Maksimal</Text>
                                         </View>
 
@@ -341,7 +341,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 borderRadius: 10,
                                                 paddingLeft: 10,
                                                 color: colors.black,
-                                                fontSize: MyDimensi / 7,
+                                                fontSize: MyDimensi / 28,
                                                 fontFamily: fonts.primary[400],
                                             }}
                                             value={kirim.kuning_max}
@@ -361,11 +361,12 @@ export default function TargetAdd({ navigation, route }) {
                                 {kirim.jenis != 'Rp' && <MyInput textColor={colors.primary} colorIcon={colors.primary} label="Maksimal" iconname="trending-up" keyboardType='number-pad' value={kirim.kuning_max} onChangeText={x => setKirim({ ...kirim, kuning_max: x })} />}
 
                             </View>
-                        </View>
+                        </View >
                         {/* merah */}
-                        <View style={{
+                        < View style={{
                             flexDirection: 'row'
-                        }}>
+                        }
+                        }>
                             <View style={{
                                 width: 80,
                                 backgroundColor: colors.merah,
@@ -397,7 +398,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 left: 10,
                                                 color: colors.primary,
                                                 fontFamily: fonts.secondary[600],
-                                                fontSize: MyDimensi / 7
+                                                fontSize: MyDimensi / 28
                                             }}>Minimal</Text>
                                         </View>
 
@@ -408,7 +409,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 borderRadius: 10,
                                                 paddingLeft: 10,
                                                 color: colors.black,
-                                                fontSize: MyDimensi / 7,
+                                                fontSize: MyDimensi / 28,
                                                 fontFamily: fonts.primary[400],
                                             }}
                                             value={kirim.merah_min}
@@ -427,7 +428,7 @@ export default function TargetAdd({ navigation, route }) {
 
                                 {kirim.jenis != 'Rp' && <MyInput textColor={colors.primary} colorIcon={colors.primary} label="Minimal" iconname="trending-down" keyboardType='number-pad' value={kirim.merah_min} onChangeText={x => setKirim({ ...kirim, merah_min: x })} />}
 
-                            </View>
+                            </View >
                             <View style={{
                                 flex: 1,
                                 paddingHorizontal: 5,
@@ -446,7 +447,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 left: 10,
                                                 color: colors.primary,
                                                 fontFamily: fonts.secondary[600],
-                                                fontSize: MyDimensi / 7
+                                                fontSize: MyDimensi / 28
                                             }}>Maksimal</Text>
                                         </View>
 
@@ -457,7 +458,7 @@ export default function TargetAdd({ navigation, route }) {
                                                 borderRadius: 10,
                                                 paddingLeft: 10,
                                                 color: colors.black,
-                                                fontSize: MyDimensi / 7,
+                                                fontSize: MyDimensi / 28,
                                                 fontFamily: fonts.primary[400],
                                             }}
                                             value={kirim.merah_max}
@@ -476,8 +477,8 @@ export default function TargetAdd({ navigation, route }) {
 
                                 {kirim.jenis != 'Rp' && <MyInput textColor={colors.primary} colorIcon={colors.primary} label="Maksimal" iconname="trending-up" keyboardType='number-pad' value={kirim.merah_max} onChangeText={x => setKirim({ ...kirim, merah_max: x })} />}
 
-                            </View>
-                        </View>
+                            </View >
+                        </View >
 
 
 
@@ -488,13 +489,13 @@ export default function TargetAdd({ navigation, route }) {
                         {!loading && <MyButton warna={colors.primary} onPress={sendServer} title="Simpan" Icons="download-outline" />}
 
 
-                    </View>
+                    </View >
 
 
-                </ScrollView>
-            </View>
+                </ScrollView >
+            </View >
             <MyFooter />
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
 

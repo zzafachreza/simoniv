@@ -47,11 +47,11 @@ export default function Game({ navigation, route }) {
                 }}>
                     <Text style={{
                         fontFamily: fonts.secondary[800],
-                        fontSize: MyDimensi / 2,
+                        fontSize: MyDimensi / 12,
                         color: colors.white,
                         flex: 1,
                     }}>{item.stage}</Text>
-                    <Icon type='ionicon' name='arrow-forward-circle-outline' color={colors.white} size={MyDimensi} />
+                    <Icon type='ionicon' name='arrow-forward-circle-outline' color={colors.white} size={MyDimensi / 12} />
                 </View>
             </TouchableWithoutFeedback>
 

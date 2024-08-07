@@ -100,7 +100,7 @@ export default function Pengguna({ navigation }) {
 
                     <Text style={{
                         fontFamily: fonts.primary[400],
-                        fontSize: MyDimensi / 7,
+                        fontSize: MyDimensi / 28,
                         color: colors.primary
                     }}>{item.level}</Text>
                 </View>
@@ -113,7 +113,7 @@ export default function Pengguna({ navigation }) {
                     <Icon color={colors.white} type='ionicon' name='chevron-forward' />
                 </View>
 
-            </TouchableOpacity>
+            </TouchableOpacity >
         )
 
     }

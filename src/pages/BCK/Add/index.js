@@ -300,14 +300,14 @@ export default function Add({ navigation, route }) {
                                 }}>
                                     <Text style={{
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 7,
+                                        fontSize: MyDimensi / 28,
                                         color: colors.black
                                     }}>{index + 1}.</Text>
                                     <Text style={{
                                         left: 10,
                                         flex: 1,
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 7,
+                                        fontSize: MyDimensi / 28,
                                         color: colors.black
                                     }}>{i.name} - {i.type}</Text>
                                 </View>
@@ -323,7 +323,7 @@ export default function Add({ navigation, route }) {
 
                     {loading && <ActivityIndicator size="large" color={colors.primary} />}
                 </View>
-            </ScrollView>
+            </ScrollView >
         </SafeAreaView >
     )
 }

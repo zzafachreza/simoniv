@@ -119,7 +119,7 @@ export default function AsupanAsiHasilSummary({ navigation, route }) {
                 <Text style={{
                     fontFamily: fonts.secondary[600],
                     color: colors.black,
-                    fontSize: MyDimensi / 4.5,
+                    fontSize: MyDimensi / 28.5,
                     marginBottom: 10,
                     marginHorizontal: 10,
                 }}>Periode {moment(kirim.awal).format('DD MMMM YYYY')} s/d {moment(kirim.akhir).format('DD MMMM YYYY')}</Text>
@@ -140,34 +140,34 @@ export default function AsupanAsiHasilSummary({ navigation, route }) {
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.primary,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>Nama Ibu</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.black,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>{item.nama_lengkap}</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.primary,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>Nama Anak</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.black,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>{item.nama_anak} <Text style={{
                                     color: colors.danger
                                 }}>( {parseFloat(moment().diff(item.tanggal_lahir, 'month', false))} Bulan )</Text></Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.primary,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>Jenis Kelamin</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.black,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>{item.jenis_kelamin}</Text>
                             </View>
                             <View style={{
@@ -176,32 +176,32 @@ export default function AsupanAsiHasilSummary({ navigation, route }) {
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.primary,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>Volume ASI Perah </Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.black,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>{item.volume} ml</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.primary,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>Frekuensi pemberian</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.black,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>{item.frek} kali per hari</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.primary,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>Rata-rata durasi pemberian</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
                                     color: colors.black,
-                                    fontSize: MyDimensi / 4
+                                    fontSize: MyDimensi / 28
                                 }}>{item.durasi} / menit</Text>
                             </View>
                         </View>

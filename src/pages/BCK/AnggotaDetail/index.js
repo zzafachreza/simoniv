@@ -20,20 +20,21 @@ export default function AnggotaDetail({ navigation, route }) {
             }}>
                 <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: MyDimensi / 7,
+                    fontSize: MyDimensi / 28,
                     flex: 1,
                 }}>{label}</Text>
                 <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: MyDimensi / 7,
+                    fontSize: MyDimensi / 28,
                     flex: 0.1,
-                }}>:</Text>
+                }
+                }>:</Text >
                 <Text style={{
                     fontFamily: fonts.secondary[400],
-                    fontSize: MyDimensi / 7,
+                    fontSize: MyDimensi / 28,
                     flex: 1,
-                }}>{value}</Text>
-            </View>
+                }}> {value}</Text >
+            </View >
         )
     }
 

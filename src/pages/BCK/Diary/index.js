@@ -129,7 +129,7 @@ export default function Diary({ navigation }) {
                             }}>{item.catatan}</Text>
                             <Text style={{
                                 fontFamily: fonts.secondary[400],
-                                fontSize: MyDimensi / 7,
+                                fontSize: MyDimensi / 28,
                                 color: colors.primary
                             }}>{moment(item.tanggal).format('dddd, DD MMMM YYYY')} Pukul {item.jam}</Text>
 
@@ -191,7 +191,7 @@ export default function Diary({ navigation }) {
                     }} />
                 </View>
             </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
 

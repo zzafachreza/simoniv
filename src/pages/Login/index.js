@@ -111,12 +111,12 @@ export default function Login({ navigation }) {
         borderRadius: 10,
       }}>
         <Text style={{
-          fontSize: MyDimensi / 3,
+          fontSize: MyDimensi / 16,
           fontFamily: fonts.primary[800],
           color: colors.black,
         }}>Selamat Datang</Text>
         <Text style={{
-          fontSize: MyDimensi / 6,
+          fontSize: MyDimensi / 28,
           fontFamily: fonts.primary[400],
           color: colors.black,
           marginBottom: 10,
@@ -147,7 +147,7 @@ export default function Login({ navigation }) {
             textAlign: 'right',
             fontFamily: fonts.secondary[600],
             color: colors.tertiary,
-            fontSize: MyDimensi / 6
+            fontSize: MyDimensi / 28
           }}>Lupa password ?</Text>
         </TouchableOpacity>
         <MyGap jarak={40} />
@@ -175,12 +175,12 @@ export default function Login({ navigation }) {
             alignItems: 'center'
           }}>
             <Text style={{
-              fontSize: MyDimensi / 6,
+              fontSize: MyDimensi / 28,
               fontFamily: fonts.primary[400],
               textAlign: 'center',
               color: colors.primary
             }}>Belum memiliki Akun ? <Text style={{
-              fontSize: MyDimensi / 6,
+              fontSize: MyDimensi / 28,
               fontFamily: fonts.primary[600],
               textAlign: 'center',
               color: colors.primary

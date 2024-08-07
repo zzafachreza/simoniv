@@ -207,16 +207,16 @@ export default function Kategori({ navigation, route }) {
                             borderRadius: 20,
                         }}>
                             <Text style={{
-                                fontSize: MyDimensi / 7,
+                                fontSize: MyDimensi / 28,
                                 fontFamily: fonts.secondary[600],
                                 color: colors.white
                             }}>Lihat Detail</Text>
                         </View>
                     </TouchableNativeFeedback>
-                </View>
+                </View >
 
 
-            </View>
+            </View >
 
         )
     }

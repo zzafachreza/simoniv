@@ -58,12 +58,12 @@ export default function Resep({ navigation, route }) {
                         <Text style={{
                             fontFamily: fonts.secondary[600],
                             color: colors.white,
-                            fontSize: MyDimensi / 4
+                            fontSize: MyDimensi / 28
                         }}>{item.judul}</Text>
                         <Text style={{
                             fontFamily: fonts.secondary[400],
                             color: colors.white,
-                            fontSize: MyDimensi / 5
+                            fontSize: MyDimensi / 28
                         }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
                     </View>
                 </View>
@@ -128,7 +128,7 @@ export default function Resep({ navigation, route }) {
                             paddingLeft: 40,
                             borderColor: colors.primary,
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 4
+                            fontSize: MyDimensi / 28
                         }} />
                     </View>
                     <FlatList data={data} numColumns={2} showsVerticalScrollIndicator={false} renderItem={__renderItem} />

@@ -22,7 +22,7 @@ export default function LupaPassword({ navigation, route }) {
                 <Text style={{
                     fontFamily: fonts.secondary[400],
                     color: colors.black,
-                    fontSize: MyDimensi / 7
+                    fontSize: MyDimensi / 28
                 }}>Silahkan masukkan no. Handphone yang terdaftar di akun kamu.</Text>
                 <MyGap jarak={10} />
                 <MyInput value={telepon} onChangeText={x => setTelepon(x)} autoFocus keyboardType='phone-pad' label="No. Handphone" iconname="logo-whatsapp" placeholder="No. Handphone" />
@@ -33,7 +33,7 @@ export default function LupaPassword({ navigation, route }) {
                     Linking.openURL('https://wa.me/' + admin + '?text=Hallo Admin *' + MYAPP + '*\nSaya lupa PIN. \nNo. Handphone : *' + telepon + '*');
                 }} Icons="arrow-forward" title="Lanjut" warna={colors.primary} kiri={false} />
             </View>
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
 

@@ -161,7 +161,7 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                 <Text style={{
                     fontFamily: fonts.secondary[600],
                     color: colors.black,
-                    fontSize: MyDimensi / 7.5,
+                    fontSize: MyDimensi / 28.5,
                     marginBottom: 10,
                     marginHorizontal: 10,
                 }}>Periode {moment(kirim.awal).format('DD MMMM YYYY')} s/d {moment(kirim.akhir).format('DD MMMM YYYY')}</Text>
@@ -217,46 +217,46 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: MyDimensi / 7
+                                            fontSize: MyDimensi / 28
                                         }}>Nama Ibu</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 7
+                                            fontSize: MyDimensi / 28
                                         }}>{item.nama_lengkap}</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: MyDimensi / 7
+                                            fontSize: MyDimensi / 28
                                         }}>Nama Anak</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 7
+                                            fontSize: MyDimensi / 28
                                         }}>{item.nama_anak} <Text style={{
                                             color: colors.danger
                                         }}>( {parseFloat(moment().diff(item.tanggal_lahir, 'month', false))} Bulan )</Text></Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: MyDimensi / 7
+                                            fontSize: MyDimensi / 28
                                         }}>Jenis Kelamin</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 7
-                                        }}>{item.jenis_kelamin}</Text>
+                                            fontSize: MyDimensi / 28
+                                        }}> {item.jenis_kelamin}</Text >
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.primary,
-                                            fontSize: MyDimensi / 7
+                                            fontSize: MyDimensi / 28
                                         }}>Kecamatan / Desa / Posyandu</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
                                             color: colors.black,
-                                            fontSize: MyDimensi / 7
+                                            fontSize: MyDimensi / 28
                                         }}>{item.kecamatan} / {item.desa} / {item.posyandu}</Text>
-                                    </View>
+                                    </View >
                                     <View>
                                         <View style={{
                                             padding: 10,
@@ -273,7 +273,7 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
                                             </ProgressCircle>
                                         </View>
                                     </View>
-                                </View>
+                                </View >
                                 <View style={{
                                     flex: 1,
                                     borderWidth: 1,
@@ -331,22 +331,24 @@ export default function AsupanMpasiHasilSummary({ navigation, route }) {
 
 
                                 </View>
-                            </View>
-                        </TouchableWithoutFeedback>
+                            </View >
+                        </TouchableWithoutFeedback >
                     )
                 }} />
 
 
-            </View>}
+            </View >}
 
-            {loading && <View style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}>
-                <ActivityIndicator color={colors.primary} size="large" />
-            </View>}
-        </SafeAreaView>
+            {
+                loading && <View style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <ActivityIndicator color={colors.primary} size="large" />
+                </View>
+            }
+        </SafeAreaView >
     )
 }
 

@@ -60,7 +60,7 @@ export default function MyCarouser() {
           <Text style={{
             fontFamily: fonts.secondary[600],
             color: colors.white,
-            fontSize: MyDimensi / 7
+            fontSize: MyDimensi / 28
           }}>{item.judul}</Text>
           <Text style={{
             fontFamily: fonts.secondary[400],
@@ -69,7 +69,7 @@ export default function MyCarouser() {
           }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableWithoutFeedback >
   );
 
   return (

@@ -132,7 +132,7 @@ export default function StatusGiziHasil({ navigation, route }) {
                             <Text style={{
                                 fontFamily: fonts.secondary[800],
                                 color: colors.primary,
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 marginBottom: 10,
                                 marginHorizontal: 10,
                             }}>Status Gizi Berat Badan Menurut Umur </Text>
@@ -145,28 +145,28 @@ export default function StatusGiziHasil({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 4,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.white,
                                     flex: 0.5,
                                     textAlign: 'center'
                                 }}>Bulan</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 4,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.white,
                                     flex: 0.5,
                                     textAlign: 'center'
                                 }}>Berat</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 4,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.white,
                                     flex: 0.5,
                                     textAlign: 'center'
                                 }}>Z-Score</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 4,
+                                    fontSize: MyDimensi / 28,
                                     color: colors.white,
                                     flex: 1,
                                     textAlign: 'center'
@@ -182,26 +182,26 @@ export default function StatusGiziHasil({ navigation, route }) {
                                     }}>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
-                                            fontSize: MyDimensi / 4,
+                                            fontSize: MyDimensi / 28,
                                             flex: 0.5,
                                             textAlign: 'center'
                                         }}>{moment(item.tanggal).format('MMM YYYY')}</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
-                                            fontSize: MyDimensi / 4,
+                                            fontSize: MyDimensi / 28,
                                             flex: 0.5,
                                             textAlign: 'center'
                                         }}>{item.berat_badan}</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
-                                            fontSize: MyDimensi / 4,
+                                            fontSize: MyDimensi / 28,
                                             flex: 0.5,
                                             textAlign: 'center'
                                         }}>{item.berat_skor}</Text>
 
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
-                                            fontSize: MyDimensi / 4,
+                                            fontSize: MyDimensi / 28,
                                             flex: 1,
                                             textAlign: 'center'
                                         }}>{item.berat_status}</Text>
@@ -265,7 +265,7 @@ export default function StatusGiziHasil({ navigation, route }) {
                             <Text style={{
                                 fontFamily: fonts.secondary[800],
                                 color: colors.secondary,
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 marginBottom: 10,
                                 marginHorizontal: 10,
                             }}>Status Gizi Panjang/Tinggi Badan Menurut Umur		</Text>
@@ -278,25 +278,25 @@ export default function StatusGiziHasil({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 4,
+                                    fontSize: MyDimensi / 28,
                                     flex: 0.5,
                                     textAlign: 'center'
                                 }}>Bulan</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 4,
+                                    fontSize: MyDimensi / 28,
                                     flex: 1,
                                     textAlign: 'center'
                                 }}>Tinggi</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 4,
+                                    fontSize: MyDimensi / 28,
                                     flex: 1,
                                     textAlign: 'center'
                                 }}>Z-Score</Text>
                                 <Text style={{
                                     fontFamily: fonts.secondary[600],
-                                    fontSize: MyDimensi / 4,
+                                    fontSize: MyDimensi / 28,
                                     flex: 1,
                                     textAlign: 'center'
                                 }}>Kategori</Text>
@@ -311,26 +311,26 @@ export default function StatusGiziHasil({ navigation, route }) {
                                     }}>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
-                                            fontSize: MyDimensi / 4,
+                                            fontSize: MyDimensi / 28,
                                             flex: 0.5,
                                             textAlign: 'center'
                                         }}>{moment(item.tanggal).format('MMM YYYY')}</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
-                                            fontSize: MyDimensi / 4,
+                                            fontSize: MyDimensi / 28,
                                             flex: 0.5,
                                             textAlign: 'center'
                                         }}>{item.tinggi_badan}</Text>
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
-                                            fontSize: MyDimensi / 4,
+                                            fontSize: MyDimensi / 28,
                                             flex: 0.5,
                                             textAlign: 'center'
                                         }}>{item.tinggi_skor}</Text>
 
                                         <Text style={{
                                             fontFamily: fonts.secondary[600],
-                                            fontSize: MyDimensi / 4,
+                                            fontSize: MyDimensi / 28,
                                             flex: 1,
                                             textAlign: 'center'
                                         }}>{item.tinggi_status}</Text>
@@ -394,7 +394,7 @@ export default function StatusGiziHasil({ navigation, route }) {
                         <Text style={{
                             fontFamily: fonts.secondary[800],
                             color: colors.tertiary,
-                            fontSize: MyDimensi / 4,
+                            fontSize: MyDimensi / 28,
                             marginBottom: 10,
                             marginHorizontal: 10,
                         }}>Status Gizi Berat Badan Menurut Tinggi Badan</Text>
@@ -407,25 +407,25 @@ export default function StatusGiziHasil({ navigation, route }) {
                         }}>
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 flex: 0.5,
                                 textAlign: 'center'
                             }}>Bulan</Text>
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 flex: 1,
                                 textAlign: 'center'
                             }}>Tinggi</Text>
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 flex: 1,
                                 textAlign: 'center'
                             }}>Z-Score</Text>
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 flex: 1,
                                 textAlign: 'center'
                             }}>Kategori</Text>
@@ -440,26 +440,26 @@ export default function StatusGiziHasil({ navigation, route }) {
                                 }}>
                                     <Text style={{
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 4,
+                                        fontSize: MyDimensi / 28,
                                         flex: 0.5,
                                         textAlign: 'center'
                                     }}>{moment(item.tanggal).format('MMM YYYY')}</Text>
                                     <Text style={{
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 4,
+                                        fontSize: MyDimensi / 28,
                                         flex: 0.5,
                                         textAlign: 'center'
                                     }}>{item.tinggi_badan}</Text>
                                     <Text style={{
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 4,
+                                        fontSize: MyDimensi / 28,
                                         flex: 0.5,
                                         textAlign: 'center'
                                     }}>{item.bbtt_skor}</Text>
 
                                     <Text style={{
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 4,
+                                        fontSize: MyDimensi / 28,
                                         flex: 1,
                                         textAlign: 'center'
                                     }}>{item.bbtt_status}</Text>
@@ -522,7 +522,7 @@ export default function StatusGiziHasil({ navigation, route }) {
                         <Text style={{
                             fontFamily: fonts.secondary[800],
                             color: colors.tertiary,
-                            fontSize: MyDimensi / 4,
+                            fontSize: MyDimensi / 28,
                             marginBottom: 10,
                             marginHorizontal: 10,
                         }}>Status Gizi Indeks Massa Tubuh menurut Umur</Text>
@@ -535,25 +535,25 @@ export default function StatusGiziHasil({ navigation, route }) {
                         }}>
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 flex: 0.5,
                                 textAlign: 'center'
                             }}>Bulan</Text>
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 flex: 1,
                                 textAlign: 'center'
                             }}>Tinggi</Text>
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 flex: 1,
                                 textAlign: 'center'
                             }}>Z-Score</Text>
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
-                                fontSize: MyDimensi / 4,
+                                fontSize: MyDimensi / 28,
                                 flex: 1,
                                 textAlign: 'center'
                             }}>Kategori</Text>
@@ -568,26 +568,26 @@ export default function StatusGiziHasil({ navigation, route }) {
                                 }}>
                                     <Text style={{
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 4,
+                                        fontSize: MyDimensi / 28,
                                         flex: 0.5,
                                         textAlign: 'center'
                                     }}>{moment(item.tanggal).format('MMM YYYY')}</Text>
                                     <Text style={{
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 4,
+                                        fontSize: MyDimensi / 28,
                                         flex: 0.5,
                                         textAlign: 'center'
                                     }}>{item.tinggi_badan}</Text>
                                     <Text style={{
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 4,
+                                        fontSize: MyDimensi / 28,
                                         flex: 0.5,
                                         textAlign: 'center'
                                     }}>{item.imt_skor}</Text>
 
                                     <Text style={{
                                         fontFamily: fonts.secondary[600],
-                                        fontSize: MyDimensi / 4,
+                                        fontSize: MyDimensi / 28,
                                         flex: 1,
                                         textAlign: 'center'
                                     }}>{item.imt_status}</Text>

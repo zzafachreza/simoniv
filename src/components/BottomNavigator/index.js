@@ -121,7 +121,7 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
                 color: isFocused ? colors.primary : '#919095',
                 paddingTop: 5,
                 paddingBottom: 0,
-                fontSize: MyDimensi / 7,
+                fontSize: MyDimensi / 28,
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
@@ -145,13 +145,13 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
                 <Icon
                   name={isFocused ? iconName.replace('-outline', '') : iconName}
                   type="ionicon"
-                  size={MyDimensi / 3}
+                  size={MyDimensi / 24}
                   color={isFocused ? colors.primary : colors.primary}
                 />
 
                 <Text
                   style={{
-                    fontSize: 10,
+                    fontSize: MyDimensi / 30,
                     color: isFocused ? colors.primary : colors.primary,
                   }}>
                   {Newlabel}
@@ -161,7 +161,7 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
           </TouchableOpacity>
         );
       })}
-    </View>
+    </View >
   );
 }
 
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   tab: iconName => ({
     // paddingTop: 5,
     // paddingBottom: 5,
-    // fontSize: MyDimensi / 7,
+    // fontSize: MyDimensi / 28,
     // justifyContent: 'center',
     // alignItems: 'center',
     // textAlign: 'center',
