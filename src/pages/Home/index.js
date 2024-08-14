@@ -14,6 +14,7 @@ import 'moment/locale/id';
 import MyCarouser from '../../components/MyCarouser';
 import { Rating } from 'react-native-ratings';
 import { MyGap } from '../../components';
+import FastImage from 'react-native-fast-image';
 
 export default function Home({ navigation, route }) {
 
@@ -247,7 +248,7 @@ export default function Home({ navigation, route }) {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-                <Image source={{
+                <FastImage source={{
                   uri: item.image
                 }} style={{
                   marginTop: 10,

@@ -8,6 +8,7 @@ import { apiURL, webURL } from '../../utils/localStorage'
 import { showMessage } from 'react-native-flash-message'
 import RenderHtml from 'react-native-render-html';
 import moment from 'moment'
+import FastImage from 'react-native-fast-image'
 export default function ResepDetail({ navigation, route }) {
 
     const item = route.params;
@@ -41,13 +42,13 @@ export default function ResepDetail({ navigation, route }) {
                 }}>{item.judul}</Text>
             </View>
 
-            <Image source={{
+            <FastImage resizeMode={FastImage.resizeMode.stretch} source={{
                 uri: item.image
             }} style={{
                 // flex: 1,
                 width: windowWidth,
                 height: windowHeight,
-                resizeMode: 'stretch',
+
                 // height: '100%',
             }} />
         </SafeAreaView>

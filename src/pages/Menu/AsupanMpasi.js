@@ -529,7 +529,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     fontFamily: fonts.secondary[800],
                     color: colors.foourty,
                     textAlign: 'center',
-                    fontSize: MyDimensi / 240
+                    fontSize: MyDimensi / 24
                 }}>Umur Anak : {BULAN} Bulan</Text>
 
 
@@ -549,7 +549,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         color: colors.secondary,
-                        fontSize: MyDimensi / 240,
+                        fontSize: MyDimensi / 24,
                         marginBottom: 20
                     }}>Frekuensi Pemberian Makanan</Text>
 
@@ -1028,7 +1028,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                 <Text style={{
                                     fontFamily: fonts.secondary[800],
                                     color: colors.secondary,
-                                    fontSize: MyDimensi / 240,
+                                    fontSize: MyDimensi / 24,
                                     marginBottom: 20
                                 }}>Makanan Utama {item + 1}x</Text>
 
@@ -1131,7 +1131,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.secondary[400],
-                            fontSize: MyDimensi / 5,
+                            fontSize: MyDimensi / 24,
                             color: colors.primary,
                         }}>* inputan khusus untuk memilih jenis makanan komersial</Text>
                         <MyInput label="Merek MPASI Instan" onChangeText={x => {
@@ -1165,7 +1165,7 @@ export default function AsupanMpasi({ navigation, route }) {
                                 <Text style={{
                                     fontFamily: fonts.secondary[800],
                                     color: colors.secondary,
-                                    fontSize: MyDimensi / 240,
+                                    fontSize: MyDimensi / 24,
                                     marginBottom: 20
                                 }}>Snack {item + 1}x</Text>
 
@@ -1189,7 +1189,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         color: colors.secondary,
-                        fontSize: MyDimensi / 240,
+                        fontSize: MyDimensi / 24,
                         marginBottom: 20
                     }}>Informasi Tambahan</Text>
 
@@ -1267,7 +1267,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         color: colors.secondary,
-                        fontSize: MyDimensi / 240,
+                        fontSize: MyDimensi / 24,
                         marginBottom: 20
                     }}>Cara Pemberian</Text>
 
@@ -1345,7 +1345,7 @@ export default function AsupanMpasi({ navigation, route }) {
                     <Text style={{
                         fontFamily: fonts.secondary[800],
                         color: colors.secondary,
-                        fontSize: MyDimensi / 240,
+                        fontSize: MyDimensi / 24,
                         marginBottom: 20
                     }}>Kebersihan/Higienitas</Text>
 

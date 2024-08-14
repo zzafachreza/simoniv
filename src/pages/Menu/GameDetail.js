@@ -111,7 +111,7 @@ export default function GameDetail({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.secondary[600],
-                            fontSize: MyDimensi / 28
+                            fontSize: MyDimensi / 24
                         }}>{data[nomor].soal}</Text>
 
                         {jawab == '' &&

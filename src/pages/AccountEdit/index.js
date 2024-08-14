@@ -44,7 +44,7 @@ export default function AccountEdit({ navigation, route }) {
                 },
                     callback => {
                         storeData('user', res.data.data);
-                        navigation.replace('Home');
+                        navigation.replace('MainApp');
                     });
 
 
@@ -115,7 +115,7 @@ export default function AccountEdit({ navigation, route }) {
 
 
 
-                <MyInput label="Nama Lengkap Ibu" iconname="person-outline" value={kirim.nama_lengkap} onChangeText={x => setKirim({ ...kirim, nama_lengkap: x })} />
+                <MyInput label="Nama Lengkap" iconname="person-outline" value={kirim.nama_lengkap} onChangeText={x => setKirim({ ...kirim, nama_lengkap: x })} />
                 <MyGap jarak={5} />
                 <MyInput label="Telepon / Whatsapp" iconname="logo-whatsapp" keyboardType="phone-pad" value={kirim.telepon} onChangeText={x => setKirim({ ...kirim, telepon: x })} />
 
@@ -123,27 +123,31 @@ export default function AccountEdit({ navigation, route }) {
                 <MyGap jarak={5} />
                 <MyInput label="Alamat" placeholder="masukan alamat" multiline iconname="home-outline" value={kirim.alamat} onChangeText={x => setKirim({ ...kirim, alamat: x })} />
                 <MyGap jarak={5} />
-                <MyInput label="Nama Anak" placeholder="masukan nama anak" multiline iconname="home-outline" value={kirim.nama_anak} onChangeText={x => setKirim({ ...kirim, nama_anak: x })} />
-                <MyGap jarak={5} />
-                <MyCalendar value={kirim.tanggal_lahir} onDateChange={x => {
-                    setKirim({
-                        ...kirim,
-                        tanggal_lahir: x
-                    })
-                }} valueShow={moment(kirim.tanggal_lahir).format('DD MMMM YYYY')} label="Tanggal Lahir" iconname="calendar-outline" />
-                <MyGap jarak={5} />
 
-                <MyPicker iconname="male-female-outline" label="Jenis Kelamin" value={kirim.jenis_kelamin} onValueChange={x => {
-                    setKirim({
-                        ...kirim,
-                        jenis_kelamin: x
-                    })
-                }} data={[
-                    { label: 'Laki-laki', value: 'Laki-laki' },
-                    { value: 'Perempuan', label: 'Perempuan' },
+                {kirim.level == 'IBU' &&
+                    <>
+                        <MyInput label="Nama Anak" placeholder="masukan nama anak" multiline iconname="home-outline" value={kirim.nama_anak} onChangeText={x => setKirim({ ...kirim, nama_anak: x })} />
+                        <MyGap jarak={5} />
+                        <MyCalendar value={kirim.tanggal_lahir} onDateChange={x => {
+                            setKirim({
+                                ...kirim,
+                                tanggal_lahir: x
+                            })
+                        }} valueShow={moment(kirim.tanggal_lahir).format('DD MMMM YYYY')} label="Tanggal Lahir" iconname="calendar-outline" />
+                        <MyGap jarak={5} />
 
-                ]} />
+                        <MyPicker iconname="male-female-outline" label="Jenis Kelamin" value={kirim.jenis_kelamin} onValueChange={x => {
+                            setKirim({
+                                ...kirim,
+                                jenis_kelamin: x
+                            })
+                        }} data={[
+                            { label: 'Laki-laki', value: 'Laki-laki' },
+                            { value: 'Perempuan', label: 'Perempuan' },
 
+                        ]} />
+                    </>
+                }
                 <MyGap jarak={5} />
 
                 <MyInput label="Password" iconname="lock-closed-outline" secureTextEntry={true} onChangeText={x => setKirim({ ...kirim, newpassword: x })} placeholder="Kosongkan jika tidak diubah" />

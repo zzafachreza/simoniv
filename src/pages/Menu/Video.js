@@ -7,6 +7,7 @@ import axios from 'axios';
 import { apiURL } from '../../utils/localStorage';
 import moment from 'moment';
 import { MyHeader } from '../../components';
+import FastImage from 'react-native-fast-image';
 export default function ({ navigation, route }) {
     const item = route.params;
     const [data, setData] = useState({});
@@ -40,7 +41,7 @@ export default function ({ navigation, route }) {
                     borderRadius: 0,
                     overflow: 'hidden'
                 }}>
-                    <Image
+                    <FastImage
                         source={{ uri: item.image }}
                         style={{
                             // resizeMode: 'contain',

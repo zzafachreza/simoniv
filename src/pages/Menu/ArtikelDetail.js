@@ -8,6 +8,7 @@ import { apiURL, webURL } from '../../utils/localStorage'
 import { showMessage } from 'react-native-flash-message'
 import RenderHtml from 'react-native-render-html';
 import moment from 'moment'
+import FastImage from 'react-native-fast-image'
 export default function ArtikelDetail({ navigation, route }) {
 
     const item = route.params;
@@ -54,13 +55,13 @@ export default function ArtikelDetail({ navigation, route }) {
                 }}>
 
 
-                    <Image source={{
+                    <FastImage resizeMode={FastImage.resizeMode.stretch} source={{
                         uri: item.keterangan
                     }} style={{
 
                         width: '100%',
                         height: windowHeight,
-                        resizeMode: 'stretch'
+                        // resizeMode: 'stretch'
                     }} />
                 </View>
 

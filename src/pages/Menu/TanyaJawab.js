@@ -7,6 +7,7 @@ import axios from 'axios';
 import { apiURL } from '../../utils/localStorage';
 import moment from 'moment';
 import { MyHeader } from '../../components';
+import FastImage from 'react-native-fast-image';
 export default function ({ navigation, route }) {
     const item = route.params;
     const [data, setData] = useState({});
@@ -42,7 +43,7 @@ export default function ({ navigation, route }) {
                     borderRadius: 5,
                     backgroundColor: colors.primary,
                 }}>
-                    <Image
+                    <FastImage
                         source={{ uri: item.image }}
                         style={{
                             // resizeMode: 'contain',
@@ -59,19 +60,19 @@ export default function ({ navigation, route }) {
                         <Text style={{
                             fontFamily: fonts.secondary[400],
                             color: colors.white,
-                            fontSize: MyDimensi / 28,
+                            fontSize: MyDimensi / 22,
                             marginBottom: 10,
                         }}>{item.keahlian}</Text>
                         <Text style={{
                             fontFamily: fonts.secondary[800],
                             color: colors.white,
-                            fontSize: MyDimensi / 28,
+                            fontSize: MyDimensi / 24,
                             marginBottom: 10,
                         }}>{item.nama_lengkap}</Text>
                         <Text style={{
                             fontFamily: fonts.secondary[400],
                             color: colors.white,
-                            fontSize: MyDimensi / 240
+                            fontSize: MyDimensi / 26
                         }}>{item.telepon}</Text>
 
                     </View>
@@ -81,7 +82,7 @@ export default function ({ navigation, route }) {
                         alignItems: 'center'
                     }}>
 
-                        <Icon type='ionicon' name='logo-whatsapp' size={MyDimensi / 24} color={colors.white} />
+                        <Icon type='ionicon' name='logo-whatsapp' size={MyDimensi / 20} color={colors.white} />
                     </View>
                 </View>
             </TouchableWithoutFeedback >
